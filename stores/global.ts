@@ -1,6 +1,6 @@
 export const useGlobalStore = defineStore('global', {
   state: () => ({
-    isDark: 0
+    isDark: false
   }),
   actions: {
     toggleIsDark() {
