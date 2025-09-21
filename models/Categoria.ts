@@ -1,0 +1,1 @@
+export type Categoria = 'spostamento' | 'cibo' | 'museo' | 'altro';
