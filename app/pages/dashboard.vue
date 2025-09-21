@@ -1,6 +1,6 @@
 <template>
   <div class="container mx-auto p-4">
-    <div class="flex justify-between items-center mb-6">
+    <div class="flex justify-between items-center mb-6 bg-red-500">
       <h1 class="text-2xl">I tuoi itinerari</h1>
       <button @click="logout" class="bg-red-500 text-white px-4 py-2 rounded">
         Logout
@@ -24,14 +24,16 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
+import { Itinerario } from '~/models/Itinerario'
+
 definePageMeta({
   middleware: 'auth'
 })
 
 const client = useSupabaseClient()
 const router = useRouter()
-const itinerari = ref([])
+const itinerari = ref<Itinerario[]>([])
 
 async function logout() {
   await client.auth.signOut()

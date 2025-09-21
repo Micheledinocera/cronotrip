@@ -15,11 +15,13 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
+import { Itinerario } from '~/models/Itinerario'
+
 const route = useRoute()
 const client = useSupabaseClient()
-const itinerario = ref(null)
-const error = ref(null)
+const itinerario = ref<Itinerario | null>(null)
+const error = ref<any>(null)
 
 onMounted(async () => {
   const { data, error: err } = await client
