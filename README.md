@@ -1,3 +1,7 @@
+## Project Deploy
+
+The project is deployed with Github Pages at https://micheledinocera.github.io/cronotrip/
+
 # Nuxt Minimal Starter
 
 Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
