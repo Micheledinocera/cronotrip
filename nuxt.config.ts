@@ -2,6 +2,7 @@
 import tailwindcss from '@tailwindcss/vite';
 import { fileURLToPath } from 'node:url'
 const path = require('path');
+let development = process.env.NODE_ENV !== 'production'
 
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
@@ -43,6 +44,9 @@ export default defineNuxtConfig({
       { code: 'en', name: 'English', language: 'en-US', file: 'en.json' }
     ],
     defaultLocale: 'it',
-  }
+  },
+  app: {
+    baseURL: development? "/" : "/cronotrip/"
+  },
 
 })
