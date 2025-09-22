@@ -1,6 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import tailwindcss from '@tailwindcss/vite';
 import { fileURLToPath } from 'node:url'
+const path = require('path');
 
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
@@ -27,6 +28,11 @@ export default defineNuxtConfig({
   modules: ['@nuxtjs/supabase', '@nuxt/icon', '@pinia/nuxt','@nuxtjs/i18n'],
   pinia: {
     storesDirs: ['./stores/**']
+  },
+  nitro: {
+    output: {
+      publicDir: path.join(__dirname, '/docs')
+    }
   },
   supabase: {
     redirect: false
