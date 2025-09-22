@@ -1,9 +1,9 @@
 <template>
   <div class="container mx-auto p-4">
     <div v-if="itinerario">
-      <h1 class="text-2xl mb-4">{{ itinerario.titolo }}</h1>
+      <h1 class="text-2xl mb-4">{{ itinerario.name }}</h1>
       <div class="prose max-w-none">
-        {{ itinerario.descrizione }}
+        {{ itinerario.desc }}
       </div>
     </div>
     <div v-else-if="error" class="text-red-500">
@@ -16,11 +16,9 @@
 </template>
 
 <script setup lang="ts">
-import { Itinerario } from '~/models/Itinerario'
-
 const route = useRoute()
 const client = useSupabaseClient()
-const itinerario = ref<Itinerario | null>(null)
+const itinerario = ref<Itinerary | null>(null)
 const error = ref<any>(null)
 
 onMounted(async () => {

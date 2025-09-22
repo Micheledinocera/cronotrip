@@ -1,0 +1,16 @@
+[{
+    "id":1,
+    "key":"trekking"
+},{
+    "id":2,
+    "key":"food"
+},{
+    "id":3,
+    "key":"museum"
+},{
+    "id":4,
+    "key":"event"
+},{
+    "id":5,
+    "key":"any"
+}]

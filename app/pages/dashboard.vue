@@ -1,22 +1,21 @@
 <template>
   <div class="container mx-auto p-4">
-    <div class="flex justify-between items-center mb-6 bg-red-500">
-      <h1 class="text-2xl">I tuoi itinerari</h1>
-      <button @click="logout" class="bg-red-500 text-white px-4 py-2 rounded">
-        Logout
-      </button>
+    <div class="flex justify-between items-center mb-6">
+      
     </div>
     
     <NuxtLink to="/itinerario/nuovo" class="bg-green-500 text-white px-4 py-2 rounded inline-block mb-4">
       Nuovo Itinerario
     </NuxtLink>
 
-    <div v-if="itinerari.length" class="grid gap-4">
-      <div v-for="itinerario in itinerari" :key="itinerario.id" class="border p-4 rounded">
-        <h3 class="text-xl">{{ itinerario.titolo }}</h3>
+    <div v-if="itineraries?.length" class="grid grid-cols-1 gap-4">
+      <div v-for="itinerary in itineraries" :key="'itinerary_'+itinerary.id" class="border p-4 rounded">
+        <div class="text-xl">{{ itinerary.name }}</div>
+        <img :src="itinerary.photo" :alt="itinerary.name">
+        <div class="text-lg">{{ itinerary.short_desc }}</div>
         <div class="mt-2">
-          <NuxtLink :to="'/itinerario/' + itinerario.id" class="text-blue-500">Visualizza</NuxtLink>
-          <NuxtLink :to="'/itinerario/modifica/' + itinerario.id" class="text-blue-500 ml-4">Modifica</NuxtLink>
+          <NuxtLink :to="'/itinerario/' + itinerary.id" class="text-blue-500">Visualizza</NuxtLink>
+          <NuxtLink :to="'/itinerario/modifica/' + itinerary.id" class="text-blue-500 ml-4">Modifica</NuxtLink>
         </div>
       </div>
     </div>
@@ -25,30 +24,14 @@
 </template>
 
 <script setup lang="ts">
-import { Itinerario } from '~/models/Itinerario'
-
 definePageMeta({
   middleware: 'auth'
 })
 
-const client = useSupabaseClient()
-const router = useRouter()
-const itinerari = ref<Itinerario[]>([])
+let itineraries = ref<Itinerary[] | undefined>([])
 
-async function logout() {
-  await client.auth.signOut()
-  router.push('/login')
-}
+const {data:fetchedItineraries} = await useItineraries()
+itineraries=fetchedItineraries || [];
 
-// Carica gli itinerari dell'utente
-onMounted(async () => {
-  const { data, error } = await client
-    .from('itinerari')
-    .select('*')
-    .order('created_at', { ascending: false })
-  
-  if (!error) {
-    itinerari.value = data
-  }
-})
+
 </script>

@@ -17,7 +17,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 const client = useSupabaseClient()
 const user = useSupabaseUser()
 const router = useRouter()
@@ -33,14 +33,19 @@ async function handleLogin() {
     })
     if (error) throw error
     router.push('/dashboard')
-  } catch (error) {
-    alert(error.message)
+  } catch (error : unknown) {
+    if (error instanceof Error) {
+      console.error(error.message)
+    } else {
+      console.error('Errore sconosciuto', error)
+    }
   }
 }
 
 // Redirect if already logged in
 watchEffect(() => {
   if (user.value) {
+    console.log(user.value)
     router.push('/dashboard')
   }
 })

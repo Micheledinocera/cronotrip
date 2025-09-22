@@ -1,9 +1,29 @@
 <template>
-    <div class="absolute top-0 left-0 !bg-gray-200/50 w-full">
+    <div class="absolute top-0 left-0 !bg-gray-200/50 w-full h-[var(--header-height)]">
         <button @click="global.toggleIsDark" class="px-4 py-2 rounded"> <Icon :name="global.isDark?'i-ix-light-dark':'i-circum-dark'"/> </button>
+        <!-- <button @click="global.fetchCategories" class="px-4 py-2 rounded"> CATEGORIE </button> -->
+        <select @input="setLocale(($event.target as HTMLSelectElement).value as LocaleCode)">
+            <option v-for="locale in locales" :key="locale.code" :value="locale.code">{{ locale.name }}</option>
+        </select>
+        <!-- <button @click="logout" class="text-white px-4 py-2 rounded"> -->
+        <button v-if="user" @click="logout" class="text-white px-4 py-2 rounded">
+            Logout
+        </button>
     </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
+import type { LocaleCode } from "Types/LocaleCode";
 const global = useGlobalStore()
+const { locales, setLocale } = useI18n()
+
+const client = useSupabaseClient()
+const user = useSupabaseUser()
+const router = useRouter()
+
+async function logout() {
+  await client.auth.signOut()
+  router.push('/login')
+}
+
 </script>

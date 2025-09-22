@@ -1,4 +1,4 @@
-import { Tappa } from "./Tappa";
+import { Evento } from "./Evento";
 
 export interface Luogo {
     nome: string;
@@ -7,5 +7,5 @@ export interface Luogo {
         lat: number;
         long: number;
     };
-    tappe: Tappa[];
+    eventi: Evento[];
 }
