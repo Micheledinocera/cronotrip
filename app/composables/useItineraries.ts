@@ -4,10 +4,38 @@ export interface Itinerary {
     name: string;
     short_desc: string;
     desc: string;
-    duration: number;
+    days?:Day[]
 }
 
+export interface Day {
+    data?: string;
+    subtitle?: string;
+    places: Place[];
+}
+export interface Place {
+    name: string;
+    photo: string[];
+    coordinates: {
+        lat: number;
+        lng: number;
+    };
+    events: Event[];
+}
+export interface Event {
+    name: string;
+    categoria: Category;
+    coordinates?: {
+        lat: number;
+        lng: number;
+    };
+    prezzo?: number;
+    photo: string[];
+}
 
 export const useItineraries = async () => {
-  return await useFetch<Itinerary[]>('https://dummyjson.com/c/15e1-af2a-4492-af85')
+  return await useFetch<Itinerary[]>('https://dummyjson.com/c/52ef-2590-4475-b2ff')
+}
+
+export const useItinerary = async () => {
+  return await useFetch<Itinerary>('https://dummyjson.com/c/9887-ee20-41ed-b81f')
 }

@@ -4,33 +4,33 @@
     "photo":"https://picsum.photos/id/10/200/300",
     "short_desc":"bla bla bla",
     "desc":"bla bla bla bla blab ablablsbnas dlasdlbasbdlasbdlas blasd",
-    "duration":3
+    "days":["day 1","day 2","day 3"]
 },{
     "id":2,
     "name":"Itinerario 2",
     "photo":"https://picsum.photos/id/11/200/300",
     "short_desc":"bla bla bla",
     "desc":"bla bla bla bla blab ablablsbnas dlasdlbasbdlasbdlas blasd",
-    "duration":2
+    "days":["day 1","day 2"]
 },{
     "id":3,
     "name":"Itinerario 3",
     "photo":"https://picsum.photos/id/12/200/300",
     "short_desc":"bla bla bla",
     "desc":"bla bla bla bla blab ablablsbnas dlasdlbasbdlasbdlas blasd",
-    "duration":3
+    "days":["day 1","day 2","day 3","day 4","day 5"]
 },{
     "id":4,
     "name":"Itinerario 4",
     "photo":"https://picsum.photos/id/13/200/300",
     "short_desc":"bla bla bla",
     "desc":"bla bla bla bla blab ablablsbnas dlasdlbasbdlasbdlas blasd",
-    "duration":7
+    "days":["day 1","day 2","day 3"]
 },{
     "id":5,
     "name":"Itinerario 5",
     "photo":"https://picsum.photos/id/14/200/300",
     "short_desc":"bla bla bla",
     "desc":"bla bla bla bla blab ablablsbnas dlasdlbasbdlasbdlas blasd",
-    "duration":1
+    "days":["day 1"]
 }]

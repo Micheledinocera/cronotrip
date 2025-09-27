@@ -42,7 +42,6 @@ async function handleLogin() {
   }
 }
 
-// Redirect if already logged in
 watchEffect(() => {
   if (user.value) {
     console.log(user.value)
