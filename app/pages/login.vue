@@ -18,6 +18,7 @@
 </template>
 
 <script setup lang="ts">
+definePageMeta({auth:false})
 const client = useSupabaseClient()
 const user = useSupabaseUser()
 const router = useRouter()

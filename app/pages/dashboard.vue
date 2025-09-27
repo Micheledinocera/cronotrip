@@ -31,10 +31,6 @@
 </template>
 
 <script setup lang="ts">
-definePageMeta({
-  middleware: "auth",
-});
-
 let itineraries = ref<Itinerary[] | undefined>([]);
 
 const { data: fetchedItineraries } = await useItineraries();
