@@ -16,7 +16,7 @@
         class="border p-4 rounded"
       >
         <div class="text-xl">{{ itinerary.name }}</div>
-        <img :src="itinerary.photo" :alt="itinerary.name" />
+        <NuxtImg :src="itinerary.photo" :alt="itinerary.name" />
         <div class="text-lg">{{ itinerary.short_desc }}</div>
         <div class="mt-2">
           <NuxtLink :to="'/itinerario/' + itinerary.id" class="text-blue-500"

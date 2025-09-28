@@ -26,7 +26,7 @@ export default defineNuxtConfig({
     '~/assets/scss/themes.scss',
     '~/assets/scss/main.scss',
   ],
-  modules: ['@nuxtjs/supabase', '@nuxt/icon', '@pinia/nuxt','@nuxtjs/i18n'],
+  modules: ['@nuxtjs/supabase', '@nuxt/icon', '@pinia/nuxt','@nuxtjs/i18n','@nuxt/image','@nuxtjs/leaflet'],
   pinia: {
     storesDirs: ['./stores/**']
   },
