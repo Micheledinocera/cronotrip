@@ -37,11 +37,6 @@ export default defineNuxtConfig({
   pinia: {
     storesDirs: ['./stores/**'],
   },
-  nitro: {
-    output: {
-      dir: 'docs',
-    },
-  },
   supabase: {
     redirect: false,
   },
