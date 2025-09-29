@@ -1,0 +1,66 @@
+name: Release to GitHub Pages (tag -> version.json)
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    steps:
+      - name: Checkout whole repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Extract tag and metadata
+        id: meta
+        run: |
+          # tag pieno: refs/tags/v1.2.3
+          TAG_REF="${{ github.ref }}"
+          TAG="${TAG_REF#refs/tags/}"
+          COMMIT_SHA="${{ github.sha }}"
+          TIMESTAMP="$(date -u +"%Y-%m-%dT%H:%M:%SZ")"
+          echo "tag=${TAG}" >> $GITHUB_OUTPUT
+          echo "sha=${COMMIT_SHA}" >> $GITHUB_OUTPUT
+          echo "ts=${TIMESTAMP}" >> $GITHUB_OUTPUT
+
+      - name: Create version.json in workspace
+        run: |
+          cat > version.json <<EOF
+          {
+            "version": "${{ steps.meta.outputs.tag }}",
+            "commit": "${{ steps.meta.outputs.sha }}",
+            "built_at": "${{ steps.meta.outputs.ts }}"
+          }
+          EOF
+          cat version.json
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Ensure version.json copied into public/build input
+        run: |
+          mkdir -p public
+          cp version.json public/version.json
+
+      - name: Build
+        run: npm run build
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: ./docs
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
+        id: deploy
