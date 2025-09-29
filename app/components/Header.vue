@@ -17,7 +17,7 @@
       Logout
     </button>
     <div>
-    {{ `v${version?.version}` }}
+    {{ version?.version }}
     </div>
   </div>
 </template>
