@@ -5,5 +5,6 @@ export interface Version {
 }
 
 export const useVersion = async () => {
-  return await useFetch<Version>('/version.json');
+  const timestamp = Date.now();
+  return await useFetch<Version>(`/version.json?t=${timestamp}`);
 };
