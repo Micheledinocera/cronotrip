@@ -36,6 +36,7 @@ jobs:
         id: meta
         run: |
           # tag pieno: refs/tags/v1.2.3
+          corepack enable
           TAG_REF="${{ github.ref }}"
           TAG="${TAG_REF#refs/tags/}"
           COMMIT_SHA="${{ github.sha }}"
@@ -58,7 +59,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "23"
-          cache: "npm"
       - name: Install dependencies
         run: npm install
       - name: Static HTML export with Nuxt
