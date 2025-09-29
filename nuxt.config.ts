@@ -40,6 +40,11 @@ export default defineNuxtConfig({
   supabase: {
     redirect: false,
   },
+  nitro: {
+    prerender: {
+      failOnError: false,
+    },
+  },
   i18n: {
     locales: [
       {code: 'it', name: 'Italiano', language: 'it-IT', file: 'it.json'},
