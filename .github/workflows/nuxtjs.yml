@@ -52,7 +52,8 @@ jobs:
           SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
       - name: Create version.json in workspace
         run: |
-          cat > version.json <<EOF
+          mkdir -p public
+          cat > public/version.json <<EOF
           {
             "version": "${{ steps.meta.outputs.tag }}",
             "commit": "${{ steps.meta.outputs.sha }}",
