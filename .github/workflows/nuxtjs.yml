@@ -44,10 +44,14 @@ jobs:
           echo "tag=${TAG}" >> $GITHUB_OUTPUT
           echo "sha=${COMMIT_SHA}" >> $GITHUB_OUTPUT
           echo "ts=${TIMESTAMP}" >> $GITHUB_OUTPUT
-          cat > .env <<EOF
-          echo "${{ secrets.SUPABASE_URL }}" >> .env
-          echo "${{ secrets.SUPABASE_KEY }}" >> .env
-
+      - name: Create .env in workspace
+        run: |
+          echo "SUPABASE_URL=${SUPABASE_URL}" >> .env
+          echo "SUPABASE_KEY=${SUPABASE_KEY}" >> .env
+          cat .env
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
       - name: Create version.json in workspace
         run: |
           cat > version.json <<EOF
