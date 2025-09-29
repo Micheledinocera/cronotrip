@@ -1,5 +1,5 @@
 <template>
-  <div class="absolute top-0 left-0 !bg-gray-200/50 w-full h-[var(--header-height)]">
+  <div class="absolute top-0 left-0 !bg-gray-200/50 w-full h-[var(--header-height)] flex justify-end items-center">
     <IconButton
       @click="$router.back"
       icon-name="i-weui:back-filled"
@@ -8,16 +8,17 @@
       @click="global.toggleIsDark"
       :icon-name="global.isDark ? 'i-ix-light-dark' : 'i-circum-dark'"
     />
-    <!-- <button @click="global.fetchCategories" class="px-4 py-2 rounded"> CATEGORIE </button> -->
     <select @input="setLocale(($event.target as HTMLSelectElement).value as LocaleCode)">
       <option v-for="locale in locales" :key="locale.code" :value="locale.code">
         {{ locale.name }}
       </option>
     </select>
-    <!-- <button @click="logout" class="text-white px-4 py-2 rounded"> -->
     <button v-if="user" @click="logout" class="text-white px-4 py-2 rounded">
       Logout
     </button>
+    <div>
+    {{ `v${version?.version}` }}
+    </div>
   </div>
 </template>
 
@@ -28,6 +29,7 @@ const { locales, setLocale } = useI18n();
 
 const client = useSupabaseClient();
 const user = useSupabaseUser();
+const {data:version} = await useVersion();
 const router = useRouter();
 
 async function logout() {

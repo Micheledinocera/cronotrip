@@ -1,1 +1,0 @@
-import{T as t}from"#entry";const e=async()=>await t("https://dummyjson.com/c/52ef-2590-4475-b2ff","$5Tt1SpVxvZ"),a=async()=>await t("https://dummyjson.com/c/9887-ee20-41ed-b81f","$oO87sOWezt");export{a,e as u};
