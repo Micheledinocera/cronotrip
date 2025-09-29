@@ -44,6 +44,9 @@ jobs:
           echo "tag=${TAG}" >> $GITHUB_OUTPUT
           echo "sha=${COMMIT_SHA}" >> $GITHUB_OUTPUT
           echo "ts=${TIMESTAMP}" >> $GITHUB_OUTPUT
+          cat > .env <<EOF
+          echo "${{ secrets.SUPABASE_URL }}" >> .env
+          echo "${{ secrets.SUPABASE_KEY }}" >> .env
 
       - name: Create version.json in workspace
         run: |
