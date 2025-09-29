@@ -5,9 +5,10 @@
 name: Deploy Nuxt site to Pages
 
 on:
-  # Runs on pushes targeting the default branch
+  # Runs on pushes tag
   push:
-    branches: ["master"]
+    tags:
+      - 'v*.*.*'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -46,6 +47,28 @@ jobs:
             echo "Unable to determine package manager"
             exit 1
           fi
+      - name: Extract tag and metadata
+        id: meta
+        run: |
+          # tag pieno: refs/tags/v1.2.3
+          TAG_REF="${{ github.ref }}"
+          TAG="${TAG_REF#refs/tags/}"
+          COMMIT_SHA="${{ github.sha }}"
+          TIMESTAMP="$(date -u +"%Y-%m-%dT%H:%M:%SZ")"
+          echo "tag=${TAG}" >> $GITHUB_OUTPUT
+          echo "sha=${COMMIT_SHA}" >> $GITHUB_OUTPUT
+          echo "ts=${TIMESTAMP}" >> $GITHUB_OUTPUT
+
+      - name: Create version.json in workspace
+        run: |
+          cat > version.json <<EOF
+          {
+            "version": "${{ steps.meta.outputs.tag }}",
+            "commit": "${{ steps.meta.outputs.sha }}",
+            "built_at": "${{ steps.meta.outputs.ts }}"
+          }
+          EOF
+          cat version.json
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
