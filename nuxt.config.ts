@@ -37,13 +37,13 @@ export default defineNuxtConfig({
   pinia: {
     storesDirs: ['./stores/**'],
   },
-  nitro: {
-    output: {
-      publicDir: path.join(__dirname, '/docs'),
-    },
-  },
   supabase: {
     redirect: false,
+  },
+  nitro: {
+    prerender: {
+      failOnError: false,
+    },
   },
   i18n: {
     locales: [
