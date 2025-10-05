@@ -11,7 +11,7 @@
           class="flex justify-between items-center absolute z-1 bg-[var(--bg-color)] rounded-md m-4 p-4"
         >
           {{ title }}
-          <Icon
+          <UIcon
             class="transition-[transform] delay-0 duration-500 text-2xl"
             :class="[{ 'rotate-180': isOpened }]"
             name="i-iconoir:nav-arrow-down"

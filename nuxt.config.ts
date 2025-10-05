@@ -21,14 +21,17 @@ export default defineNuxtConfig({
     Models: fileURLToPath(new URL('./models', import.meta.url)),
   },
   css: [
-    '~/assets/css/tailwind-import.css',
+    '~/assets/css/import.css',
     '~/assets/scss/variables.scss',
     '~/assets/scss/themes.scss',
     '~/assets/scss/main.scss',
   ],
+  ui: {
+    colorMode: false
+  },
   modules: [
     '@nuxtjs/supabase',
-    '@nuxt/icon',
+    '@nuxt/ui',
     '@pinia/nuxt',
     '@nuxtjs/i18n',
     '@nuxt/image',

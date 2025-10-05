@@ -12,7 +12,7 @@
     />
     <LCircleMarker
       :lat-lng="[placeCoordinates.lat, placeCoordinates.lng]"
-      :radius="6"
+      :radius="2"
       :color="'red'"
     />
   </LMap>

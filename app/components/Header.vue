@@ -8,11 +8,11 @@
       @click="global.toggleIsDark"
       :icon-name="global.isDark ? 'i-ix-light-dark' : 'i-circum-dark'"
     />
-    <select @input="setLocale(($event.target as HTMLSelectElement).value as LocaleCode)">
-      <option v-for="locale in locales" :key="locale.code" :value="locale.code">
-        {{ locale.name }}
-      </option>
-    </select>
+    <ULocaleSelect
+      v-model="locale"
+      :locales="locales as Locale<any>[]"
+      @update:model-value="setLocale($event as LocaleCode)"
+    />
     <button v-if="user" @click="logout" class="text-white px-4 py-2 rounded">
       Logout
     </button>
@@ -23,9 +23,10 @@
 </template>
 
 <script setup lang="ts">
+import type { Locale } from "@nuxt/ui";
 import type { LocaleCode } from "Types/LocaleCode";
 const global = useGlobalStore();
-const { locales, setLocale } = useI18n();
+const { locale, locales, setLocale } = useI18n();
 
 const client = useSupabaseClient();
 const user = useSupabaseUser();

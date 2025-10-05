@@ -1,13 +1,23 @@
-body,#__nuxt{
-    height: 100vh;
-    width: 100vw;
+body,
+#__nuxt {
+  height: 100vh;
+  width: 100vw;
 }
 
-*{
-    color: var(--text-color);
+* {
+  color: var(--text-color);
 }
 
-button{
-    background-color: var(--primary-color);
-    cursor: pointer;
+button {
+  // background-color: var(--primary-color);
+  cursor: pointer;
+}
+
+*::-webkit-scrollbar {
+  display: none; /* Rimuove l'aspetto visivo della barra */
+  width: 0; /* Assicura che non occupi spazio */
+}
+
+* {
+  scrollbar-width: none; /* Rimuove la scrollbar su Firefox */
 }

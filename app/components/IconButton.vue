@@ -1,6 +1,6 @@
 <template>
   <button @click="emit('click')" class="px-4 py-2 rounded" :class="classList">
-    <Icon :name="iconName" />
+    <UIcon :name="iconName" />
   </button>
 </template>
 

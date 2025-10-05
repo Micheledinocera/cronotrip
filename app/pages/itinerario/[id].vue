@@ -1,22 +1,12 @@
 <template>
   <div class="container mx-auto p-4">
     <div v-if="itinerary">
-      <NuxtImg :src="itinerary.photo" :alt="itinerary.name" />
+      <NuxtImg v-if="itinerary.photos" :src="itinerary.photos[0]" :alt="itinerary.name" />
       <h1 class="text-2xl mb-4">{{ itinerary.name }}</h1>
       <div class="prose max-w-none">
         {{ itinerary.desc }}
       </div>
-      <select
-        @input="(event)=>{selectedDayIndex = (event.target as HTMLSelectElement).value as unknown as number}"
-      >
-        <option
-          v-for="(day, dayIndex) in itinerary.days"
-          :key="day.subtitle + ' - ' + dayIndex"
-          :value="dayIndex"
-        >
-          {{ day.subtitle }}
-        </option>
-      </select>
+      <USelect :items="daySelect" v-model="selectedDayIndex" value-key="id"/>
       <div>
         <div>{{ selectedDay?.subtitle }}</div>
         <accordion
@@ -29,20 +19,45 @@
         >
           <template #header>
             <NuxtImg
-              v-if="place.photo[0]"
-              :src="place.photo[0]"
+              v-if="place.photos"
+              :src="place.photos[0]"
               class="w-full h-full object-cover rounded-md absolute"
             />
-            <div
-              class="flex justify-between items-center absolute z-1 bg-[var(--bg-color)] rounded-md m-4 p-4"
-            >
-              {{ place.name }}
+            <div class="flex justify-between items-center absolute z-1 w-full p-4 h-full">
+              <div class="bg-[var(--bg-color)] rounded-md p-4">
+                {{ place.name }}
+              </div>
+              <div class="h-full aspect-video">
+                <NoControlMap :place-coordinates="place.coordinates" />
+              </div>
             </div>
           </template>
           <template #content>
-            {{ place.name }}
-            <div class="h-[100px] w-[100px]">
-              <NoControlMap :place-coordinates="place.coordinates"/>
+            <div
+              v-for="(event, eventIdx) in place.events"
+              :key="`${event.name}_${eventIdx}`"
+            >
+              <div>
+                {{ event.name }}
+                <TypeIcon :event-type="event.category" />
+              </div>
+              <div>
+                <UCarousel
+                  v-slot="{ item }"
+                  loop
+                  dots
+                  :items="event.photos"
+                  class="w-full mx-auto"
+                  :ui="{ item: 'basis-1/3' }"
+                >
+                  <NuxtImg
+                    :src="item"
+                    width="320"
+                    height="320"
+                    class="rounded-lg h-[320px]"
+                  />
+                </UCarousel>
+              </div>
             </div>
           </template>
         </accordion>
@@ -53,7 +68,6 @@
 </template>
 
 <script setup lang="ts">
-
 definePageMeta({ auth: false });
 
 let selectedDayIndex = ref<number>(0);
@@ -62,6 +76,12 @@ let itinerary = ref<Itinerary | undefined>(undefined);
 const { data: fetchedItinerary } = await useItinerary();
 itinerary = fetchedItinerary;
 
+const daySelect=computed(()=>
+  itinerary.value?.days?.map((day,dayIndex)=>({
+    label:day.subtitle || '',
+    id:dayIndex
+  }))
+)
 const selectedDay = computed(() => {
   return itinerary.value?.days?.[selectedDayIndex.value];
 });

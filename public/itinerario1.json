@@ -1,7 +1,7 @@
 {
     "id":1,
     "name":"Muscardoni e dintorni",
-    "photo":"https://picsum.photos/id/10/200/300",
+    "photos":["https://picsum.photos/id/10/200/300"],
     "short_desc":"bla bla bla",
     "desc":"bla bla bla bla blab ablablsbnas dlasdlbasbdlasbdlas blasd",
     "duration":3,
@@ -9,7 +9,7 @@
         "subtitle":"giorno 1",
         "places":[{
             "name":"Castellammare",
-            "photo":["https://picsum.photos/id/43/900/100"],
+            "photos":["https://picsum.photos/id/43/400/400"],
             "coordinates":{
                 "lat":40.7067004,
                 "lng":14.4880682
@@ -17,45 +17,57 @@
             "events":[{
                 "name": "Bettola",
                 "category": "food",
+                "link":{
+                    "label":"Instagram",
+                    "url":"https://www.instagram.com/labettoladelpescatore/"
+                },
                 "coordinates": {
                     "lat": 40.6967381,
                     "lng": 14.4816071
                 },
                 "prezzo": 100,
-                "photo": ["https://picsum.photos/id/42/900/100"]
+                "photos": ["https://picsum.photos/id/42/400/400","https://picsum.photos/id/32/400/400","https://picsum.photos/id/33/400/400","https://picsum.photos/id/23/400/400","https://picsum.photos/id/13/400/400"]
             },{
                 "name": "Lidl",
-                "category": "food",
+                "category": "capocchia",
+                "link":{
+                    "label":"Sito",
+                    "url":"https://www.lidl.it/"
+                },
                 "coordinates": {
                     "lat": 40.7053811,
                     "lng": 14.4733891
                 },
                 "prezzo": 150,
-                "photo": ["https://picsum.photos/id/48/900/100"]
+                "photos": ["https://picsum.photos/id/48/400/400"]
             }]
         },{
             "name":"Gragnano",
-            "photo":["https://picsum.photos/id/44/900/100"],
+            "photos":["https://picsum.photos/id/44/900/100"],
             "coordinates":{
                 "lat":40.6893758,
                 "lng":14.4976615
             },
             "events":[{
                 "name": "Pascarlì",
-                "category": "food",
+                "link":{
+                    "label":"TripAdvisor",
+                    "url":"https://www.tripadvisor.it/Restaurant_Review-g1149890-d12927966-Reviews-Pascarli_Trattoria_e_Pizzeri-Gragnano_Province_of_Naples_Campania.html"
+                },
+                "category": "trekking",
                 "coordinates": {
                     "lat": 40.7105832,
                     "lng": 14.5148263
                 },
                 "prezzo": 100,
-                "photo": ["https://picsum.photos/id/49/900/100"]
+                "photos": ["https://picsum.photos/id/49/400/400","https://picsum.photos/id/62/400/400","https://picsum.photos/id/63/400/400"]
             }]
         }]
     },{
         "subtitle":"giorno 2",
         "places":[{
             "name":"Gragnano",
-            "photo":["https://picsum.photos/id/52/900/100"],
+            "photos":["https://picsum.photos/id/52/900/100"],
             "coordinates":{
                 "lat":40.6893758,
                 "lng":14.4976615
@@ -68,33 +80,33 @@
                     "lng": 14.5148263
                 },
                 "prezzo": 100,
-                "photo": ["https://picsum.photos/id/58/900/100"]
+                "photos": ["https://picsum.photos/id/58/400/400","https://picsum.photos/id/60/400/400"]
             }]
         },{
             "name":"Castellammare",
-            "photo":["https://picsum.photos/id/57/900/100"],
+            "photos":["https://picsum.photos/id/57/900/100"],
             "coordinates":{
                 "lat":40.7067004,
                 "lng":14.4880682
             },
             "events":[{
                 "name": "Bettola",
-                "category": "food",
+                "category": "museum",
                 "coordinates": {
                     "lat": 40.6967381,
                     "lng": 14.4816071
                 },
                 "prezzo": 100,
-                "photo": ["https://picsum.photos/id/56/900/100"]
+                "photos": ["https://picsum.photos/id/56/400/400","https://picsum.photos/id/58/400/400"]
             },{
                 "name": "Lidl",
-                "category": "food",
+                "category": "concert",
                 "coordinates": {
                     "lat": 40.7053811,
                     "lng": 14.4733891
                 },
                 "prezzo": 150,
-                "photo": ["https://picsum.photos/id/54/900/100"]
+                "photos": ["https://picsum.photos/id/54/400/400","https://picsum.photos/id/55/400/400"]
             }]
         }]
     }]
