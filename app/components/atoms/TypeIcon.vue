@@ -12,8 +12,8 @@ const props = defineProps<{
 const ICON_FROM_TYPE = {
     'trekking': 'i-iconoir:trekking',
     'food': 'i-fluent:food-20-filled',
-    'museum': 'i-fa7-solid:museum',
-    'concert': 'i-streamline-ultimate:concert-microphone',
+    'museum': 'i-icon-park-solid:museum-one',
+    'concert': 'i-streamline-ultimate:concert-dj-bold',
     'any': 'i-material-symbols:search-activity',
 } as const;
 

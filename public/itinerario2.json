@@ -1,0 +1,156 @@
+{
+  "id": 2,
+  "name": "Sentieri del Gragnano e Sapore di Mare",
+  "photos": ["https://picsum.photos/id/110/200/300"],
+  "short_desc": "Un itinerario tra natura, storia e gastronomia campana.",
+  "desc": "Scopri i sentieri panoramici di Gragnano e assapora la cucina marinara di Castellammare di Stabia, un connubio perfetto tra montagna e mare.",
+  "duration": 2,
+  "days": [
+    {
+      "subtitle": "Giorno 1: Trekking e Tradizione",
+      "places": [
+        {
+          "name": "Gragnano",
+          "photos": ["https://picsum.photos/id/144/900/100"],
+          "coordinates": {
+            "lat": 40.6893758,
+            "lng": 14.4976615
+          },
+          "events": [
+            {
+              "name": "Sentiero del 'Pasto'",
+              "desc": "Escursione lungo l'antica Valle dei Mulini, famosa per i pastifici storici.",
+              "link": {
+                "label": "Mappa Sentiero",
+                "url": "https://www.esempio.it/sentiero-mulini"
+              },
+              "category": "trekking",
+              "coordinates": {
+                "lat": 40.697,
+                "lng": 14.51
+              },
+              "price": 0,
+              "photos": [
+                "https://upload.wikimedia.org/wikipedia/commons/7/7e/Stazione_di_Castellammare_di_Stabia_%28Circumvesuviana%29.jpg",
+                "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1b/94/ec/ad/photo4jpg.jpg?w=900&h=500&s=1"
+              ],
+              "moments": [
+                {
+                  "name": "Inizio Sentiero",
+                  "desc": "Punto di partenza vicino al centro storico.",
+                  "photos":["https://upload.wikimedia.org/wikipedia/commons/7/7e/Stazione_di_Castellammare_di_Stabia_%28Circumvesuviana%29.jpg"],
+                  "coordinates": {
+                    "lat": 40.6954672,
+                    "lng": 14.4824615
+                  }
+                },
+                {
+                  "name": "Sosta Panoramica",
+                  "desc": "Vista sulla Penisola Sorrentina.",
+                  "photos":["https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1b/94/ec/ad/photo4jpg.jpg?w=900&h=500&s=1"],
+                  "coordinates": {
+                    "lat": 40.6726627,
+                    "lng": 14.4573252
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Castellammare di Stabia",
+          "photos": ["https://picsum.photos/id/143/400/400"],
+          "coordinates": {
+            "lat": 40.7067004,
+            "lng": 14.4880682
+          },
+          "events": [
+            {
+              "name": "Trattoria del Porto",
+              "desc": "Cena a base di pesce fresco e specialità locali.",
+              "category": "food",
+              "link": {
+                "label": "Sito Web",
+                "url": "https://www.trattoriadelporto.it"
+              },
+              "coordinates": {
+                "lat": 40.698,
+                "lng": 14.485
+              },
+              "price": 50,
+              "photos": [
+                "https://picsum.photos/id/142/400/400",
+                "https://picsum.photos/id/132/400/400"
+              ],
+              "moments": [
+                {
+                  "name": "Antipasto di Mare",
+                  "desc": "Selezione di crudi e insalate.",
+                  "price": 15.0,
+                  "photos": [
+                    "https://picsum.photos/id/42/400/400",
+                    "https://picsum.photos/id/32/400/400"
+                  ]
+                },
+                {
+                  "name": "Spaghetto alle Vongole",
+                  "desc": "Piatto tradizionale campano.",
+                  "price": 12.0,
+                  "photos": ["https://picsum.photos/id/22/400/400"]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "subtitle": "Giorno 2: Cultura e Musica",
+      "places": [
+        {
+          "name": "Castellammare di Stabia",
+          "photos": ["https://picsum.photos/id/157/900/100"],
+          "coordinates": {
+            "lat": 40.7067004,
+            "lng": 14.4880682
+          },
+          "events": [
+            {
+              "name": "Museo Archeologico di Stabiae",
+              "desc": "Visita ai reperti delle ville romane dell'antica Stabiae.",
+              "category": "museum",
+              "link": {
+                "label": "Biglietteria",
+                "url": "https://www.museostabiae.it"
+              },
+              "coordinates": {
+                "lat": 40.708,
+                "lng": 14.489
+              },
+              "price": 8,
+              "photos": [
+                "https://picsum.photos/id/156/400/400",
+                "https://picsum.photos/id/158/400/400"
+              ],
+              "moments": []
+            },
+            {
+              "name": "Concerto al Belvedere",
+              "desc": "Evento musicale serale con vista sul Golfo.",
+              "category": "concert",
+              "coordinates": {
+                "lat": 40.7,
+                "lng": 14.48
+              },
+              "price": 25,
+              "photos": [
+                "https://picsum.photos/id/154/400/400",
+                "https://picsum.photos/id/155/400/400"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

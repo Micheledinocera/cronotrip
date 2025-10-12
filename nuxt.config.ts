@@ -26,8 +26,16 @@ export default defineNuxtConfig({
     '~/assets/scss/themes.scss',
     '~/assets/scss/main.scss',
   ],
+  components: {
+    path: '~/components/',
+    pathPrefix: false,
+    pattern: '**/*',
+  },
   ui: {
-    colorMode: false
+    colorMode: {
+      preference: 'dark',
+      fallback: 'light',
+    },
   },
   modules: [
     '@nuxtjs/supabase',
@@ -36,6 +44,7 @@ export default defineNuxtConfig({
     '@nuxtjs/i18n',
     '@nuxt/image',
     '@nuxtjs/leaflet',
+    '@nuxtjs/color-mode',
   ],
   pinia: {
     storesDirs: ['./stores/**'],

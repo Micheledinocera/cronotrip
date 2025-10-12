@@ -10,9 +10,9 @@
         <label>Password:</label>
         <input v-model="password" type="password" class="border p-2 w-full" required />
       </div>
-      <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">
+      <UButton type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">
         Accedi
-      </button>
+      </UButton>
     </form>
   </div>
 </template>

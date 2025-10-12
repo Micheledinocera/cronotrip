@@ -8,10 +8,11 @@
     "**/*.vue"
   ],   
   "compilerOptions": {
-    "baseUrl": "./",
     "paths": {
-      "Types/*": ["types/*"],
-      "Models/*": ["models/*"],
+      "*": ["./*"],
+      "Types/*": ["./types/*"],
+      "#components": ["./.nuxt/components.d.ts"],
+      "#imports": ["./.nuxt/imports.d.ts"]
     }
   }, 
 }

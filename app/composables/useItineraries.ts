@@ -23,7 +23,8 @@ export interface Place {
 }
 export interface Activity {
     name: string;
-    link:{
+    desc?: string;
+    link?:{
         label:string,
         url:string
     };
@@ -34,16 +35,16 @@ export interface Activity {
     };
     price?: number;
     photos?: string[];
-}
-
-export interface FoodActivity extends Activity{
-    menu:[
-        {
-            name:string,
-            photos?:string[],
-            price?:number
-        }
-    ]
+    moments?:[{
+        name:string,
+        desc?:string,
+        photos?:string[],
+        price?:number,
+        coordinates?: {
+            lat: number;
+            lng: number;
+        }; //for trekking type mainly
+    }]
 }
 
 export const useItineraries = async () => {
@@ -51,5 +52,7 @@ export const useItineraries = async () => {
 }
 
 export const useItinerary = async () => {
-  return await useFetch<Itinerary>('https://dummyjson.com/c/eaec-d243-44c0-bd94')
+//   return await useFetch<Itinerary>('https://dummyjson.com/c/4539-50bf-40c5-b704')
+  return await useFetch<Itinerary>('https://dummyjson.com/c/ca4c-ff78-4de2-bb4b')
+//   return await useFetch<Itinerary>('https://dummyjson.com/c/d64f-fc15-4972-923e')
 }

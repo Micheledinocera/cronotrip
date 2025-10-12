@@ -14,9 +14,9 @@
         <label class="blockmb-2" for="durata">Durata (giorni)</label>
         <input type="number" id="durata" v-model="itinerario.durata" class="w-full px-3 py-2 border rounded" min="1" required>
       </div>
-      <button type="submit" class="px-4 py-2 rounded">
+      <UButton type="submit" class="px-4 py-2 rounded">
         Crea Itinerario
-      </button>
+      </UButton>
     </form>
   </div>
 </template>
