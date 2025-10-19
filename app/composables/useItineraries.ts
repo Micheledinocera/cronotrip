@@ -35,16 +35,19 @@ export interface Activity {
     };
     price?: number;
     photos?: string[];
-    moments?:[{
-        name:string,
-        desc?:string,
-        photos?:string[],
-        price?:number,
-        coordinates?: {
-            lat: number;
-            lng: number;
-        }; //for trekking type mainly
-    }]
+    moments?:Moment[];
+}
+
+export interface Moment{
+    name:string,
+    desc?:string,
+    photos?:string[],
+    price?:number,
+    coordinates?: {
+        lat: number;
+        lng: number;
+    };
+
 }
 
 export const useItineraries = async () => {

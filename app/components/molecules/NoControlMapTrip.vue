@@ -18,15 +18,28 @@
         layer-type="base"
         name="OpenStreetMap"
       />
-      <LCircleMarker
-        v-for="placeCoordinates in placesCoordinates"
-        :key="placeCoordinates.lat + '_' + placeCoordinates.lng"
-        :lat-lng="[placeCoordinates.lat, placeCoordinates.lng]"
-        :radius="2"
-        :color="'red'"
-      />
+      <LMarker
+        v-for="(moment, momentIndex) in moments"
+        :key="moment.coordinates!.lat + '_' + moment.coordinates!.lng"
+        :lat-lng="[moment.coordinates!.lat, moment.coordinates!.lng]"
+      >
+        <LIcon class-name="bg-red-600 rounded-4xl !h-6 !w-6 !-mt-2 !-ml-3.5 !flex h-2">
+          <div class="!text-white w-full h-auto m-auto text-center">
+            {{ momentIndex + 1 }}
+          </div></LIcon
+        >
+        <LPopup>
+          <div class="cursor-pointer" @click="popupClick(momentIndex)">
+            <span> {{ moment.name }} </span>
+            <NuxtImg
+              v-if="moment.photos && moment.photos?.length > 0"
+              :src="moment.photos[0]"
+            />
+          </div>
+        </LPopup>
+      </LMarker>
     </LMap>
-    <template #body>
+    <template #body="{ close }">
       <div class="h-full">
         <LMap
           :use-global-leaflet="false"
@@ -39,13 +52,28 @@
             layer-type="base"
             name="OpenStreetMap"
           />
-          <LCircleMarker
-            v-for="placeCoordinates in placesCoordinates"
-            :key="placeCoordinates.lat + '_' + placeCoordinates.lng"
-            :lat-lng="[placeCoordinates.lat, placeCoordinates.lng]"
-            :radius="2"
-            :color="'red'"
-          />
+          <LMarker
+            v-for="(moment, momentIndex) in moments"
+            :key="moment.coordinates!.lat + '_' + moment.coordinates!.lng"
+            :lat-lng="[moment.coordinates!.lat, moment.coordinates!.lng]"
+          >
+            <LIcon
+              class-name="bg-red-600 rounded-4xl !h-6 !w-6 !-mt-2 !-ml-3.5 !flex h-2"
+            >
+              <div class="!text-white w-full h-auto m-auto text-center">
+                {{ momentIndex + 1 }}
+              </div></LIcon
+            >
+            <LPopup>
+              <div class="cursor-pointer" @click="()=>{close();popupClick(momentIndex)}">
+                <span> {{ moment.name }} </span>
+                <NuxtImg
+                  v-if="moment.photos && moment.photos?.length > 0"
+                  :src="moment.photos[0]"
+                />
+              </div>
+            </LPopup>
+          </LMarker>
         </LMap>
       </div>
     </template>
@@ -57,12 +85,17 @@
 
 <script setup lang="ts">
 const props = defineProps({
-  placesCoordinates: {
-    type: Array as PropType<{ lat: number; lng: number }[]>,
+  moments: {
+    type: Array as PropType<Moment[]>,
+    required: true,
   },
   modalTitle: {
     type: String,
     default: "",
+  },
+  indexes: {
+    type: Object as PropType<{ eventIndex: number; placeIndex: number }>,
+    required: true,
   },
 });
 
@@ -79,17 +112,27 @@ const NO_CONTROL_MAP_OPTIONS = {
   preferCanvas: true,
 };
 
-const mapRef = ref(null);
-const zoomedMapRef = ref(null);
-const bounds = props.placesCoordinates?.map((placeCoordinates) => [
-  placeCoordinates.lat,
-  placeCoordinates.lng,
+const mapRef = ref<any>(null);
+const zoomedMapRef = ref<any>(null);
+const bounds = props.moments?.map((moment) => [
+  moment.coordinates!.lat,
+  moment.coordinates!.lng,
 ]);
 
 const applyBounds = () => {
   nextTick(() => {
-    if (mapRef.value?.leafletObject) mapRef.value.leafletObject.fitBounds(bounds);
-    if (zoomedMapRef.value?.leafletObject) zoomedMapRef.value.leafletObject.fitBounds(bounds);
+    if (mapRef.value?.leafletObject)
+      mapRef.value.leafletObject.fitBounds(bounds, { padding: [50, 50] });
+    if (zoomedMapRef.value?.leafletObject)
+      zoomedMapRef.value.leafletObject.fitBounds(bounds);
   });
+};
+
+const { scrollToMoment } = useMomentScroll();
+
+const popupClick = (momentIndex: number) => {
+  scrollToMoment(
+    `moment_${props.indexes.eventIndex}_${props.indexes.placeIndex}_${momentIndex}`
+  );
 };
 </script>

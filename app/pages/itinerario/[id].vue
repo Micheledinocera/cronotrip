@@ -6,6 +6,7 @@
       <div class="prose max-w-none">
         {{ itinerary.desc }}
       </div>
+      <button @click="scrollClick('ciao')"> capocchia </button>
       <USelect :items="daySelect" v-model="selectedDayIndex" value-key="id" />
       <div>
         <div>{{ selectedDay?.subtitle }}</div>
@@ -37,8 +38,8 @@
           </template>
           <template #content>
             <div
-              v-for="(event, eventIdx) in place.events"
-              :key="`${event.name}_${eventIdx}`"
+              v-for="(event, eventIndex) in place.events"
+              :key="`${event.name}_${eventIndex}`"
             >
               <div>
                 {{ event.name }}
@@ -51,18 +52,14 @@
                 />
               </div>
               <div v-if="event.moments && event.moments.length > 0">
-                <div class="w-full aspect-video">
+                <div class="w-full aspect-video" v-if="event.category == 'trekking'">
                   <NoControlMapTrip
                     :modal-title="event.name"
-                    v-if="event.category == 'trekking'"
-                    :places-coordinates="
-                      event.moments.map(
-                        (moment) => moment.coordinates ?? { lat: 0, lng: 0 }
-                      ) || []
-                    "
+                    :moments="event.moments"
+                    :indexes="{eventIndex:eventIndex,placeIndex:placeIndex}"
                   />
                 </div>
-                <component :is="getComponent(event.category)" :event-data="event" />
+                <component :is="getComponent(event.category)" :event-data="event" :indexes="{eventIndex:eventIndex,placeIndex:placeIndex}"/>
               </div>
             </div>
           </template>
@@ -83,6 +80,9 @@ import {
 } from "#components";
 
 definePageMeta({ auth: false });
+const scrollClick= (id:string)=>{
+  document.getElementById("moment_0_0_0")?.scrollIntoView({ behavior: 'smooth' })
+}
 
 let selectedDayIndex = ref<number>(0);
 let itinerary = ref<Itinerary | undefined>(undefined);
