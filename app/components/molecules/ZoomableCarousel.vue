@@ -3,7 +3,6 @@
     <UCarousel
       v-slot="{ item,index }"
       loop
-      dots
       :items="photos"
       class="w-full h-full mx-auto mb-10 cursor-pointer"
       :ui="{ item: 'basis-1/3' }"
@@ -20,7 +19,6 @@
         ref="zoomedCarousel"
         v-slot="{ item }"
         loop
-        dots
         :items="photos"
         class="w-full h-full mx-auto -mt-5"
       >

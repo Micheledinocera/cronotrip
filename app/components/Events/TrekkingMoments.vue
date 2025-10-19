@@ -4,8 +4,7 @@
     <div
       v-for="(moment, index) in props.eventData.moments"
       :key="index"
-      :id="`moment_${props.indexes.eventIndex}_${props.indexes.placeIndex}_${index}`"
-      :ref="(el) => momentRef(el, index)"
+      :ref="(el) => registerDayElementRef(`moment_${props.indexes.eventIndex}_${props.indexes.placeIndex}_${index}`,el as HTMLElement | null)"
       class="mb-3 p-3 bg-amber-50 rounded-lg"
     >
       <p class="text-sm italic text-gray-600">{{ moment.desc }}</p>
@@ -27,13 +26,6 @@ const props = defineProps({
   },
 });
 
-const { registerMomentRef } = useMomentScroll();
+const { registerDayElementRef } = useDayScroll();
 
-const momentRef = (el: Element | ComponentPublicInstance | null, momentIndex: number) => {
-  if (el)
-    registerMomentRef(
-      `moment_${props.indexes.eventIndex}_${props.indexes.placeIndex}_${momentIndex}`,
-      el as HTMLElement | null
-    );
-};
 </script>

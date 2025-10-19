@@ -29,7 +29,14 @@
           </div></LIcon
         >
         <LPopup>
-          <div class="cursor-pointer" @click="popupClick(momentIndex)">
+          <div
+            class="cursor-pointer"
+            @click="
+              scrollToDayElement(
+                `moment_${props.indexes.eventIndex}_${props.indexes.placeIndex}_${momentIndex}`
+              )
+            "
+          >
             <span> {{ moment.name }} </span>
             <NuxtImg
               v-if="moment.photos && moment.photos?.length > 0"
@@ -65,7 +72,17 @@
               </div></LIcon
             >
             <LPopup>
-              <div class="cursor-pointer" @click="()=>{close();popupClick(momentIndex)}">
+              <div
+                class="cursor-pointer"
+                @click="
+                  () => {
+                    close();
+                    scrollToDayElement(
+                      `moment_${props.indexes.eventIndex}_${props.indexes.placeIndex}_${momentIndex}`
+                    );
+                  }
+                "
+              >
                 <span> {{ moment.name }} </span>
                 <NuxtImg
                   v-if="moment.photos && moment.photos?.length > 0"
@@ -84,6 +101,8 @@
 </template>
 
 <script setup lang="ts">
+const { scrollToDayElement } = useDayScroll();
+
 const props = defineProps({
   moments: {
     type: Array as PropType<Moment[]>,
@@ -128,11 +147,4 @@ const applyBounds = () => {
   });
 };
 
-const { scrollToMoment } = useMomentScroll();
-
-const popupClick = (momentIndex: number) => {
-  scrollToMoment(
-    `moment_${props.indexes.eventIndex}_${props.indexes.placeIndex}_${momentIndex}`
-  );
-};
 </script>

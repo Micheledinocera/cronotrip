@@ -6,9 +6,13 @@
       <div class="prose max-w-none">
         {{ itinerary.desc }}
       </div>
-      <button @click="scrollClick('ciao')"> capocchia </button>
+      <button @click="scrollClick('ciao')">capocchia</button>
       <USelect :items="daySelect" v-model="selectedDayIndex" value-key="id" />
       <div>
+        <StepperWidget
+          v-if="selectedDay && selectedDay.places.length > 1"
+          :selected-day="selectedDay"
+        />
         <div>{{ selectedDay?.subtitle }}</div>
         <accordion
           v-for="(place, placeIndex) in selectedDay?.places"
@@ -24,7 +28,10 @@
               :src="place.photos[0]"
               class="w-full h-full object-cover rounded-md absolute"
             />
-            <div class="flex justify-between items-center absolute z-1 w-full p-4 h-full">
+            <div
+              :ref="(el) => registerDayElementRef(`place_${placeIndex}`,el as HTMLElement | null)"
+              class="flex justify-between items-center absolute z-1 w-full p-4 h-full"
+            >
               <div class="bg-[var(--ui-bg)] rounded-md p-4">
                 {{ place.name }}
               </div>
@@ -41,6 +48,12 @@
               v-for="(event, eventIndex) in place.events"
               :key="`${event.name}_${eventIndex}`"
             >
+              <USeparator
+                v-if="eventIndex > 0"
+                color="primary"
+                type="solid"
+                class="my-8 mx-auto w-[75%]"
+              />
               <div>
                 {{ event.name }}
                 <TypeIcon :event-type="event.category" />
@@ -56,10 +69,14 @@
                   <NoControlMapTrip
                     :modal-title="event.name"
                     :moments="event.moments"
-                    :indexes="{eventIndex:eventIndex,placeIndex:placeIndex}"
+                    :indexes="{ eventIndex: eventIndex, placeIndex: placeIndex }"
                   />
                 </div>
-                <component :is="getComponent(event.category)" :event-data="event" :indexes="{eventIndex:eventIndex,placeIndex:placeIndex}"/>
+                <component
+                  :is="getComponent(event.category)"
+                  :event-data="event"
+                  :indexes="{ eventIndex: eventIndex, placeIndex: placeIndex }"
+                />
               </div>
             </div>
           </template>
@@ -79,10 +96,12 @@ import {
   AnyMoments,
 } from "#components";
 
+const { registerDayElementRef } = useDayScroll();
+
 definePageMeta({ auth: false });
-const scrollClick= (id:string)=>{
-  document.getElementById("moment_0_0_0")?.scrollIntoView({ behavior: 'smooth' })
-}
+const scrollClick = (id: string) => {
+  document.getElementById("moment_0_0_0")?.scrollIntoView({ behavior: "smooth" });
+};
 
 let selectedDayIndex = ref<number>(0);
 let itinerary = ref<Itinerary | undefined>(undefined);
