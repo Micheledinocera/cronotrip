@@ -1,17 +1,20 @@
 <template>
-  <div class="container mx-auto p-4">
+  <div
+    class="container mx-auto p-4 overflow-y-auto h-full"
+    :ref="(el) => {containerRef = el as HTMLElement | null}"
+  >
     <div v-if="itinerary">
       <NuxtImg v-if="itinerary.photos" :src="itinerary.photos[0]" :alt="itinerary.name" />
       <h1 class="text-2xl mb-4">{{ itinerary.name }}</h1>
       <div class="prose max-w-none">
         {{ itinerary.desc }}
       </div>
-      <button @click="scrollClick('ciao')">capocchia</button>
       <USelect :items="daySelect" v-model="selectedDayIndex" value-key="id" />
-      <div>
+      <div :key="selectedDayIndex">
         <StepperWidget
           v-if="selectedDay && selectedDay.places.length > 1"
           :selected-day="selectedDay"
+          :active-place-index="activeRefIndex"
         />
         <div>{{ selectedDay?.subtitle }}</div>
         <accordion
@@ -29,7 +32,7 @@
               class="w-full h-full object-cover rounded-md absolute"
             />
             <div
-              :ref="(el) => registerDayElementRef(`place_${placeIndex}`,el as HTMLElement | null)"
+              :ref="(el) => placeRefReg(placeIndex,el as HTMLElement | null)"
               class="flex justify-between items-center absolute z-1 w-full p-4 h-full"
             >
               <div class="bg-[var(--ui-bg)] rounded-md p-4">
@@ -96,31 +99,47 @@ import {
   AnyMoments,
 } from "#components";
 
-const { registerDayElementRef } = useDayScroll();
-
 definePageMeta({ auth: false });
-const scrollClick = (id: string) => {
-  document.getElementById("moment_0_0_0")?.scrollIntoView({ behavior: "smooth" });
-};
 
 let selectedDayIndex = ref<number>(0);
 let itinerary = ref<Itinerary | undefined>(undefined);
 
 const { data: fetchedItinerary } = await useItinerary();
-itinerary = fetchedItinerary;
+itinerary.value = fetchedItinerary.value;
 
-const daySelect = computed(() =>
-  itinerary.value?.days?.map((day, dayIndex) => ({
-    label: day.subtitle || "",
-    id: dayIndex,
-  }))
+const { containerRef, registerDayElementRef, activeRef, placeRefs } = useDayScroll();
+
+const daySelect = computed(
+  () =>
+    itinerary.value?.days?.map((day, dayIndex) => ({
+      label: day.subtitle || "",
+      id: dayIndex,
+    })) || []
 );
+
 const selectedDay = computed(() => {
   return itinerary.value?.days?.[selectedDayIndex.value];
 });
 
+const activeRefIndex = computed(() => {
+  if (!activeRef.value) return -1;
+  return placeRefs.value.findIndex((placeRef) => placeRef === activeRef.value);
+});
+
+const placeRefReg = (index: number, el: HTMLElement | null) => {
+  registerDayElementRef(`place_${index}`, el as HTMLElement | null);
+};
+
 let openedIds = ref<string[]>(
   selectedDay.value?.places.map((place, placeIndex) => placeIndex + "") || []
+);
+
+watch(
+  selectedDay,
+  (newDay) => {
+    openedIds.value = newDay?.places.map((place, placeIndex) => placeIndex + "") || [];
+  },
+  { immediate: true }
 );
 
 const handleSelectedId = (itemId: string) => {

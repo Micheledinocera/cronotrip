@@ -11,7 +11,7 @@
           orientation="vertical"
           v-model="placeIndex"
           :linear="false"
-          @update:modelValue="
+          @update:model-value="
             (value) => {
               scrollToDayElement(`place_${value}`);
               close();
@@ -32,8 +32,17 @@ const props = defineProps({
     type: Object as PropType<Day>,
     required: true,
   },
+  activePlaceIndex: {
+    type: Number,
+    default:0
+  },
 });
-const placeIndex = ref<number>();
+
+const placeIndex = ref<number>(0);
+
+watch(() => props.activePlaceIndex, (newIndex) => {
+    if (placeIndex.value !== newIndex) placeIndex.value = newIndex;
+}, { immediate: true });
 
 const stepperItems = computed(() => {
   return props.selectedDay.places.map((place) => ({
@@ -41,4 +50,5 @@ const stepperItems = computed(() => {
     icon: "i-mdi:place-outline",
   })) as StepperItem[];
 });
+
 </script>
