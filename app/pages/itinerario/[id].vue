@@ -14,7 +14,7 @@
         <div class="prose max-w-none">
           {{ itinerary.desc }}
         </div>
-        <USelect :items="daySelect" v-model="selectedDayIndex" value-key="id" />
+        <DaySelector :days="itinerary.days" :selected-day-index="selectedDayIndex" @select="(selectedIndex:number)=>selectedDayIndex=selectedIndex"/>
         <div :key="selectedDayIndex">
           <StepperWidget
             v-if="selectedDay && selectedDay.places.length > 1"

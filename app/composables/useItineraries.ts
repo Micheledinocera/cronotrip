@@ -4,7 +4,7 @@ export interface Itinerary {
     name: string;
     short_desc: string;
     desc: string;
-    days?:Day[]
+    days:Day[]
 }
 
 export interface Day {
@@ -56,6 +56,6 @@ export const useItineraries = async () => {
 
 export const useItinerary = async () => {
 //   return await useFetch<Itinerary>('https://dummyjson.com/c/4539-50bf-40c5-b704')
-  return await useFetch<Itinerary>('https://dummyjson.com/c/ca4c-ff78-4de2-bb4b')
+  return await useFetch<Itinerary>('https://dummyjson.com/c/2e3b-e07a-4452-99a6')
 //   return await useFetch<Itinerary>('https://dummyjson.com/c/d64f-fc15-4972-923e')
 }
