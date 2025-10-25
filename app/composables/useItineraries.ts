@@ -55,7 +55,7 @@ export const useItineraries = async () => {
 }
 
 export const useItinerary = async () => {
-//   return await useFetch<Itinerary>('https://dummyjson.com/c/4539-50bf-40c5-b704')
+//   return await useFetch<Itinerary>('https://dummyjson.com/c/1588-4726-4c62-8b1c')
   return await useFetch<Itinerary>('https://dummyjson.com/c/2e3b-e07a-4452-99a6')
 //   return await useFetch<Itinerary>('https://dummyjson.com/c/d64f-fc15-4972-923e')
 }
