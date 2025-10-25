@@ -1,104 +1,74 @@
 <template>
   <div
-    class="container mx-auto p-4 overflow-y-auto h-full"
+    class="overflow-y-auto h-full"
     :ref="(el) => {containerRef = el as HTMLElement | null}"
   >
-    <div v-if="itinerary">
-      <NuxtImg v-if="itinerary.photos" :src="itinerary.photos[0]" :alt="itinerary.name" />
-      <h1 class="text-2xl mb-4">{{ itinerary.name }}</h1>
-      <div class="prose max-w-none">
-        {{ itinerary.desc }}
-      </div>
-      <USelect :items="daySelect" v-model="selectedDayIndex" value-key="id" />
-      <div :key="selectedDayIndex">
-        <StepperWidget
-          v-if="selectedDay && selectedDay.places.length > 1"
-          :selected-day="selectedDay"
-          :active-place-index="activeRefIndex"
+    <div class="container mx-auto p-4">
+      <div v-if="itinerary">
+        <NuxtImg
+          v-if="itinerary.photos"
+          :src="itinerary.photos[0]"
+          :alt="itinerary.name"
         />
-        <div>{{ selectedDay?.subtitle }}</div>
-        <accordion
-          v-for="(place, placeIndex) in selectedDay?.places"
-          :key="place.name + ' - ' + placeIndex"
-          :itemId="placeIndex + ''"
-          :title="place.name"
-          :opened-ids="openedIds"
-          @toggle="handleSelectedId"
-        >
-          <template #header>
-            <NuxtImg
-              v-if="place.photos"
-              :src="place.photos[0]"
-              class="w-full h-full object-cover rounded-md absolute"
-            />
-            <div
-              :ref="(el) => placeRefReg(placeIndex,el as HTMLElement | null)"
-              class="flex justify-between items-center absolute z-1 w-full p-4 h-full"
-            >
-              <div class="bg-[var(--ui-bg)] rounded-md p-4">
-                {{ place.name }}
-              </div>
-              <div class="h-full aspect-video" @click.stop="">
-                <NoControlMap
-                  :place-coordinates="place.coordinates"
-                  :modal-title="place.name"
-                />
-              </div>
-            </div>
-          </template>
-          <template #content>
-            <div
-              v-for="(event, eventIndex) in place.events"
-              :key="`${event.name}_${eventIndex}`"
-            >
-              <USeparator
-                v-if="eventIndex > 0"
-                color="primary"
-                type="solid"
-                class="my-8 mx-auto w-[75%]"
+        <h1 class="text-2xl mb-4">{{ itinerary.name }}</h1>
+        <div class="prose max-w-none">
+          {{ itinerary.desc }}
+        </div>
+        <USelect :items="daySelect" v-model="selectedDayIndex" value-key="id" />
+        <div :key="selectedDayIndex">
+          <StepperWidget
+            v-if="selectedDay && selectedDay.places.length > 1"
+            :selected-day="selectedDay"
+            :active-place-index="activeRefIndex"
+          />
+          <div>{{ selectedDay?.subtitle }}</div>
+          <accordion
+            v-for="(place, placeIndex) in selectedDay?.places"
+            :key="place.name + ' - ' + placeIndex"
+            :itemId="placeIndex + ''"
+            :title="place.name"
+            :opened-ids="openedIds"
+            @toggle="handleSelectedId"
+          >
+            <template #header>
+              <NuxtImg
+                v-if="place.photos"
+                :src="place.photos[0]"
+                class="w-full h-full object-cover rounded-md absolute"
               />
-              <div>
-                {{ event.name }}
-                <TypeIcon :event-type="event.category" />
-              </div>
-              <div>
-                <PhotosCarousel
-                  :photos="event.photos || []"
-                  :image-classes="'h-[240px]'"
-                />
-              </div>
-              <div v-if="event.moments && event.moments.length > 0">
-                <div class="w-full aspect-video" v-if="event.category == 'trekking'">
-                  <NoControlMapTrip
-                    :modal-title="event.name"
-                    :moments="event.moments"
-                    :indexes="{ eventIndex: eventIndex, placeIndex: placeIndex }"
+              <div
+                :ref="(el) => placeRefReg(placeIndex,el as HTMLElement | null)"
+                class="flex justify-between items-center absolute z-1 w-full p-4 h-full"
+              >
+                <div class="bg-[var(--ui-bg)] rounded-md p-4">
+                  {{ place.name }}
+                </div>
+                <div class="h-full aspect-video" @click.stop="">
+                  <NoControlMap
+                    :place-coordinates="place.coordinates"
+                    :modal-title="place.name"
                   />
                 </div>
-                <component
-                  :is="getComponent(event.category)"
-                  :event-data="event"
-                  :indexes="{ eventIndex: eventIndex, placeIndex: placeIndex }"
-                />
               </div>
-            </div>
-          </template>
-        </accordion>
+            </template>
+            <template #content>
+              <Day
+                v-for="(event, eventIndex) in place.events"
+                :event="event"
+                :event-index="eventIndex"
+                :place-index="placeIndex"
+                :key="`${event.name}_${eventIndex}`"
+              />
+            </template>
+          </accordion>
+        </div>
       </div>
+      <div v-else>Caricamento...</div>
     </div>
-    <div v-else>Caricamento...</div>
   </div>
 </template>
 
 <script setup lang="ts">
-import {
-  FoodMoments,
-  TrekkingMoments,
-  MuseumMoments,
-  ConcertMoments,
-  AnyMoments,
-} from "#components";
-
 definePageMeta({ auth: false });
 
 let selectedDayIndex = ref<number>(0);
@@ -148,23 +118,4 @@ const handleSelectedId = (itemId: string) => {
   else openedIds.value.splice(id, 1);
 };
 
-const componentMap: Record<string, any> = {
-  food: FoodMoments,
-  trekking: TrekkingMoments,
-  museum: MuseumMoments,
-  concert: ConcertMoments,
-  any: AnyMoments,
-};
-
-const getComponent = (
-  category: string
-):
-  | typeof FoodMoments
-  | typeof TrekkingMoments
-  | typeof MuseumMoments
-  | typeof ConcertMoments
-  | typeof AnyMoments => {
-  const componentType = componentMap[category.toLowerCase()] || AnyMoments;
-  return componentType;
-};
 </script>

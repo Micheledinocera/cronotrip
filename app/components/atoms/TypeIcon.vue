@@ -1,12 +1,13 @@
 <template>
     <div>
-        <UIcon :name="iconName" />
+        <UIcon :name="iconName" :class="classes" />
     </div>
 </template>
 
 <script setup lang="ts">
 const props = defineProps<{
-  eventType: string
+  eventType: string,
+  classes: string 
 }>();
 
 const ICON_FROM_TYPE = {

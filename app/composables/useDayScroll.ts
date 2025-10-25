@@ -13,7 +13,6 @@ export function useDayScroll() {
     elementRef: HTMLElement | null
   ) => {
     dayRefs.value[dayRefKey] = elementRef;
-    console.log(dayRefs)
   };
 
   
