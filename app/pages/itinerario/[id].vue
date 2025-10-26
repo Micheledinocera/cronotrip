@@ -73,19 +73,13 @@ definePageMeta({ auth: false });
 
 let selectedDayIndex = ref<number>(0);
 let itinerary = ref<Itinerary | undefined>(undefined);
+let route=useRoute();
 
-const { data: fetchedItinerary } = await useItinerary();
+// const { data: fetchedItinerary } = await useItinerary();
+const { data: fetchedItinerary } = await getItineraryById(parseInt(route.params.id as string));
 itinerary.value = fetchedItinerary.value;
 
 const { containerRef, registerDayElementRef, activeRef, placeRefs } = useDayScroll();
-
-const daySelect = computed(
-  () =>
-    itinerary.value?.days?.map((day, dayIndex) => ({
-      label: day.subtitle || "",
-      id: dayIndex,
-    })) || []
-);
 
 const selectedDay = computed(() => {
   return itinerary.value?.days?.[selectedDayIndex.value];

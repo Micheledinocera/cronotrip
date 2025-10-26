@@ -54,8 +54,13 @@ export const useItineraries = async () => {
   return await useFetch<Itinerary[]>('https://dummyjson.com/c/082e-dd1f-47de-a14e')
 }
 
-export const useItinerary = async () => {
-//   return await useFetch<Itinerary>('https://dummyjson.com/c/1588-4726-4c62-8b1c')
-  return await useFetch<Itinerary>('https://dummyjson.com/c/2e3b-e07a-4452-99a6')
-//   return await useFetch<Itinerary>('https://dummyjson.com/c/d64f-fc15-4972-923e')
+export const getItineraryById = async (id:number)=>{
+    if(id==1)
+        return await useFetch<Itinerary>('https://dummyjson.com/c/1588-4726-4c62-8b1c')
+    if(id==2)
+        return await useFetch<Itinerary>('https://dummyjson.com/c/4070-1ae3-418a-a014')
+    if(id==3)
+        return await useFetch<Itinerary>('https://dummyjson.com/c/2e3b-e07a-4452-99a6')
+    else
+        return await useFetch<Itinerary>('https://dummyjson.com/c/d64f-fc15-4972-923e')
 }

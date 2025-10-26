@@ -1,12 +1,28 @@
 <template>
   <div class="fixed left-0 z-2">
     <USlideover title="Lista Places" side="left">
-      <UButton icon="i-game-icons:path-distance" size="lg" color="primary" class="rounded-s-[0]" />
+      <UButton
+        icon="i-game-icons:path-distance"
+        size="lg"
+        color="primary"
+        class="rounded-s-[0]"
+      />
       <template #body="{ close }">
+        <div class="aspect-video w-full">
+          <NoControlMapDay
+            :day="props.selectedDay"
+            @clicked-place="
+              (value:number) => {
+                scrollToDayElement(`place_${value}`);
+                close();
+              }
+            "
+          />
+        </div>
         <UStepper
           color="primary"
           :items="stepperItems"
-          class="h-full"
+          class="h-full mt-4"
           size="xl"
           orientation="vertical"
           v-model="placeIndex"
@@ -34,15 +50,19 @@ const props = defineProps({
   },
   activePlaceIndex: {
     type: Number,
-    default:0
+    default: 0,
   },
 });
 
 const placeIndex = ref<number>(0);
 
-watch(() => props.activePlaceIndex, (newIndex) => {
+watch(
+  () => props.activePlaceIndex,
+  (newIndex) => {
     if (placeIndex.value !== newIndex) placeIndex.value = newIndex;
-}, { immediate: true });
+  },
+  { immediate: true }
+);
 
 const stepperItems = computed(() => {
   return props.selectedDay.places.map((place) => ({
@@ -50,5 +70,4 @@ const stepperItems = computed(() => {
     icon: "i-mdi:place-outline",
   })) as StepperItem[];
 });
-
 </script>

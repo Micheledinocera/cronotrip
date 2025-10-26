@@ -1,0 +1,232 @@
+{
+  "id": 2,
+  "name": "Umbria Trip",
+  "photos": ["https://picsum.photos/id/93/200/300"],
+  "short_desc": "Trip to Umbria and surrounding areas, including Marmore Falls.",
+  "desc": "A three-day trip from September 19 to September 21, 2025, exploring destinations like Carpinone, Pescasseroli, Marmore Falls, and Bassano in Teverina.",
+  "duration": 3,
+  "days": [
+    {
+      "subtitle": "",
+      "places": [
+        {
+          "name": "Carpinone",
+          "photos": [
+            "https://lezczeypkybilgpyubdn.supabase.co/storage/v1/object/sign/Photos/Carpinone/photo_2025-10-26_16-39-35.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV82MDk5NTI3NS0xODVkLTQ4NzQtYThiYS1kZWRmYTU0MzRhOGIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJQaG90b3MvQ2FycGlub25lL3Bob3RvXzIwMjUtMTAtMjZfMTYtMzktMzUuanBnIiwiaWF0IjoxNzYxNDkzOTIyLCJleHAiOjE3NjQwODU5MjJ9.nU8dxXET-uI-4QDzoz-WQMsQ4vcQywL-hRtlR-Sfx4A"
+          ],
+          "coordinates": {
+            "lat": 41.5649,
+            "lng": 14.3644
+          },
+          "events": [
+            {
+              "name": "Cascata dello Schioppo",
+              "desc": "Sentiero che scende con l’indicazione di Cascata dello Schioppo (imboccare corso Aquilonia).",
+              "category": "trekking",
+              "link": {
+                "label": "Info",
+                "url": "https://www.lorenzotaccioli.it/carpinone-cosa-vedere-in-un-giorno/"
+              },
+              "coordinates": {
+                "lat": 41.565,
+                "lng": 14.3645
+              },
+              "prezzo": 0,
+              "moments": [
+                {
+                  "name": "Inizio",
+                  "desc": "Arrivo in città",
+                  "coordinates": {
+                    "lat": 41.5922067,
+                    "lng": 14.3249095
+                  }
+                },
+                {
+                  "name": "Cascate",
+                  "desc": "Arrivo alle cascate",
+                  "photos": [
+                    "https://lezczeypkybilgpyubdn.supabase.co/storage/v1/object/sign/Photos/Carpinone/photo_2025-10-26_16-39-40.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV82MDk5NTI3NS0xODVkLTQ4NzQtYThiYS1kZWRmYTU0MzRhOGIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJQaG90b3MvQ2FycGlub25lL3Bob3RvXzIwMjUtMTAtMjZfMTYtMzktNDAuanBnIiwiaWF0IjoxNzYxNDk0MDI5LCJleHAiOjE3NjQwODYwMjl9.ajGXhW0d31UmJcDO_6rew_n4zPolErQok6SvO60WDKM",
+                    "https://lezczeypkybilgpyubdn.supabase.co/storage/v1/object/sign/Photos/Carpinone/photo_2025-10-26_16-39-38.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV82MDk5NTI3NS0xODVkLTQ4NzQtYThiYS1kZWRmYTU0MzRhOGIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJQaG90b3MvQ2FycGlub25lL3Bob3RvXzIwMjUtMTAtMjZfMTYtMzktMzguanBnIiwiaWF0IjoxNzYxNDk0MDM1LCJleHAiOjE3NjQwODYwMzV9.CGNm88xYR6PVWDOlqlR_45qCY5dJuzHoDr78mCXxXzI",
+                    "https://lezczeypkybilgpyubdn.supabase.co/storage/v1/object/sign/Photos/Carpinone/photo_2025-10-26_16-39-37.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV82MDk5NTI3NS0xODVkLTQ4NzQtYThiYS1kZWRmYTU0MzRhOGIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJQaG90b3MvQ2FycGlub25lL3Bob3RvXzIwMjUtMTAtMjZfMTYtMzktMzcuanBnIiwiaWF0IjoxNzYxNDk0MDQ0LCJleHAiOjE3NjQwODYwNDR9.7jzY8eaXluSbaMYl9Ovz5N4br5U0fPUL0Y3fF6X4azw",
+                    "https://lezczeypkybilgpyubdn.supabase.co/storage/v1/object/sign/Photos/Carpinone/photo_2025-10-26_16-39-36.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV82MDk5NTI3NS0xODVkLTQ4NzQtYThiYS1kZWRmYTU0MzRhOGIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJQaG90b3MvQ2FycGlub25lL3Bob3RvXzIwMjUtMTAtMjZfMTYtMzktMzYuanBnIiwiaWF0IjoxNzYxNDk0MDUzLCJleHAiOjE3NjQwODYwNTN9.ETkED_1xYmOLUlm9zi5tsXkFTcal7CNlVyRozgvXhro",
+                    "https://lezczeypkybilgpyubdn.supabase.co/storage/v1/object/sign/Photos/Carpinone/photo_2025-10-26_16-39-35.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV82MDk5NTI3NS0xODVkLTQ4NzQtYThiYS1kZWRmYTU0MzRhOGIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJQaG90b3MvQ2FycGlub25lL3Bob3RvXzIwMjUtMTAtMjZfMTYtMzktMzUuanBnIiwiaWF0IjoxNzYxNDk0MDYwLCJleHAiOjE3NjQwODYwNjB9.aO-w5ZrQp7-VpIy1uxASq5BhJX0dXSZjJkrszPhJglc"
+                  ],
+                  "coordinates": {
+                    "lat": 41.5952798,
+                    "lng": 14.3254782
+                  }
+                }
+              ]
+            },
+            {
+              "name": "Pranzo al sacco",
+              "desc": "Packed lunch for the day.",
+              "category": "food",
+              "coordinates": {
+                "lat": 41.5651,
+                "lng": 14.3646
+              },
+              "prezzo": 0,
+              "photos": []
+            }
+          ]
+        },
+        {
+          "name": "Castel San Vincenzo",
+          "photos": [
+            "https://lezczeypkybilgpyubdn.supabase.co/storage/v1/object/sign/Photos/Castel%20San%20Vincenzo/photo_2025-10-26_16-39-41.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV82MDk5NTI3NS0xODVkLTQ4NzQtYThiYS1kZWRmYTU0MzRhOGIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJQaG90b3MvQ2FzdGVsIFNhbiBWaW5jZW56by9waG90b18yMDI1LTEwLTI2XzE2LTM5LTQxLmpwZyIsImlhdCI6MTc2MTQ5NDI5NCwiZXhwIjoxNzY0MDg2Mjk0fQ.MK4pHIcIbWS2aKS9nl5to_t1_O_OKRhx7Wqr1UIRpjs"
+          ],
+          "coordinates": {
+            "lat": 41.6464694,
+            "lng": 14.0472693
+          },
+          "events": [
+            {
+              "name": "Lago",
+              "desc": "Lago ai piedi della rocca",
+              "photos": [
+                "https://lezczeypkybilgpyubdn.supabase.co/storage/v1/object/sign/Photos/Castel%20San%20Vincenzo/photo_2025-10-26_16-39-41.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV82MDk5NTI3NS0xODVkLTQ4NzQtYThiYS1kZWRmYTU0MzRhOGIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJQaG90b3MvQ2FzdGVsIFNhbiBWaW5jZW56by9waG90b18yMDI1LTEwLTI2XzE2LTM5LTQxLmpwZyIsImlhdCI6MTc2MTQ5NDI5NCwiZXhwIjoxNzY0MDg2Mjk0fQ.MK4pHIcIbWS2aKS9nl5to_t1_O_OKRhx7Wqr1UIRpjs",
+                "https://lezczeypkybilgpyubdn.supabase.co/storage/v1/object/sign/Photos/Castel%20San%20Vincenzo/photo_2025-10-26_16-39-39.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV82MDk5NTI3NS0xODVkLTQ4NzQtYThiYS1kZWRmYTU0MzRhOGIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJQaG90b3MvQ2FzdGVsIFNhbiBWaW5jZW56by9waG90b18yMDI1LTEwLTI2XzE2LTM5LTM5LmpwZyIsImlhdCI6MTc2MTQ5NDMwMywiZXhwIjoxNzY0MDg2MzAzfQ.xYAoyNdQn3fwU6S1I1Hch_ZasihR0jK1Tc1_m0mTbTs"
+              ],
+              "category": "any"
+            }
+          ]
+        },
+        {
+          "name": "Pescasseroli",
+          "photos": [
+            "https://lezczeypkybilgpyubdn.supabase.co/storage/v1/object/sign/Photos/Pescasseroli/photo_2025-10-26_16-39-12.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV82MDk5NTI3NS0xODVkLTQ4NzQtYThiYS1kZWRmYTU0MzRhOGIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJQaG90b3MvUGVzY2Fzc2Vyb2xpL3Bob3RvXzIwMjUtMTAtMjZfMTYtMzktMTIuanBnIiwiaWF0IjoxNzYxNDk0ODg0LCJleHAiOjE3NjQwODY4ODR9.GE8heZNS8b_sA5T2uUGJhSNfH2mJVq9tvW7kj85neGA"
+          ],
+          "coordinates": {
+            "lat": 41.808,
+            "lng": 13.9113
+          },
+          "events": [
+            {
+              "name": "Ristorante A Cavu’t",
+              "desc": "Dinner",
+              "category": "food",
+              "link": {
+                "label": "TripAdvisor",
+                "url": "https://www.tripadvisor.it/Restaurant_Review-g804273-d2284440-Reviews-Ristorante_A_Cavu_t-Pescasseroli_Province_of_L_Aquila_Abruzzo.html"
+              },
+              "coordinates": {
+                "lat": 41.8082,
+                "lng": 13.9115
+              },
+              "prezzo": 50,
+              "moments": [
+                {
+                  "name": "Funghi e Tartufo",
+                  "photos": [
+                    "https://lezczeypkybilgpyubdn.supabase.co/storage/v1/object/sign/Photos/Pescasseroli/photo_2025-10-26_16-39-24.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV82MDk5NTI3NS0xODVkLTQ4NzQtYThiYS1kZWRmYTU0MzRhOGIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJQaG90b3MvUGVzY2Fzc2Vyb2xpL3Bob3RvXzIwMjUtMTAtMjZfMTYtMzktMjQuanBnIiwiaWF0IjoxNzYxNDk0OTQxLCJleHAiOjE3NjQwODY5NDF9.yqxiIB3i5WqorWFqq3UTv9ipTl4gHqNefrEGFMM8pLU"
+                  ]
+                },
+                {
+                  "name": "Arrosticini",
+                  "photos": [
+                    "https://lezczeypkybilgpyubdn.supabase.co/storage/v1/object/sign/Photos/Pescasseroli/photo_2025-10-26_16-39-26.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV82MDk5NTI3NS0xODVkLTQ4NzQtYThiYS1kZWRmYTU0MzRhOGIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJQaG90b3MvUGVzY2Fzc2Vyb2xpL3Bob3RvXzIwMjUtMTAtMjZfMTYtMzktMjYuanBnIiwiaWF0IjoxNzYxNDk0OTcyLCJleHAiOjE3NjQwODY5NzJ9.pVgAfLEYeIFmD0_dCbjiSZZ2zI0DjFd3AVSTJctjPnQ",
+                    "https://lezczeypkybilgpyubdn.supabase.co/storage/v1/object/sign/Photos/Pescasseroli/photo_2025-10-26_16-39-28.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV82MDk5NTI3NS0xODVkLTQ4NzQtYThiYS1kZWRmYTU0MzRhOGIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJQaG90b3MvUGVzY2Fzc2Vyb2xpL3Bob3RvXzIwMjUtMTAtMjZfMTYtMzktMjguanBnIiwiaWF0IjoxNzYxNDk0OTg2LCJleHAiOjE3NjQwODY5ODZ9.yON6ovSnldQXWlbCu3qSRp5VtW5VGF9Ax6b5xm29SIE"
+                  ]
+                },
+                {
+                  "name": "Ragù di Cervo",
+                  "photos": [
+                    "https://lezczeypkybilgpyubdn.supabase.co/storage/v1/object/sign/Photos/Pescasseroli/photo_2025-10-26_16-39-27.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV82MDk5NTI3NS0xODVkLTQ4NzQtYThiYS1kZWRmYTU0MzRhOGIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJQaG90b3MvUGVzY2Fzc2Vyb2xpL3Bob3RvXzIwMjUtMTAtMjZfMTYtMzktMjcuanBnIiwiaWF0IjoxNzYxNDk1MDEwLCJleHAiOjE3NjQwODcwMTB9._EOwbZ0of-CXp6esEPNfs-pSbwcT1YH6Hq2DoAaeAFw"
+                  ]
+                },
+                {
+                  "name": "Spalla d'agnello",
+                  "photos": [
+                    "https://lezczeypkybilgpyubdn.supabase.co/storage/v1/object/sign/Photos/Pescasseroli/photo_2025-10-26_16-39-31.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV82MDk5NTI3NS0xODVkLTQ4NzQtYThiYS1kZWRmYTU0MzRhOGIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJQaG90b3MvUGVzY2Fzc2Vyb2xpL3Bob3RvXzIwMjUtMTAtMjZfMTYtMzktMzEuanBnIiwiaWF0IjoxNzYxNDk1MDQzLCJleHAiOjE3NjQwODcwNDN9.pn-8tYtmd4xYNUnm_mzPil_WOmVpYMAvCln7pHuC9nY"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "subtitle": "",
+      "places": [
+        {
+          "name": "Cascate delle Marmore",
+          "photos": ["https://picsum.photos/id/106/400/400"],
+          "coordinates": {
+            "lat": 42.5562,
+            "lng": 12.7128
+          },
+          "events": [
+            {
+              "name": "Visita Cascate",
+              "desc": "Opening hours: 11:00 alle 18:00. Check the map for trails.",
+              "category": "sightseeing",
+              "link": {
+                "label": "Mappa",
+                "url": "https://www.cascatadellemarmore.info/wp-content/uploads/2023/01/Mappa-turistica-Cascata-fronte-2023_A_web.pdf"
+              },
+              "coordinates": {
+                "lat": 42.5563,
+                "lng": 12.7129
+              },
+              "prezzo": 15,
+              "photos": ["https://picsum.photos/id/107/400/400"]
+            },
+            {
+              "name": "Pranzo",
+              "desc": "Packed lunch or local choice ('quello che capita').",
+              "category": "food",
+              "coordinates": {
+                "lat": 42.5564,
+                "lng": 12.713
+              },
+              "prezzo": 10,
+              "photos": []
+            }
+          ]
+        },
+        {
+          "name": "Bassano in Teverina",
+          "photos": ["https://picsum.photos/id/108/400/400"],
+          "coordinates": {
+            "lat": 42.4172,
+            "lng": 12.2706
+          },
+          "events": [
+            {
+              "name": "Casa Matilde",
+              "desc": "Accommodation for the night in Bassano in Teverina.",
+              "category": "accommodation",
+              "link": {
+                "label": "Booking",
+                "url": "https://secure.booking.com/confirmation.it.html?aid=2173717&..."
+              },
+              "coordinates": {
+                "lat": 42.4173,
+                "lng": 12.2707
+              },
+              "prezzo": 86.4,
+              "photos": ["https://picsum.photos/id/109/400/400"]
+            },
+            {
+              "name": "Ristorante Borgo Antico",
+              "desc": "Dinner (reservation required).",
+              "category": "food",
+              "link": {
+                "label": "Sito",
+                "url": "https://borgodibassanointeverina.it/restaurant"
+              },
+              "coordinates": {
+                "lat": 42.4174,
+                "lng": 12.2708
+              },
+              "prezzo": 50,
+              "photos": ["https://picsum.photos/id/110/400/400"]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
