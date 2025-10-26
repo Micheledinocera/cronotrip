@@ -1,5 +1,5 @@
 <template>
-  <div class="fixed left-0">
+  <div class="fixed left-0 z-2">
     <USlideover title="Lista Places" side="left">
       <UButton icon="i-game-icons:path-distance" size="lg" color="primary" class="rounded-s-[0]" />
       <template #body="{ close }">

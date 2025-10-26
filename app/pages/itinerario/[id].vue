@@ -14,7 +14,6 @@
         <div class="prose max-w-none">
           {{ itinerary.desc }}
         </div>
-        <!-- <DaySelector :days="itinerary.days" :selected-day-index="selectedDayIndex" @select="(selectedIndex:number)=>selectedDayIndex=selectedIndex"/> -->
         <DaySelector :days="itinerary.days" v-model="selectedDayIndex" />
         <div :key="selectedDayIndex">
           <StepperWidget
@@ -35,7 +34,7 @@
               <NuxtImg
                 v-if="place.photos"
                 :src="place.photos[0]"
-                class="w-full h-full object-cover rounded-md absolute"
+                class="w-full h-full object-cover rounded-md absolute rounded-b-none"
               />
               <div
                 :ref="(el) => placeRefReg(placeIndex,el as HTMLElement | null)"

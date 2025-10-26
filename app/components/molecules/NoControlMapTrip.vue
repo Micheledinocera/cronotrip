@@ -78,7 +78,7 @@
                   () => {
                     close();
                     scrollToDayElement(
-                      `moment_${props.indexes.eventIndex}_${props.indexes.placeIndex}_${momentIndex}`
+                      `moment_${props.indexes.placeIndex}_${props.indexes.eventIndex}_${momentIndex}`
                     );
                   }
                 "

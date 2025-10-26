@@ -1,11 +1,11 @@
 <template>
   <UCard variant="subtle" class="m-4">
-    <div class="flex justify-between p-4">
+    <div class="flex justify-between py-4">
       <div class="font-bold text-lg">{{ event.name }}</div>
       <div><TypeIcon :event-type="event.category" classes="size-8" /></div>
     </div>
     <div>
-      <PhotosCarousel :photos="event.photos || []" :image-classes="'h-40'" />
+      <PhotosCarousel :photos="event.photos || []" :image-classes="'h-24 md:h-40'" />
     </div>
     <div class="flex gap-4 flex-col sm:flex-row" v-if="hasMoments || hasInfo">
       <div class="w-1/2" v-if="hasInfo">
@@ -52,10 +52,10 @@ const props = defineProps<{
 }>();
 
 const componentMap: Record<string, any> = {
-  food: FoodMoments,
-  trekking: TrekkingMoments,
-  museum: MuseumMoments,
-  concert: ConcertMoments,
+  food: AnyMoments,
+  trekking: AnyMoments,
+  museum: AnyMoments,
+  concert: AnyMoments,
   any: AnyMoments,
 };
 
