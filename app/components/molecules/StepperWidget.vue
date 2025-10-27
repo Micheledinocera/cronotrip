@@ -11,6 +11,7 @@
         <div class="aspect-video w-full">
           <NoControlMapDay
             :day="props.selectedDay"
+            :active-place-index="activePlaceIndex"
             @clicked-place="
               (value:number) => {
                 scrollToDayElement(`place_${value}`);

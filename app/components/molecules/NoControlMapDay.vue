@@ -23,14 +23,24 @@
         :key="place.coordinates!.lat + '_' + place.coordinates!.lng"
         :lat-lng="[place.coordinates!.lat, place.coordinates!.lng]"
       >
-        <LIcon class-name="bg-red-600 rounded-4xl !h-6 !w-6 !-mt-2 !-ml-3.5 !flex h-2">
-          <div class="!text-white w-full h-auto m-auto text-center">
-            {{ placeIndex + 1 }}
-          </div></LIcon
+        <LIcon
+          :class-name="`rounded-4xl !h-6 !w-6 !-mt-2 !-ml-3.5 !flex ${
+            placeIndex <= activePlaceIndex ? 'bg-primary' : 'bg-red-600'
+          }`"
         >
+          <div
+            class="font-bold w-full h-auto m-auto text-center"
+            :class="[placeIndex <= activePlaceIndex ? '!text-default' : '!text-white']"
+          >
+            {{ placeIndex + 1 }}
+          </div>
+        </LIcon>
         <LPopup>
-          <div class="cursor-pointer" @click="emit('clicked-place', placeIndex)">
-            <span> {{ place.name }} </span>
+          <div
+            class="cursor-pointer"
+            @click="emit('clicked-place', placeIndex)"
+          >
+            <span class="!text-black"> {{ place.name }} </span>
             <NuxtImg
               v-if="place.photos && place.photos?.length > 0"
               :src="place.photos[0]"
@@ -58,15 +68,22 @@
             :lat-lng="[place.coordinates!.lat, place.coordinates!.lng]"
           >
             <LIcon
-              class-name="bg-red-600 rounded-4xl !h-6 !w-6 !-mt-2 !-ml-3.5 !flex h-2"
+              :class-name="`rounded-4xl !h-6 !w-6 !-mt-2 !-ml-3.5 !flex ${
+                placeIndex <= activePlaceIndex ? 'bg-red-600' : 'bg-primary'
+              }`"
             >
-              <div class="!text-white w-full h-auto m-auto text-center">
+              <div
+                class="font-bold w-full h-auto m-auto text-center"
+                :class="[
+                  placeIndex <= activePlaceIndex ? '!text-default' : '!text-white',
+                ]"
+              >
                 {{ placeIndex + 1 }}
-              </div></LIcon
-            >
+              </div>
+            </LIcon>
             <LPopup>
               <div
-                class="cursor-pointer"
+                class="cursor-pointer "
                 @click="
                   () => {
                     close();
@@ -74,7 +91,7 @@
                   }
                 "
               >
-                <span> {{ place.name }} </span>
+                <span class="!text-black"> {{ place.name }} </span>
                 <NuxtImg
                   v-if="place.photos && place.photos?.length > 0"
                   :src="place.photos[0]"
@@ -98,6 +115,10 @@ const props = defineProps({
   day: {
     type: Object as PropType<Day>,
     required: true,
+  },
+  activePlaceIndex: {
+    type: Number,
+    default: 0,
   },
 });
 
