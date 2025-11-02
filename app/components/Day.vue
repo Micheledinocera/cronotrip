@@ -5,10 +5,10 @@
       <div><TypeIcon :event-type="event.category" classes="size-8" /></div>
     </div>
     <div>
-      <PhotosCarousel :photos="event.photos || []" :image-classes="'h-24 md:h-40'" />
+      <PhotosCarousel :photos="event.photos || []" :image-classes="'h-24 md:h-40'" v-if="event.photos && event.photos.length>0"/>
     </div>
     <div class="flex gap-4 flex-col sm:flex-row" v-if="hasMoments || hasInfo">
-      <div class="w-1/2" v-if="hasInfo">
+      <div class="w-full text-center sm:w-1/2 sm:text-left" v-if="hasInfo">
         <div class="font-bold text-md">Info</div>
         <div v-if="event.desc">{{ event.desc }}</div>
         <ULink as="button" v-if="event.link" :to="event.link.url" target="_blank">

@@ -141,7 +141,7 @@ const bounds = props.moments?.map((moment) => [
 const applyBounds = () => {
   nextTick(() => {
     if (mapRef.value?.leafletObject)
-      mapRef.value.leafletObject.fitBounds(bounds, { padding: [50, 50] });
+      mapRef.value.leafletObject.fitBounds(bounds, { padding: [20, 20] });
     if (zoomedMapRef.value?.leafletObject)
       zoomedMapRef.value.leafletObject.fitBounds(bounds);
   });

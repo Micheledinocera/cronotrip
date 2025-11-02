@@ -1,7 +1,7 @@
 <template>
   <USeparator color="primary" type="solid" :label="$t(`moments.${eventData.category}`)" class="mt-8 mb-4" />
+    <!-- class="pt-4" -->
   <div
-    class="pt-4"
     v-for="(moment, index) in props.eventData.moments"
     :key="`moment_${indexes.placeIndex}_${indexes.eventIndex}_${index}`"
     :ref="(el) => registerDayElementRef(`moment_${indexes.placeIndex}_${indexes.eventIndex}_${index}`,el as HTMLElement | null)"
@@ -15,9 +15,10 @@
           <div>{{ moment.desc }}</div>
         </div>
         <PhotosCarousel
-          class="w-3/4 sm:w-1/2 aspect-video m-auto"
+          class="w-3/4 sm:w-1/2 m-auto"
           :photos="moment.photos || []"
           :image-classes="'h-24 md:h-40'"
+          v-if="moment.photos && moment.photos.length>0"
         />
       </div>
     </UCard>

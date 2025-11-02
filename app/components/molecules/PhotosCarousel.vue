@@ -3,9 +3,11 @@
     :photos="photos"
     :carousel-classes="carouselClasses"
     :image-classes="imageClasses"
-    v-if="photos && photos.length > 1"
+    v-if="photos && photos.length > 3"
   />
-  <ZoomableImage v-else-if="photos" :image-classes="imageClasses" :photos="photos" :image-src="photos[0] || ''" />
+  <div v-else-if="photos" class="flex">
+    <ZoomableImage v-for="photo in photos" :image-classes="imageClasses" :photos="photos" :image-src="photo" />
+  </div>
 </template>
 
 <script setup lang="ts">
