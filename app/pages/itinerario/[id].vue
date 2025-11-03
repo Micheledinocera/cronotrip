@@ -17,7 +17,7 @@
         <DaySelector :days="itinerary.days" v-model="selectedDayIndex" />
         <div :key="selectedDayIndex">
           <StepperWidget
-            v-if="selectedDay && selectedDay.places.length > 1"
+            v-if="selectedDay && selectedDay.places?.length > 1"
             :selected-day="selectedDay"
             :active-place-index="activeRefIndex"
           />
@@ -74,10 +74,9 @@ definePageMeta({ auth: false });
 let selectedDayIndex = ref<number>(0);
 let itinerary = ref<Itinerary | undefined>(undefined);
 let route=useRoute();
+const {getItineraryById}=await useItinerary();
 
-// const { data: fetchedItinerary } = await useItinerary();
-const { data: fetchedItinerary } = await getItineraryById(parseInt(route.params.id as string));
-itinerary.value = fetchedItinerary.value;
+itinerary.value = await getItineraryById(parseInt(route.params.id as string));
 
 const { containerRef, registerDayElementRef, activeRef, placeRefs } = useDayScroll();
 
@@ -95,13 +94,13 @@ const placeRefReg = (index: number, el: HTMLElement | null) => {
 };
 
 let openedIds = ref<string[]>(
-  selectedDay.value?.places.map((place, placeIndex) => placeIndex + "") || []
+  selectedDay.value?.places?.map((place, placeIndex) => placeIndex + "") || []
 );
 
 watch(
   selectedDay,
   (newDay) => {
-    openedIds.value = newDay?.places.map((place, placeIndex) => placeIndex + "") || [];
+    openedIds.value = newDay?.places?.map((place, placeIndex) => placeIndex + "") || [];
   },
   { immediate: true }
 );

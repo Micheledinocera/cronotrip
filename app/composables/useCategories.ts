@@ -1,8 +1,10 @@
 export interface Category {
-  id: number
+  category_id: number
   key: string
 }
 
-export const useCategories = async () => {
-  return await useFetch<Category[]>('https://dummyjson.com/c/029b-e806-4ee9-8ad1')
+export async function useCategories() {
+  const client = useSupabaseClient();
+  const { data:categories } = await client.from('categories').select('*').overrideTypes<Category[], {merge: false}>();
+  return categories!;
 }

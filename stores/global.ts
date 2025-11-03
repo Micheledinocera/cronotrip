@@ -6,13 +6,12 @@ export const useGlobalStore = defineStore('global', {
   actions: {
     async fetchCategories() {
       if (this.categories.length > 0) return;
-      const {data: categories} = await useCategories();
-      this.categories = categories.value || [];
+      this.categories = await useCategories();
     },
     async fetchCurrentItinerary(id:number) {
       if (this.selectedItinerary) return;
-      const { data: fetchedItinerary } = await useItinerary();
-      this.selectedItinerary = fetchedItinerary.value;
+      const {getItineraryById}=await useItinerary();
+      this.selectedItinerary = await getItineraryById(id);
     },
   },
 });

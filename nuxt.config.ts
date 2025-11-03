@@ -10,8 +10,9 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       supabaseUrl: process.env.SUPABASE_URL,
-      supabaseKey: process.env.SUPABASE_KEY,
+      supabaseAnonKey: process.env.SUPABASE_KEY
     },
+    supabaseServiceRoleKey: process.env.SUPABASE_SECRET_KEY
   },
   vite: {
     plugins: [tailwindcss()],
@@ -51,6 +52,11 @@ export default defineNuxtConfig({
   },
   supabase: {
     redirect: false,
+    url:process.env.SUPABASE_URL,
+    key:process.env.SUPABASE_KEY,
+    secretKey:process.env.SUPABASE_SECRET_KEY,
+    useSsrCookies: true
+
   },
   nitro: {
     prerender: {
