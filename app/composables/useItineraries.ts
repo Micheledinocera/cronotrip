@@ -55,34 +55,22 @@ export interface Moment {
 
 export const useItinerary = async () => {
   const getItineraries = async () => {
-    const client = useSupabaseClient();
-    const {data: itineraries} = await client
-      .from('itineraries_json')
-      .select('*')
-      .overrideTypes<DBItinerary[], {merge: false}>();
-    return itineraries!;
+    return await $fetch<DBItinerary[]>('/api/itineraries/list');
   };
 
   const getItineraryById = async (itinerary_id: number) => {
-    const client = useSupabaseClient();
-    let {data: itinerary} = await client
-      .from('itineraries_json')
-      .select('*')
-      .eq('itinerary_json_id', itinerary_id)
-      .single()
-      .overrideTypes<DBItinerary, {merge: false}>();
-    console.log("itinerary: ",itinerary)
-    return itinerary.itinerary_document as Itinerary;
+    const itinerary = await $fetch<DBItinerary>(`/api/itineraries/single/?id=${itinerary_id}`);
+    return itinerary.itinerary_document;
   };
 
   const saveItinerary = async (jsonToInsert: Itinerary) => {
-    const data = await $fetch<Itinerary>('/api/itineraries/import', {
+    const itinerary = await $fetch<Itinerary>('/api/itineraries/add', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: jsonToInsert,
     });
 
-    return data;
+    return itinerary;
   };
 
   return {getItineraries, getItineraryById, saveItinerary};

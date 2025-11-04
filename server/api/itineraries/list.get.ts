@@ -1,5 +1,4 @@
-// server/api/itineraries/import.post.ts
-import {defineEventHandler, readBody} from 'h3';
+import {defineEventHandler} from 'h3';
 import { createClient } from '@supabase/supabase-js';
 
 export default defineEventHandler(async (event) => {
@@ -17,17 +16,11 @@ export default defineEventHandler(async (event) => {
     auth: { persistSession: false }
   });
 
-  const body = await readBody(event);
-  const payload = typeof body === 'string' ? JSON.parse(body) : body;
-  const row = {
-    itinerary_document: payload,
-  };
-
-  const {data, error} = await supabaseAdmin.from('itineraries_json').insert([row]);
+  const {data, error} = await supabaseAdmin.from('itineraries_json').select('*');
 
   if (error) {
     return {success: false, error};
   }
 
-  return {success: true, inserted: data};
+  return data;
 });
