@@ -3,8 +3,8 @@
   "welcome": "Benvenuto su ",
   "login":"Accedi",
   "moments":{
-    "5":"Moments",
-    "1":"Tappe",
-    "2":"Menu"
+    "any":"Moments",
+    "trekking":"Tappe",
+    "food":"Menu"
   }
 }
