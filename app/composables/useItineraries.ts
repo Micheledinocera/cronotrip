@@ -3,7 +3,7 @@ export interface DBItinerary {
   itinerary_document: Itinerary;
 }
 export interface Itinerary {
-  id: number;
+  id?: number;
   photos?: string;
   name: string;
   short_desc: string;

@@ -1,58 +1,74 @@
 <template>
   <div class="container mx-auto p-4">
     <h1 class="text-2xl font-bold mb-4">Crea Nuovo Itinerario</h1>
-    <form @submit.prevent="salvaItinerario" class="max-w-lg">
-      <div class="mb-4">
-        <label class="block text-gray-700 mb-2" for="titolo">Titolo</label>
-        <input type="text" id="titolo" v-model="itinerario.titolo" class="w-full px-3 py-2 border rounded" required>
+    <UForm :validate="validate" :state="itinerario" class="space-y-4" @submit="onSubmit">
+      <div class="grid md:grid-cols-2 gap-4">
+        <UFormField name="name" label="name" required>
+          <UInput
+            size="xl"
+            placeholder="name"
+            v-model="itinerario.name"
+            variant="subtle"
+            class="w-full"
+          />
+        </UFormField>
+        <UFormField
+          name="short_desc"
+          label="short_desc"
+          :hint="itinerario.short_desc.length + '/50'"
+          required
+        >
+          <UInput
+            size="xl"
+            placeholder="short_desc"
+            v-model="itinerario.short_desc"
+            variant="subtle"
+            class="w-full"
+          />
+        </UFormField>
       </div>
-      <div class="mb-4">
-        <label class="block text-gray-700 mb-2" for="descrizione">Descrizione</label>
-        <textarea id="descrizione" v-model="itinerario.descrizione" class="w-full px-3 py-2 border rounded" rows="4"></textarea>
-      </div>
-      <div class="mb-4">
-        <label class="blockmb-2" for="durata">Durata (giorni)</label>
-        <input type="number" id="durata" v-model="itinerario.durata" class="w-full px-3 py-2 border rounded" min="1" required>
-      </div>
-      <UButton type="submit" class="px-4 py-2 rounded">
-        Crea Itinerario
-      </UButton>
-    </form>
+      <UFormField
+        name="desc"
+        label="desc"
+        :hint="itinerario.desc.length + '/100'"
+        required
+      >
+        <UTextarea
+          size="xl"
+          placeholder="desc"
+          v-model="itinerario.desc"
+          variant="subtle"
+          autoresize
+          class="w-full"
+        />
+      </UFormField>
+      <UButton type="submit" class="px-4 py-2 rounded"> Crea Itinerario </UButton>
+    </UForm>
   </div>
 </template>
 
-<script setup>
-import { ref } from 'vue'
-import { useRouter } from 'vue-router'
+<script setup lang="ts">
+import type { FormSubmitEvent } from "node_modules/@nuxt/ui/dist/module.mjs";
 
-const router = useRouter()
-const supabase = useSupabaseClient()
+const itinerario: Ref<Itinerary> = ref({
+  name: "",
+  short_desc: "",
+  desc: "",
+  days: [],
+});
 
-const itinerario = ref({
-  titolo: '',
-  descrizione: '',
-  durata: 1,
-})
+const validate = () => {
+  const errors = [];
+  if (!itinerario.value.name) errors.push({ name: "name", message: "Required" });
+  if (!itinerario.value.short_desc)
+    errors.push({ name: "short_desc", message: "Required" });
+  if (itinerario.value.short_desc.length>50)
+    errors.push({ name: "short_desc", message: "max 50" });
+  if (!itinerario.value.desc) errors.push({ name: "desc", message: "Required" });
+  return errors;
+};
 
-const salvaItinerario = async () => {
-  try {
-    const { data, error } = await supabase
-      .from('itinerari')
-      .insert([{
-        titolo: itinerario.value.titolo,
-        descrizione: itinerario.value.descrizione,
-        durata: itinerario.value.durata,
-      }])
-      .select()
-      .single()
-
-    if (error) throw error
-    
-    // Redirect to the itinerary view page
-    router.push(`/itinerario/${data.id}`)
-  } catch (error) {
-    console.error('Errore durante il salvataggio:', error)
-    alert('Si è verificato un errore durante il salvataggio dell\'itinerario')
-  }
-}
+const onSubmit = async (event: FormSubmitEvent<Itinerary>) => {
+  console.log(event.data);
+};
 </script>

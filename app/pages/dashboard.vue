@@ -2,13 +2,13 @@
   <div class="container mx-auto p-4">
     <div class="flex justify-between items-center mb-6"></div>
 
-    <!-- <NuxtLink
+    <NuxtLink
       to="/itinerario/new"
       class="bg-green-500 text-white px-4 py-2 rounded inline-block mb-4"
     >
       Nuovo Itinerario
-    </NuxtLink> -->
-    <button @click="saveItinerary"> SALVALO </button>
+    </NuxtLink>
+    <!-- <button @click="saveItinerary"> SALVALO </button> -->
 
     <div v-if="itineraries?.length" class="grid grid-cols-1 gap-4">
       <div
