@@ -1,13 +1,13 @@
 <template>
   <UModal fullscreen>
     <NuxtImg
-      :src="imageSrc"
+      :src="getImageUrl(imageSrc)"
       class="rounded-lg object-contain m-auto cursor-pointer"
       :class="imageClasses"
     />
     <template #body>
       <NuxtImg
-        :src="imageSrc"
+        :src="getImageUrl(imageSrc)"
         class="rounded-lg object-contain m-auto h-full w-full"
       />
     </template>
@@ -18,6 +18,8 @@
 </template>
 
 <script setup lang="ts">
+const {getImageUrl}=useSupabaseImages();
+
 const props = defineProps({
   imageClasses: {
     type: String,

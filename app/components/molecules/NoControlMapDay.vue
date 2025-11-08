@@ -43,7 +43,7 @@
             <span class="!text-black"> {{ place.name }} </span>
             <NuxtImg
               v-if="place.photos && place.photos?.length > 0"
-              :src="place.photos[0]"
+              :src="getImageUrl(place.photos[0])"
             />
           </div>
         </LPopup>
@@ -94,7 +94,7 @@
                 <span class="!text-black"> {{ place.name }} </span>
                 <NuxtImg
                   v-if="place.photos && place.photos?.length > 0"
-                  :src="place.photos[0]"
+                  :src="getImageUrl(place.photos[0])"
                 />
               </div>
             </LPopup>
@@ -110,6 +110,7 @@
 
 <script setup lang="ts">
 const emit = defineEmits(["clicked-place"]);
+const {getImageUrl}=useSupabaseImages();
 
 const props = defineProps({
   day: {

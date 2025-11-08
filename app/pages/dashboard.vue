@@ -38,7 +38,7 @@ const {getItineraries}=await useItinerary();
 itineraries.value = await getItineraries();
 
 const saveItinerary=async()=>{
-  const dataToSave=await $fetch<Itinerary>('https://dummyjson.com/c/46de-fc8b-4226-8ac6')
+  const dataToSave=await $fetch<Itinerary>('/umbria.json')
   const {saveItinerary}=await useItinerary();
   await saveItinerary(dataToSave!);
 }

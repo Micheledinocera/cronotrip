@@ -7,7 +7,7 @@
       <div v-if="itinerary">
         <NuxtImg
           v-if="itinerary.photos"
-          :src="itinerary.photos[0]"
+          :src="getImageUrl(itinerary.photos[0])"
           :alt="itinerary.name"
         />
         <h1 class="text-2xl mb-4">{{ itinerary.name }}</h1>
@@ -33,7 +33,7 @@
             <template #header>
               <NuxtImg
                 v-if="place.photos"
-                :src="place.photos[0]"
+                :src="getImageUrl(place.photos[0])"
                 class="w-full h-full object-cover rounded-md absolute rounded-b-none"
               />
               <div
@@ -75,6 +75,7 @@ let selectedDayIndex = ref<number>(0);
 let itinerary = ref<Itinerary | undefined>(undefined);
 let route=useRoute();
 const {getItineraryById}=await useItinerary();
+const {getImageUrl}=useSupabaseImages();
 
 itinerary.value = await getItineraryById(parseInt(route.params.id as string));
 

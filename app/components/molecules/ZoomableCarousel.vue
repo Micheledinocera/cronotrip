@@ -8,7 +8,7 @@
       :ui="{ item: 'basis-1/3' }"
     >
       <NuxtImg
-        :src="item"
+        :src="getImageUrl(item)"
         :class="imageClasses"
         class="rounded-lg object-contain m-auto w-full"
         @click="activeIndex=index"
@@ -22,7 +22,7 @@
         :items="photos"
         class="w-full h-full mx-auto -mt-5"
       >
-        <NuxtImg :src="item" class="rounded-lg object-contain m-auto w-full h-[calc(100vh-190px)]" />
+        <NuxtImg :src="getImageUrl(item)" class="rounded-lg object-contain m-auto w-full h-[calc(100vh-190px)]" />
       </UCarousel>
     </template>
     <template #footer="{ close }">
@@ -32,6 +32,8 @@
 </template>
 
 <script setup lang="ts">
+const {getImageUrl}=useSupabaseImages();
+
 const props = defineProps({
   photos: {
     type: Array as PropType<string[]>,

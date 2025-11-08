@@ -40,7 +40,7 @@
             <span> {{ moment.name }} </span>
             <NuxtImg
               v-if="moment.photos && moment.photos?.length > 0"
-              :src="moment.photos[0]"
+              :src="getImageUrl(moment.photos[0])"
             />
           </div>
         </LPopup>
@@ -86,7 +86,7 @@
                 <span> {{ moment.name }} </span>
                 <NuxtImg
                   v-if="moment.photos && moment.photos?.length > 0"
-                  :src="moment.photos[0]"
+                  :src="getImageUrl(moment.photos[0])"
                 />
               </div>
             </LPopup>
@@ -102,6 +102,7 @@
 
 <script setup lang="ts">
 const { scrollToDayElement } = useDayScroll();
+const {getImageUrl}=useSupabaseImages();
 
 const props = defineProps({
   moments: {
