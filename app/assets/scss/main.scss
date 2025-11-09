@@ -4,20 +4,13 @@ body,
   width: 100vw;
 }
 
-* {
-  color: var(--text-color);
-}
-
 button {
-  // background-color: var(--primary-color);
   cursor: pointer;
 }
 
 *::-webkit-scrollbar {
-  display: none; /* Rimuove l'aspetto visivo della barra */
-  width: 0; /* Assicura che non occupi spazio */
+  display: none;
+  width: 0;
 }
 
-* {
-  scrollbar-width: none; /* Rimuove la scrollbar su Firefox */
-}
+* { scrollbar-width: none; }
