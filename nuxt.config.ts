@@ -10,8 +10,9 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       supabaseUrl: process.env.SUPABASE_URL,
-      supabaseKey: process.env.SUPABASE_KEY,
+      supabaseAnonKey: process.env.SUPABASE_KEY
     },
+    supabaseServiceRoleKey: process.env.SUPABASE_SECRET_KEY
   },
   vite: {
     plugins: [tailwindcss()],
@@ -21,24 +22,41 @@ export default defineNuxtConfig({
     Models: fileURLToPath(new URL('./models', import.meta.url)),
   },
   css: [
-    '~/assets/css/tailwind-import.css',
+    '~/assets/css/import.css',
     '~/assets/scss/variables.scss',
     '~/assets/scss/themes.scss',
     '~/assets/scss/main.scss',
   ],
+  components: {
+    path: '~/components/',
+    pathPrefix: false,
+    pattern: '**/*',
+  },
+  ui: {
+    colorMode: {
+      preference: 'dark',
+      fallback: 'light',
+    },
+  },
   modules: [
     '@nuxtjs/supabase',
-    '@nuxt/icon',
+    '@nuxt/ui',
     '@pinia/nuxt',
     '@nuxtjs/i18n',
     '@nuxt/image',
     '@nuxtjs/leaflet',
+    '@nuxtjs/color-mode',
   ],
   pinia: {
     storesDirs: ['./stores/**'],
   },
   supabase: {
     redirect: false,
+    url:process.env.SUPABASE_URL,
+    key:process.env.SUPABASE_KEY,
+    secretKey:process.env.SUPABASE_SECRET_KEY,
+    useSsrCookies: true
+
   },
   nitro: {
     prerender: {

@@ -1,16 +1,17 @@
 export const useGlobalStore = defineStore('global', {
   state: () => ({
-    isDark: false as boolean,
-    categories: [] as Category[]
+    categories: [] as Category[],
+    selectedItinerary: {} as Itinerary | undefined
   }),
   actions: {
-    toggleIsDark() {
-      this.isDark=!this.isDark
-    },
     async fetchCategories() {
-      if(this.categories.length>0) return
-      const {data:categories} = await useCategories()
-      this.categories = categories.value || [];
-    }
-  }
-})
+      if (this.categories.length > 0) return;
+      this.categories = await useCategories();
+    },
+    async fetchCurrentItinerary(id:number) {
+      if (this.selectedItinerary) return;
+      const {getItineraryById}=await useItinerary();
+      this.selectedItinerary = await getItineraryById(id);
+    },
+  },
+});

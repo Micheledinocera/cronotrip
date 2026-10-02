@@ -1,41 +1,77 @@
+export interface DBItinerary {
+  itinerary_json_id: number;
+  itinerary_document: Itinerary;
+}
 export interface Itinerary {
-    id: number;
-    photo: string;
-    name: string;
-    short_desc: string;
-    desc: string;
-    days?:Day[]
+  id?: number;
+  photos?: string;
+  name: string;
+  short_desc: string;
+  desc: string;
+  days: Day[];
 }
 
 export interface Day {
-    data?: string;
-    subtitle?: string;
-    places: Place[];
+  data?: string;
+  subtitle?: string;
+  places: Place[];
 }
 export interface Place {
-    name: string;
-    photo: string[];
-    coordinates: {
-        lat: number;
-        lng: number;
-    };
-    events: Event[];
+  name: string;
+  photos?: string[];
+  coordinates: {
+    lat: number;
+    lng: number;
+  };
+  events: Activity[];
 }
-export interface Event {
-    name: string;
-    categoria: Category;
-    coordinates?: {
-        lat: number;
-        lng: number;
-    };
-    prezzo?: number;
-    photo: string[];
+export interface Activity {
+  name: string;
+  desc?: string;
+  link?: {
+    label: string;
+    url: string;
+  };
+  category: string;
+  coordinates?: {
+    lat: number;
+    lng: number;
+  };
+  price?: number;
+  photos?: string[];
+  moments?: Moment[];
 }
 
-export const useItineraries = async () => {
-  return await useFetch<Itinerary[]>('https://dummyjson.com/c/52ef-2590-4475-b2ff')
+export interface Moment {
+  name: string;
+  desc?: string;
+  photos?: string[];
+  price?: number;
+  coordinates?: {
+    lat: number;
+    lng: number;
+  };
 }
 
 export const useItinerary = async () => {
-  return await useFetch<Itinerary>('https://dummyjson.com/c/7098-2bfe-4946-82cf')
-}
+  const getItineraries = async () => {
+    return await $fetch<DBItinerary[]>('/api/itineraries/list');
+  };
+
+  const getItineraryById = async (itinerary_id: number) => {
+    const itinerary = await $fetch<DBItinerary>(`/api/itineraries/single/?id=${itinerary_id}`);
+    return itinerary.itinerary_document;
+  };
+
+  const saveItinerary = async (jsonToInsert: Itinerary) => {
+    const itinerary = await $fetch<Itinerary>('/api/itineraries/add', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: jsonToInsert,
+    });
+
+    return itinerary;
+  };
+
+  return {getItineraries, getItineraryById, saveItinerary};
+};

@@ -1,5 +1,10 @@
 {
   "app_name": "Chrono Tripper",
   "welcome": "Benvenuto su ",
-  "login":"Accedi"
+  "login":"Accedi",
+  "moments":{
+    "any":"Moments",
+    "trekking":"Tappe",
+    "food":"Menu"
+  }
 }

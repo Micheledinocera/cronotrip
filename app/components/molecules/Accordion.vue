@@ -8,10 +8,10 @@
       </template>
       <template v-else>
         <div
-          class="flex justify-between items-center absolute z-1 bg-[var(--bg-color)] rounded-md m-4 p-4"
+          class="flex justify-between items-center absolute z-1 bg-[var(--ui-bg)] rounded-md m-4 p-4"
         >
           {{ title }}
-          <Icon
+          <UIcon
             class="transition-[transform] delay-0 duration-500 text-2xl"
             :class="[{ 'rotate-180': isOpened }]"
             name="i-iconoir:nav-arrow-down"
@@ -47,7 +47,6 @@ const props = defineProps({
 });
 
 const emit = defineEmits(["toggle"]);
-const visibleCover = ref < Boolean > true;
 
 const toggleAccordion = () => {
   emit("toggle", !isOpened ? "" : props.itemId);
