@@ -8,6 +8,7 @@
     >
       Nuovo Itinerario
     </NuxtLink>
+    <!-- <button @click="saveItinerary"> SALVALO </button> -->
 
     <div v-if="itineraries?.length" class="grid grid-cols-1 gap-4">
       <div
@@ -16,7 +17,7 @@
         class="border p-4 rounded"
       >
         <div class="text-xl">{{ itinerary.name }}</div>
-        <NuxtImg :src="itinerary.photo" :alt="itinerary.name" />
+        <ZoomableImage v-if="itinerary.photos" :image-src="itinerary.photos[0] || ''"/>
         <div class="text-lg">{{ itinerary.short_desc }}</div>
         <div class="mt-2">
           <NuxtLink :to="'/itinerario/' + itinerary.id" class="text-blue-500"
@@ -33,6 +34,12 @@
 <script setup lang="ts">
 let itineraries = ref<Itinerary[] | undefined>([]);
 
-const { data: fetchedItineraries } = await useItineraries();
-itineraries = fetchedItineraries || [];
+const {getItineraries}=await useItinerary();
+itineraries.value = await getItineraries();
+
+const saveItinerary=async()=>{
+  const dataToSave=await $fetch<Itinerary>('/umbria.json')
+  const {saveItinerary}=await useItinerary();
+  await saveItinerary(dataToSave!);
+}
 </script>

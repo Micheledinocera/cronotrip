@@ -1,8 +1,11 @@
 export interface Category {
-  id: number
-  nome: string
+  category_id: number
+  key: string
 }
 
-export const useCategories = async () => {
-  return await useFetch<Category[]>('https://dummyjson.com/c/a85a-af81-4423-9dd2')
+export async function useCategories() {
+  const supabase = useSupabaseClient();
+  const {data, error} = await supabase.from('categories').select('*');
+  if (error) throw error;
+  return data as Category[];
 }

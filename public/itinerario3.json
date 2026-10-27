@@ -1,0 +1,219 @@
+{
+    "id": 3,
+    "name": "Campania Felix: Arte, Storia e Reggia",
+    "photos": [
+        "https://travelimages.com/campania/napoli-overview.jpg"
+    ],
+    "short_desc": "Un viaggio di tre giorni tra la vivacità di Napoli, l'antica Pompei e lo splendore di Caserta.",
+    "desc": "Scopri i misteri e la storia millenaria di Napoli, cammina tra le rovine di Pompei e lasciati meravigliare dalla magnificenza della Reggia di Caserta.",
+    "duration": 3,
+    "days": [
+        {
+            "subtitle": "Giorno 1: Il Cuore di Napoli",
+            "places": [
+                {
+                    "name": "Napoli - Centro Storico",
+                    "photos": [
+                        "https://travelimages.com/napoli/spaccanapoli-street.jpg"
+                    ],
+                    "coordinates": {
+                        "lat": 40.851778,
+                        "lng": 14.268124
+                    },
+                    "events": [
+                        {
+                            "name": "Museo Cappella Sansevero",
+                            "desc": "Visita per ammirare il 'Cristo Velato' di Sammartino.",
+                            "link": {
+                                "label": "Biglietti Ufficiali",
+                                "url": "https://www.museosansevero.it/"
+                            },
+                            "category": "museum",
+                            "coordinates": {
+                                "lat": 40.850722,
+                                "lng": 14.256247
+                            },
+                            "price": 10,
+                            "photos": [
+                                "https://travelimages.com/napoli/cristo-velato-interno.jpg"
+                            ],
+                            "moments": [
+                                {
+                                    "name": "Cristo Velato",
+                                    "desc": "L'opera scultorea più celebre."
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Pizzeria Sorbillo",
+                            "desc": "Assaggio della vera pizza napoletana in una delle pizzerie storiche.",
+                            "category": "food",
+                            "coordinates": {
+                                "lat": 40.8519,
+                                "lng": 14.2570
+                            },
+                            "price": 15,
+                            "photos": [
+                                "https://travelimages.com/napoli/pizza-sorbillo.jpg",
+                                "https://travelimages.com/napoli/sorbillo-esterno.jpg"
+                            ],
+                            "moments": [
+                                {
+                                    "name": "Pizza Margherita",
+                                    "desc": "Il classico intramontabile.",
+                                    "price": 6.5
+                                },
+                                {
+                                    "name": "Pizza Marinara",
+                                    "desc": "Semplice e saporita.",
+                                    "price": 5.0
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "subtitle": "Giorno 2: Storia Antica e Viste Mozzafiato",
+            "places": [
+                {
+                    "name": "Pompei - Scavi Archeologici",
+                    "photos": [
+                        "https://travelimages.com/pompei/foro-vesuvio.jpg"
+                    ],
+                    "coordinates": {
+                        "lat": 40.74868,
+                        "lng": 14.48206
+                    },
+                    "events": [
+                        {
+                            "name": "Visita agli Scavi",
+                            "desc": "Esplorazione del Foro, delle Domus e dei Teatri dell'antica città romana.",
+                            "link": {
+                                "label": "Guida Ufficiale",
+                                "url": "https://pompeiisites.org/"
+                            },
+                            "category": "museum",
+                            "coordinates": {
+                                "lat": 40.7513,
+                                "lng": 14.4849
+                            },
+                            "price": 16,
+                            "photos": [
+                                "https://travelimages.com/pompei/case-dei-vetii.jpg",
+                                "https://travelimages.com/pompei/anfiteatro-pompei.jpg"
+                            ],
+                            "moments": [
+                                {
+                                    "name": "Casa del Fauno",
+                                    "desc": "Una delle residenze più grandi e lussuose."
+                                },
+                                {
+                                    "name": "Tempio di Apollo",
+                                    "desc": "Uno dei luoghi di culto più antichi."
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Gragnano",
+                    "photos": [
+                        "https://travelimages.com/gragnano/sentiero-alta-valle.jpg"
+                    ],
+                    "coordinates": {
+                        "lat": 40.6893758,
+                        "lng": 14.4976615
+                    },
+                    "events": [
+                        {
+                            "name": "Sentiero del Pennino",
+                            "desc": "Breve passeggiata panoramica tra i monti Lattari, ideale per la sera.",
+                            "category": "trekking",
+                            "coordinates": {
+                                "lat": 40.7105832,
+                                "lng": 14.5148263
+                            },
+                            "price": 0,
+                            "photos": [
+                                "https://travelimages.com/gragnano/vista-costa.jpg"
+                            ],
+                            "moments": [
+                                {
+                                    "name": "Belvedere Serale",
+                                    "desc": "Vista sul Golfo di Castellammare."
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "subtitle": "Giorno 3: La Reggia e i Giardini",
+            "places": [
+                {
+                    "name": "Caserta",
+                    "photos": [
+                        "https://travelimages.com/caserta/reggia-facciata.jpg"
+                    ],
+                    "coordinates": {
+                        "lat": 41.071728,
+                        "lng": 14.331569
+                    },
+                    "events": [
+                        {
+                            "name": "Reggia di Caserta - Appartamenti Reali",
+                            "desc": "Visita agli sfarzosi appartamenti storici e alle sale di rappresentanza.",
+                            "link": {
+                                "label": "Sito Ufficiale",
+                                "url": "https://www.reggiadicaserta.it/"
+                            },
+                            "category": "museum",
+                            "coordinates": {
+                                "lat": 41.0736,
+                                "lng": 14.3276
+                            },
+                            "price": 14,
+                            "photos": [
+                                "https://travelimages.com/caserta/reggia-sala-trono.jpg",
+                                "https://travelimages.com/caserta/reggia-scaloni.jpg"
+                            ],
+                            "moments": [
+                                {
+                                    "name": "Sala del Trono",
+                                    "desc": "Il cuore cerimoniale del palazzo."
+                                },
+                                {
+                                    "name": "Scalone d'Onore",
+                                    "desc": "Capolavoro architettonico."
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Reggia di Caserta - Parco e Giardino Inglese",
+                            "desc": "Passeggiata lungo il parco, tra fontane e la 'Via d'Acqua'.",
+                            "category": "trekking",
+                            "coordinates": {
+                                "lat": 41.0805,
+                                "lng": 14.3220
+                            },
+                            "price": 0,
+                            "photos": [
+                                "https://travelimages.com/caserta/parco-fontana-diana.jpg",
+                                "https://travelimages.com/caserta/giardino-inglese.jpg"
+                            ],
+                            "moments": [
+                                {
+                                    "name": "Fontana di Diana e Atteone",
+                                    "desc": "La fontana più spettacolare del parco."
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
