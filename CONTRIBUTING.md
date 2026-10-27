@@ -4,7 +4,7 @@ Convenzioni del repo, valide per le persone e per gli agenti AI (anche per le sk
 
 ## Rami (git-flow)
 
-- `master`: solo release, taggate `v<versione>` (es. `v1.0.0`).
+- `master`: solo release, taggate `v<versione>` (es. `v1.0.0`). Ogni push su `master` va in produzione: vedi [Rilascio](#rilascio).
 - `develop`: integrazione, le PR puntano qui (su GitHub il ramo di default è `master`, quindi `--base develop` va sempre indicato).
 - `feature/<nome>`: un ramo per ogni task. Si apre da `develop` con `/start <nome>` (oppure `git flow feature start <nome>`).
 - `bugfix/`, `release/`, `hotfix/`: come da git-flow (configurazione dopo il clone: `git flow init -d && git config gitflow.prefix.versiontag v`; non viene versionata).
@@ -59,6 +59,17 @@ npm run generate
 - feature e bugfix verso `develop`: **squash** (un commit per feature, con il titolo della PR);
 - release e hotfix verso `master`, e il loro ritorno su `develop`: **merge normale**, altrimenti `master` e `develop` divergono;
 - dopo lo squash il ramo locale si cancella con `git branch -D feature/<nome>` (git non lo vede come unito).
+
+## Rilascio
+
+Il deploy (`.github/workflows/nuxtjs.yml`) parte a ogni push su `master`, cioè quando si chiude una release o un hotfix. Fa la build, applica le migrazioni Supabase alla produzione (`supabase db push`) e pubblica su GitHub Pages. Se la build o le migrazioni falliscono, il sito non viene aggiornato.
+
+1. Le migrazioni nuove si verificano prima in locale (`npm run db:reset`, poi `npm run dev:local`).
+2. `git flow release start <versione>` (es. `0.2.0`, senza `v`).
+3. Nel ramo della release: `npm version <versione> --no-git-tag-version`, poi commit `chore(release): <versione>`. La CI legge la versione da `package.json` e la scrive in `public/version.json`.
+4. `git flow release finish <versione>`, poi push di `master`, `develop` e dei tag.
+
+Segreti della CI: `SUPABASE_URL` e `SUPABASE_KEY` per la build; `SUPABASE_ACCESS_TOKEN`, `SUPABASE_DB_PASSWORD` e `SUPABASE_PROJECT_REF` per le migrazioni.
 
 ## Documentazione
 

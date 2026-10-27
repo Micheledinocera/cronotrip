@@ -54,23 +54,32 @@ export interface Moment {
 }
 
 export const useItinerary = async () => {
+  const supabase = useSupabaseClient();
+
   const getItineraries = async () => {
-    return await $fetch<DBItinerary[]>('/api/itineraries/list');
+    const {data, error} = await supabase.from('itineraries_json').select('*');
+    if (error) throw error;
+    return data as DBItinerary[];
   };
 
   const getItineraryById = async (itinerary_id: number) => {
-    const itinerary = await $fetch<DBItinerary>(`/api/itineraries/single/?id=${itinerary_id}`);
-    return itinerary.itinerary_document;
+    const {data, error} = await supabase
+      .from('itineraries_json')
+      .select('*')
+      .eq('itinerary_json_id', itinerary_id)
+      .single();
+    if (error) throw error;
+    return (data as DBItinerary).itinerary_document;
   };
 
   const saveItinerary = async (jsonToInsert: Itinerary) => {
-    const itinerary = await $fetch<Itinerary>('/api/itineraries/add', {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      body: jsonToInsert,
-    });
-
-    return itinerary;
+    const {data, error} = await supabase
+      .from('itineraries_json')
+      .insert([{itinerary_document: jsonToInsert}])
+      .select()
+      .single();
+    if (error) throw error;
+    return data as DBItinerary;
   };
 
   return {getItineraries, getItineraryById, saveItinerary};

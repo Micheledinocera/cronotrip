@@ -4,18 +4,32 @@ aggiornato: 2026-10-27
 fonti:
   - raw/compiled/study-current-state/2026-10-27-state.md
   - raw/compiled/study-current-state/2026-10-27-analisi-codice.md
+  - raw/compiled/supabase-local/2026-10-27-note-lavoro.md
+  - raw/compiled/supabase-local/2026-10-27-checklist-primo-rilascio.md
 ---
 
 # Rilascio e versioni
 
 - **Produzione**: https://micheledinocera.github.io/cronotrip/ (GitHub Pages, sotto il percorso `/cronotrip/`).
-- **Deploy**: il workflow `.github/workflows/nuxtjs.yml` parte a ogni tag `v*.*.*` (o a mano). Fa `npm run generate` e pubblica `.output/public`.
-- **Versioni**: tag `v0.1.x`, creati da git-flow sulle release (prefisso `v`). La CI scrive `public/version.json` (versione, commit, data della build), che l'header dell'app mostra.
-- **Segreti della CI**: `SUPABASE_URL` e `SUPABASE_KEY` dai secrets del repo, scritti nel `.env` durante la build. `SUPABASE_SECRET_KEY` non viene passata.
-- **Rami e PR**: git-flow, con le convenzioni in `CONTRIBUTING.md`. Il ramo delle release è `master`, l'integrazione avviene su `develop`.
+- **Deploy**: il workflow `.github/workflows/nuxtjs.yml` parte a ogni **push su `master`**, cioè alla chiusura di una release o di un hotfix (o a mano). Tre job in fila: build (`npm run generate`), migrazioni (`supabase db push` sulla produzione), pubblicazione di `.output/public`. Se la build o le migrazioni falliscono, il sito non si aggiorna.
+- **Versioni**: si aggiornano nel ramo della release con `npm version <x.y.z> --no-git-tag-version`. La CI legge la versione da `package.json` e scrive `public/version.json` (versione, commit, data della build), che l'header dell'app mostra. I tag `v<versione>` di git-flow restano, ma non fanno partire niente.
+- **Segreti della CI**: `SUPABASE_URL` e `SUPABASE_KEY` (chiave anon) per la build, scritti nel `.env`; `SUPABASE_ACCESS_TOKEN`, `SUPABASE_DB_PASSWORD` e `SUPABASE_PROJECT_REF` per le migrazioni. La service role key non serve più.
+- **Rami e PR**: git-flow, con le convenzioni e i passi della release in `CONTRIBUTING.md`. Il ramo delle release è `master`, l'integrazione avviene su `develop`.
 
 L'architettura del rilascio, e perché resta su GitHub Pages: [Sito statico + Supabase](../architettura/sito-statico-supabase.md). Gli ambienti: [Ambienti](../architettura/ambienti.md).
 
+## Prima del primo rilascio con questo flusso
+
+Nessuna release è ancora uscita con il deploy da `master` e le migrazioni in CI. Prima si sistema e si verifica tutto in locale, poi:
+
+1. Verifica completa in locale (`npm run dev:local`): login, dashboard, dettaglio itinerario, salvataggio, foto.
+2. Rivedere le policy da portare online: oggi in produzione le tabelle hanno le RLS attive senza policy, la migrazione nuova permette tutto ai soli utenti autenticati (vedi [Database](../tecnico/supabase/database.md)).
+3. Aggiungere i secrets GitHub `SUPABASE_ACCESS_TOKEN` (dashboard Supabase, Account → Access Tokens), `SUPABASE_DB_PASSWORD` e `SUPABASE_PROJECT_REF`.
+4. Controllare lo storico delle migrazioni in produzione (`npx supabase migration list --linked`): se la prima migrazione (`20261027141357`, lo schema scaricato) non risulta applicata, segnarla con `npx supabase migration repair --status applied 20261027141357 --linked`. Altrimenti il primo `db push` prova a ricreare tabelle che esistono già e fallisce.
+5. Decidere se eliminare il bucket `content` della produzione, vuoto e non usato.
+6. Fare la release come da `CONTRIBUTING.md`, poi controllare che il job delle migrazioni sia passato e che l'app online, dopo il login, mostri gli itinerari.
+7. Rimuovere `SUPABASE_SECRET_KEY` dai `.env` locali ed eventualmente ruotare la service role key.
+
 ## Domande aperte
 
-- La CI stampa il `.env` nei log (`cat .env`): con la sola chiave anon non è grave, ma è da rimuovere.
+- Le CLI della CI (`supabase/setup-cli`, versione fissa nel workflow) e del repo (devDependency) vanno tenute alla stessa versione a mano.

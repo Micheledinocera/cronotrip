@@ -19,4 +19,3 @@ Le decisioni ancora `aperta` o `in analisi`. Quelle prese sono negli indici dell
 | [Itinerario e viaggio](./viaggi/itinerario-e-viaggio.md) | Viaggi | in analisi |
 | [Condivisione](./viaggi/condivisione.md) | Viaggi | in analisi |
 | [Modello dati](./architettura/modello-dati.md) | Architettura | in analisi |
-| [Ambienti](./architettura/ambienti.md) | Architettura | in analisi |
