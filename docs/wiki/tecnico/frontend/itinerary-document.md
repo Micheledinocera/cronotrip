@@ -4,19 +4,21 @@ aggiornato: 2026-10-27
 fonti:
   - raw/compiled/study-current-state/2026-10-27-analisi-codice.md
   - raw/compiled/study-current-state/2026-10-27-confronto-notion.md
+  - raw/compiled/starting-point/2026-10-27-note-db.md
+  - raw/compiled/starting-point/2026-10-27-chiavi-e-foto.md
 ---
 
 # Itinerary document
 
-The shape of an itinerary as the app stores and reads it today. Types in `app/composables/useItineraries.ts`. The target data model is still open: see [Modello dati](../../architettura/modello-dati.md).
+The shape of an itinerary as the app stores and reads it. Types in `app/composables/useItineraries.ts`. Why it is split between columns and a JSON document, and what is still open: [Modello dati](../../architettura/modello-dati.md).
 
 ## Shape
 
 ```
-DBItinerary            row of table itineraries_json
-├── itinerary_json_id
-└── itinerary_document: Itinerary
-    ├── name, short_desc, desc, photos?
+DBItinerary            row of table itineraries
+├── id, owner_id, name, created_at, updated_at
+└── document
+    ├── short_desc, desc, photos?
     └── days: Day[]
         ├── subtitle?, data?
         └── places: Place[]
@@ -29,7 +31,8 @@ DBItinerary            row of table itineraries_json
 ```
 
 - `category` is a free string. Known values come from the `categories` table (`app/composables/useCategories.ts`, loaded into the Pinia store by `app/plugins/init-store.ts`): `trekking`, `food`, `museum`, `concert`, `any`.
-- Photos are paths in the public Supabase Storage bucket `Photos`, turned into URLs by `useSupabaseImages().getImageUrl()`.
+- The app works with `Itinerary` (`id` and `name` plus the content of `document`): the mapping is in [Data access](./data-access.md).
+- Photos are either full URLs, used as they are, or paths in the public Supabase Storage bucket `Photos`, turned into URLs by `useSupabaseImages().getImageUrl()`.
 
 ## Mock data
 

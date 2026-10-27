@@ -69,8 +69,6 @@
 </template>
 
 <script setup lang="ts">
-definePageMeta({ auth: false });
-
 let selectedDayIndex = ref<number>(0);
 let itinerary = ref<Itinerary | undefined>(undefined);
 let route=useRoute();

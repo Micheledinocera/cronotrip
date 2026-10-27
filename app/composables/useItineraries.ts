@@ -1,6 +1,10 @@
 export interface DBItinerary {
-  itinerary_json_id: number;
-  itinerary_document: Itinerary;
+  id: number;
+  owner_id: string;
+  name: string;
+  document: Omit<Itinerary, 'id' | 'name'>;
+  created_at: string;
+  updated_at: string;
 }
 export interface Itinerary {
   id?: number;
@@ -53,33 +57,37 @@ export interface Moment {
   };
 }
 
+const toItinerary = (row: DBItinerary): Itinerary => ({...row.document, id: row.id, name: row.name});
+
 export const useItinerary = async () => {
   const supabase = useSupabaseClient();
 
   const getItineraries = async () => {
-    const {data, error} = await supabase.from('itineraries_json').select('*');
+    const {data, error} = await supabase.from('itineraries').select('*').order('created_at', {ascending: false});
     if (error) throw error;
-    return data as DBItinerary[];
+    return (data as DBItinerary[]).map(toItinerary);
   };
 
   const getItineraryById = async (itinerary_id: number) => {
     const {data, error} = await supabase
-      .from('itineraries_json')
+      .from('itineraries')
       .select('*')
-      .eq('itinerary_json_id', itinerary_id)
+      .eq('id', itinerary_id)
       .single();
     if (error) throw error;
-    return (data as DBItinerary).itinerary_document;
+    return toItinerary(data as DBItinerary);
   };
 
-  const saveItinerary = async (jsonToInsert: Itinerary) => {
+  // owner_id defaults to the signed-in user
+  const saveItinerary = async (itinerary: Itinerary) => {
+    const {id, name, ...document} = itinerary;
     const {data, error} = await supabase
-      .from('itineraries_json')
-      .insert([{itinerary_document: jsonToInsert}])
+      .from('itineraries')
+      .insert([{name, document}])
       .select()
       .single();
     if (error) throw error;
-    return data as DBItinerary;
+    return toItinerary(data as DBItinerary);
   };
 
   return {getItineraries, getItineraryById, saveItinerary};

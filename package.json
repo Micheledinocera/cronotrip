@@ -3,10 +3,11 @@
   "version": "0.1.13",
   "type": "module",
   "private": true,
+  "packageManager": "bun@1.4.2",
   "scripts": {
     "build": "nuxt build",
-    "dev": "nuxt dev",
-    "dev:local": "nuxt dev --dotenv .env.local",
+    "dev": "nuxt dev --dotenv .env.local",
+    "dev:prod": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",

@@ -3,11 +3,12 @@ tipo: info
 aggiornato: 2026-10-27
 fonti:
   - raw/compiled/study-current-state/2026-10-27-analisi-codice.md
+  - raw/compiled/starting-point/2026-10-27-decisioni-db.md
 ---
 
 # Itinerary view
 
-The read-only page of an itinerary: `app/pages/itinerario/[id].vue`, public (`auth: false`). It is the most complete part of the app.
+The read-only page of an itinerary: `app/pages/itinerario/[id].vue`, for signed-in users only (see [Condivisione](../../viaggi/condivisione.md)). It is the most complete part of the app.
 
 ## Structure
 
@@ -24,4 +25,3 @@ The read-only page of an itinerary: `app/pages/itinerario/[id].vue`, public (`au
 ## Open questions
 
 - `Day.vue` maps every category to `Events/AnyMoments.vue`: the per-category components (`FoodMoments`, `TrekkingMoments`, `MuseumMoments`, `ConcertMoments`) exist but are not used.
-- The page is public (`auth: false`), but it loads the itinerary with `getItineraryById` ([Data access](./data-access.md)) and the tables can be read only by signed-in users ([Database](../supabase/database.md)): without a login the query finds no row and fails. See [Condivisione](../../viaggi/condivisione.md).

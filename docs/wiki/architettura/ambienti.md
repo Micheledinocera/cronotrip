@@ -8,6 +8,9 @@ fonti:
   - raw/compiled/study-current-state/2026-10-27-risposte.md
   - raw/compiled/supabase-local/2026-10-27-obiettivo.md
   - raw/compiled/supabase-local/2026-10-27-note-lavoro.md
+  - raw/compiled/starting-point/2026-10-27-bun.md
+  - raw/compiled/starting-point/2026-10-27-dev-locale.md
+  - raw/compiled/starting-point/2026-10-27-chiavi-e-foto.md
 ---
 
 # Ambienti
@@ -22,11 +25,18 @@ fonti:
 
 ## Ambiente locale
 
-- Serve Docker Desktop acceso. Comandi: `npm run db:start`, `npm run db:reset` (migrazioni, `supabase/seed.sql` e foto), `npm run dev:local` (l'app su `.env.local`, che punta allo stack locale).
+- Serve Docker Desktop acceso. Comandi: `bun run db:start`, `bun run db:reset` (migrazioni, `supabase/seed.sql` e foto), `bun run dev` (l'app su `.env.local`, che punta allo stack locale).
+- **Di base si lavora in locale**: `bun run dev` usa lo stack locale; `bun run dev:prod` avvia l'app sulla produzione (`.env`), solo per quando serve guardare i dati online. Finché una migrazione non è rilasciata, il codice del ramo e il database di produzione possono non essere allineati.
+- **Chiavi**: l'app usa le *publishable key* di Supabase (`SUPABASE_KEY`), una per ambiente: quella di produzione in `.env`, quella dello stack locale (`bunx supabase status`) in `.env.local`. Non sono intercambiabili.
 - Servizi: API `http://127.0.0.1:54321`, Studio `http://127.0.0.1:54323` (con SQL Editor), Postgres su `127.0.0.1:54322`, Mailpit `http://127.0.0.1:54324` per le email di test.
 - Lo stack locale espone anche un **endpoint MCP**: `http://127.0.0.1:54321/mcp`.
-- **Dati**: il seed crea un utente di test, le categorie e gli itinerari mock di `public/`. Le foto del bucket `Photos` si scaricano dalla produzione con `npm run db:photos` in `supabase/storage/`, fuori da git perché sono foto personali.
+- **Dati**: il seed crea un utente di test (`test@cronotrip.local` / `password`), le categorie e gli itinerari mock di `public/`, di proprietà dell'utente di test. Le foto del bucket `Photos` si scaricano dalla produzione con `bun run db:photos` in `supabase/storage/`, fuori da git perché sono foto personali.
 - Dettagli di schema, policy e seed: [Database](../tecnico/supabase/database.md).
+
+## Strumenti
+
+- **Bun** è l'unico package manager e lancia gli script: `bun install`, `bun run <script>`, `bunx` al posto di `npx`. Lockfile `bun.lock`; la versione è fissata in `package.json` (`packageManager`). La CLI di Nuxt gira comunque su Node.
+- Bun blocca gli script di install delle dipendenze non *trusted*. Restano bloccati `@parcel/watcher` e `@tailwindcss/oxide`: servono solo se manca il binario precompilato, e la build funziona senza.
 
 ## Domande aperte
 

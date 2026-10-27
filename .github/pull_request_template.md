@@ -16,7 +16,7 @@
 
 ## How to verify
 
-- [ ] `npm run generate`
+- [ ] `bun run generate`
 - [ ] Manual check: <!-- what to click or call to see the change working -->
 
 ## Notes

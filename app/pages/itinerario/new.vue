@@ -100,8 +100,11 @@ const validate = () => {
   return errors;
 };
 
+const {saveItinerary} = await useItinerary();
+
 const onSubmit = async (event: FormSubmitEvent<Itinerary>) => {
-  console.log(event.data);
+  const saved = await saveItinerary(event.data);
+  await navigateTo('/itinerario/' + saved.id);
 };
 
 const updateDays = (newDays: Day[]) => {
