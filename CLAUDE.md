@@ -1,8 +1,8 @@
 # Cronotrip
 
-Nuxt 4 app, deployed as a static site on GitHub Pages (`npm run generate`, on every push to `master`; the same workflow applies the Supabase migrations). Data and auth on Supabase.
+Nuxt 4 app, deployed as a static site on GitHub Pages (`bun run generate`, on every push to `master`; the same workflow applies the Supabase migrations). Data and auth on Supabase.
 
-- **Local stack**: `npm run db:start` (Docker), `npm run db:reset` (migrations + `supabase/seed.sql` + photos), `npm run dev:local` (app on `.env.local`). Schema changes go in `supabase/migrations/`, never by hand on production.
+- **Local stack**: `bun run db:start` (Docker), `bun run db:reset` (migrations + `supabase/seed.sql` + photos), `bun run dev:local` (app on `.env.local`). Schema changes go in `supabase/migrations/`, never by hand on production.
 
 ## Project wiki and workflow
 

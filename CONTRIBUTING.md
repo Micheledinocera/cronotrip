@@ -42,7 +42,7 @@ Esempi: `feat(api): add wishlist module`, `fix(web): handle missing price`, `doc
 Da lanciare dalla root prima di ogni PR (`/close` li esegue in quest'ordine):
 
 ```bash
-npm run generate
+bun run generate
 ```
 
 È la stessa build statica della CI di deploy (`.github/workflows/nuxtjs.yml`). Il progetto non ha ancora né type-check né lint: quando verranno aggiunti, vanno elencati qui prima della build.
@@ -64,9 +64,9 @@ npm run generate
 
 Il deploy (`.github/workflows/nuxtjs.yml`) parte a ogni push su `master`, cioè quando si chiude una release o un hotfix. Fa la build, applica le migrazioni Supabase alla produzione (`supabase db push`) e pubblica su GitHub Pages. Se la build o le migrazioni falliscono, il sito non viene aggiornato.
 
-1. Le migrazioni nuove si verificano prima in locale (`npm run db:reset`, poi `npm run dev:local`).
+1. Le migrazioni nuove si verificano prima in locale (`bun run db:reset`, poi `bun run dev:local`).
 2. `git flow release start <versione>` (es. `0.2.0`, senza `v`).
-3. Nel ramo della release: `npm version <versione> --no-git-tag-version`, poi commit `chore(release): <versione>`. La CI legge la versione da `package.json` e la scrive in `public/version.json`.
+3. Nel ramo della release: `bun pm version <versione> --no-git-tag-version`, poi commit `chore(release): <versione>`. La CI legge la versione da `package.json` e la scrive in `public/version.json`.
 4. `git flow release finish <versione>`, poi push di `master`, `develop` e dei tag.
 
 Segreti della CI: `SUPABASE_URL` e `SUPABASE_KEY` per la build; `SUPABASE_ACCESS_TOKEN`, `SUPABASE_DB_PASSWORD` e `SUPABASE_PROJECT_REF` per le migrazioni.
