@@ -4,7 +4,9 @@ Punto di partenza del wiki: le aree, ciascuna con il suo indice, e il radar dell
 
 ## Aree
 
-- [Business](./business/index.md): l'azienda, il mercato, i concorrenti, le regole di business
+- [Business](./business/index.md): cos'è Cronotrip, i bisogni, i concorrenti, come si organizza un viaggio oggi
+- [Viaggi](./viaggi/index.md): itinerari e viaggi, come si legano, condivisione e copia
+- [Architettura](./architettura/index.md): hosting, backend, ambienti, modello dati
 - [Progetto](./progetto/index.md): come si costruisce e si porta avanti il progetto: repo, versioni, git-flow, wiki, studi
 - [Tecnico](./tecnico/index.md): codice custom (in inglese), per app
 
@@ -14,3 +16,7 @@ Le decisioni ancora `aperta` o `in analisi`. Quelle prese sono negli indici dell
 
 | Decisione | Area | Stato |
 |---|---|---|
+| [Itinerario e viaggio](./viaggi/itinerario-e-viaggio.md) | Viaggi | in analisi |
+| [Condivisione](./viaggi/condivisione.md) | Viaggi | in analisi |
+| [Modello dati](./architettura/modello-dati.md) | Architettura | in analisi |
+| [Ambienti](./architettura/ambienti.md) | Architettura | in analisi |
