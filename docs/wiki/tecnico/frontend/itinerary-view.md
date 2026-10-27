@@ -24,4 +24,4 @@ The read-only page of an itinerary: `app/pages/itinerario/[id].vue`, public (`au
 ## Open questions
 
 - `Day.vue` maps every category to `Events/AnyMoments.vue`: the per-category components (`FoodMoments`, `TrekkingMoments`, `MuseumMoments`, `ConcertMoments`) exist but are not used.
-- The page loads the itinerary through `/api/itineraries/single`, which does not exist in production: see [API routes](../server/api-routes.md).
+- The page is public (`auth: false`), but it loads the itinerary with `getItineraryById` ([Data access](./data-access.md)) and the tables can be read only by signed-in users ([Database](../supabase/database.md)): without a login the query finds no row and fails. See [Condivisione](../../viaggi/condivisione.md).
