@@ -12,15 +12,15 @@
 
     <div v-if="itineraries?.length" class="grid grid-cols-1 gap-4">
       <div
-        v-for="dbitinerary in itineraries"
-        :key="'itinerary_' + dbitinerary.itinerary_json_id"
+        v-for="itinerary in itineraries"
+        :key="'itinerary_' + itinerary.id"
         class="border p-4 rounded"
       >
-        <div class="text-xl">{{ dbitinerary.itinerary_document.name }}</div>
-        <ZoomableImage v-if="dbitinerary.itinerary_document.photos" :image-src="dbitinerary.itinerary_document.photos[0] || ''"/>
-        <div class="text-lg">{{ dbitinerary.itinerary_document.short_desc }}</div>
+        <div class="text-xl">{{ itinerary.name }}</div>
+        <ZoomableImage v-if="itinerary.photos" :image-src="itinerary.photos[0] || ''"/>
+        <div class="text-lg">{{ itinerary.short_desc }}</div>
         <div class="mt-2">
-          <NuxtLink :to="'/itinerario/' + dbitinerary.itinerary_json_id" class="text-blue-500"
+          <NuxtLink :to="'/itinerario/' + itinerary.id" class="text-blue-500"
             >Visualizza</NuxtLink
           >
           <!-- <NuxtLink :to="'/itinerario/modifica/' + itinerary.id" class="text-blue-500 ml-4">Modifica</NuxtLink> -->
@@ -32,7 +32,7 @@
 </template>
 
 <script setup lang="ts">
-let itineraries = ref<DBItinerary[] | undefined>([]);
+let itineraries = ref<Itinerary[] | undefined>([]);
 
 const {getItineraries}=await useItinerary();
 itineraries.value = await getItineraries();
