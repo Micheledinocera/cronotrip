@@ -4,5 +4,8 @@ export interface Category {
 }
 
 export async function useCategories() {
-  return await $fetch<Category[]>('/api/categories/list');
+  const supabase = useSupabaseClient();
+  const {data, error} = await supabase.from('categories').select('*');
+  if (error) throw error;
+  return data as Category[];
 }
