@@ -7,6 +7,8 @@ fonti:
   - raw/compiled/study-current-state/2026-10-27-risposte.md
   - raw/compiled/supabase-local/2026-10-27-note-lavoro.md
   - raw/compiled/starting-point/2026-10-27-decisioni-db.md
+  - raw/compiled/study-flows/2026-10-27-risposte-copia-stato.md
+  - raw/compiled/study-flows/2026-10-27-modifica-cancellazione.md
 ---
 
 # Condivisione
@@ -18,7 +20,8 @@ Chi vede gli itinerari e i viaggi degli altri, e cosa si può copiare.
 - Per ora è **tutto visibile e copiabile tra gli utenti registrati**: ogni utente loggato legge tutti gli itinerari.
 - **Solo il proprietario** (chi ha creato l'itinerario) lo modifica o lo cancella.
 - **Chi non ha fatto il login non vede niente**, nemmeno il dettaglio di un itinerario: un link condiviso porta al login.
-- Quando si copia, si portano solo **luoghi, spostamenti e attività**. Le **foto** e le **valorizzazioni** (prezzi reali, spese) non si copiano.
+- Si copia solo lo **scheletro** (giorni, luoghi, attività), sia da un itinerario proprio sia da quello di un altro utente. Le **foto**, i **prezzi** e i **momenti** non si copiano: vedi [Itinerario e viaggio](./itinerario-e-viaggio.md).
+- **Copia** è disponibile a tutti gli utenti registrati; **Modifica** ed **Elimina** compaiono solo al proprietario ([Flussi dell'itinerario](./flussi.md)).
 - Eccezione consapevole: le **foto** del bucket sono raggiungibili da chiunque abbia l'URL, vedi [Foto](./foto.md).
 
 Policy nel database: [Database](../tecnico/supabase/database.md).
@@ -30,5 +33,4 @@ Policy nel database: [Database](../tecnico/supabase/database.md).
 
 ## Domande aperte
 
-- Da un viaggio di un altro utente si copia il suo itinerario di partenza o il viaggio "ripulito"? Vedi [Itinerario e viaggio](./itinerario-e-viaggio.md).
 - Quali parti potranno diventare private (note, spese, foto, l'intero viaggio)?
