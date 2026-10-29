@@ -3,7 +3,7 @@
     v-model:open="open"
     :title="title"
     :description="description"
-    :ui="{content: 'max-w-[420px]', overlay: 'bg-inverted/45'}"
+    :ui="{content: 'max-w-[420px] divide-y-0', overlay: 'bg-inverted/45'}"
   >
     <template #content>
       <div class="flex gap-3 p-4 pb-0">

@@ -172,6 +172,35 @@
   box-shadow: var(--shadow-sm);
 }
 
+.map-pin--muted {
+  background: var(--ui-bg-accented);
+  color: var(--ui-text-muted);
+  box-shadow: none;
+}
+
+.map-activity {
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 9999px;
+  background: var(--ui-bg);
+  color: var(--ui-text-toned);
+  border: 2px solid var(--ui-primary);
+}
+
+.leaflet-container .leaflet-control-attribution {
+  line-height: 1.3;
+}
+
+.map-route {
+  stroke: var(--ui-primary);
+}
+
+.map-route--muted {
+  stroke: var(--ui-border-accented);
+}
+
 .map-pin--active {
   width: 36px;
   height: 36px;

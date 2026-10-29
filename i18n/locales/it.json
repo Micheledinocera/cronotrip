@@ -3,7 +3,7 @@
   "welcome": "Benvenuto su ",
   "login": "Accedi",
   "moments": {
-    "any": "Moments",
+    "any": "Momenti",
     "trekking": "Tappe",
     "food": "Menu",
     "museum": "Opere",
@@ -41,7 +41,7 @@
     "copy_failed": "Non è stato possibile copiare l'itinerario",
     "delete": "Elimina",
     "delete_title": "Eliminare l'itinerario?",
-    "delete_description": "\"{name}\" verrà eliminato definitivamente. Le sue copie restano.",
+    "delete_description": "«{name}» verrà eliminato definitivamente. Le sue copie restano.",
     "delete_failed": "Non è stato possibile eliminare l'itinerario",
     "fields": {
       "name": "Nome",
@@ -69,7 +69,9 @@
       "add_position": "Aggiungi posizione",
       "remove_position": "Togli posizione"
     },
-    "copy_suffix": "(copia)"
+    "copy_suffix": "(copia)",
+    "more_actions": "Altre azioni",
+    "copy_description": "«{name}» è tra i tuoi itinerari."
   },
   "form": {
     "move_before": "Sposta prima",
@@ -156,5 +158,26 @@
     "no_results_description": "Prova un'altra parola, o guarda tra gli itinerari degli altri.",
     "clear_search": "Cancella la ricerca",
     "load_failed": "Non è stato possibile caricare i viaggi"
+  },
+  "view": {
+    "days": "Giorni",
+    "next_day": "Giorno {n}: {subtitle}",
+    "enlarge_map": "Ingrandisci la mappa di {name}",
+    "trip_button": "Il viaggio · Giorno {n}",
+    "trip_title": "Il viaggio",
+    "places": "{n} luogo | {n} luoghi",
+    "activities": "{n} attività | {n} attività",
+    "whole_trip": "Tutto il viaggio",
+    "whole_trip_hint": "Tutto il viaggio · tocca un giorno per evidenziarlo",
+    "close": "Chiudi",
+    "not_found": "Itinerario non trovato"
+  },
+  "gallery": {
+    "title": "Galleria del viaggio",
+    "counter": "{i} di {n}",
+    "previous": "Foto precedente",
+    "next": "Foto successiva",
+    "close": "Chiudi la galleria",
+    "photo_of": "Foto di {name}"
   }
 }

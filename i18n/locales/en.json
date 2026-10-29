@@ -32,7 +32,7 @@
     "copy_failed": "The itinerary could not be copied",
     "delete": "Delete",
     "delete_title": "Delete the itinerary?",
-    "delete_description": "\"{name}\" will be deleted for good. Its copies stay.",
+    "delete_description": "«{name}» will be deleted for good. Its copies stay.",
     "delete_failed": "The itinerary could not be deleted",
     "fields": {
       "name": "Name",
@@ -60,7 +60,9 @@
       "add_position": "Add position",
       "remove_position": "Remove position"
     },
-    "copy_suffix": "(copy)"
+    "copy_suffix": "(copy)",
+    "more_actions": "More actions",
+    "copy_description": "«{name}» is among your itineraries."
   },
   "form": {
     "move_before": "Move before",
@@ -156,5 +158,26 @@
     "no_results_description": "Try another word, or look among the others’ itineraries.",
     "clear_search": "Clear the search",
     "load_failed": "Could not load the trips"
+  },
+  "view": {
+    "days": "Days",
+    "next_day": "Day {n}: {subtitle}",
+    "enlarge_map": "Enlarge the map of {name}",
+    "trip_button": "The trip · Day {n}",
+    "trip_title": "The trip",
+    "places": "{n} place | {n} places",
+    "activities": "{n} activity | {n} activities",
+    "whole_trip": "The whole trip",
+    "whole_trip_hint": "The whole trip · tap a day to highlight it",
+    "close": "Close",
+    "not_found": "Itinerary not found"
+  },
+  "gallery": {
+    "title": "Trip gallery",
+    "counter": "{i} of {n}",
+    "previous": "Previous photo",
+    "next": "Next photo",
+    "close": "Close the gallery",
+    "photo_of": "Photo of {name}"
   }
 }
