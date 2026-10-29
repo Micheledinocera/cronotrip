@@ -1,12 +1,14 @@
 {
   "name": "Umbria Trip",
-  "photos": ["https://picsum.photos/id/93/200/300"],
-  "short_desc": "Trip to Umbria and surrounding areas, including Marmore Falls.",
+  "photos": [
+    "Marmore/Fine/photo_2025-10-26_16-40-02.jpg"
+  ],
+  "short_desc": "Molise, Abruzzo, Marmore e Bassano in Teverina",
   "desc": "A three-day trip from September 19 to September 21, 2025, exploring destinations like Carpinone, Pescasseroli, Marmore Falls, and Bassano in Teverina.",
   "duration": 3,
   "days": [
     {
-      "subtitle": "",
+      "subtitle": "Carpinone, Castel San Vincenzo e Pescasseroli",
       "places": [
         {
           "name": "Carpinone",
@@ -30,7 +32,6 @@
                 "lat": 41.565,
                 "lng": 14.3645
               },
-              "prezzo": 0,
               "moments": [
                 {
                   "name": "Inizio",
@@ -55,7 +56,8 @@
                     "lng": 14.3254782
                   }
                 }
-              ]
+              ],
+              "price": 0
             },
             {
               "name": "Pranzo al sacco",
@@ -65,8 +67,8 @@
                 "lat": 41.5651,
                 "lng": 14.3646
               },
-              "prezzo": 0,
-              "photos": []
+              "photos": [],
+              "price": 0
             }
           ]
         },
@@ -113,7 +115,6 @@
                 "lat": 41.8082,
                 "lng": 13.9115
               },
-              "prezzo": 50,
               "moments": [
                 {
                   "name": "Funghi e Tartufo",
@@ -140,6 +141,28 @@
                     "Pescasseroli/pescasseroli%207.jpg"
                   ]
                 }
+              ],
+              "price": 50
+            },
+            {
+              "name": "Albergo nel centro",
+              "desc": "Pernottamento a Pescasseroli, colazione inclusa.",
+              "category": "accommodation",
+              "coordinates": {
+                "lat": 41.8079,
+                "lng": 13.9111
+              },
+              "price": 90,
+              "photos": [
+                "Pescasseroli/pescasseroli%206.jpg"
+              ],
+              "moments": [
+                {
+                  "name": "Colazione",
+                  "photos": [
+                    "Pescasseroli/pescasseroli%206.jpg"
+                  ]
+                }
               ]
             }
           ]
@@ -147,11 +170,13 @@
       ]
     },
     {
-      "subtitle": "",
+      "subtitle": "Cascate delle Marmore e Bassano in Teverina",
       "places": [
         {
           "name": "Cascate delle Marmore",
-          "photos": ["https://picsum.photos/id/106/400/400"],
+          "photos": [
+            "Marmore/Fine/photo_2025-10-26_16-40-03.jpg"
+          ],
           "coordinates": {
             "lat": 42.5562,
             "lng": 12.7128
@@ -169,8 +194,55 @@
                 "lat": 42.5563,
                 "lng": 12.7129
               },
-              "prezzo": 15,
-              "photos": ["https://picsum.photos/id/107/400/400"]
+              "price": 15,
+              "photos": [
+                "Marmore/Fine/photo_2025-10-26_16-40-02.jpg"
+              ],
+              "moments": [
+                {
+                  "name": "Inizio",
+                  "desc": "Partenza dal piazzale e primo tratto del sentiero",
+                  "photos": [
+                    "Marmore/Inizio/photo_2025-10-26_16-39-29.jpg",
+                    "Marmore/Inizio/photo_2025-10-26_16-39-33.jpg",
+                    "Marmore/Inizio/photo_2025-10-26_16-39-34.jpg",
+                    "Marmore/Inizio/photo_2025-10-26_16-39-47.jpg"
+                  ]
+                },
+                {
+                  "name": "Salita",
+                  "desc": "Panorama sulla valle durante la salita",
+                  "photos": [
+                    "Marmore/Salita/photo_2025-10-26_16-39-48.jpg",
+                    "Marmore/Salita/photo_2025-10-26_16-39-49.jpg"
+                  ]
+                },
+                {
+                  "name": "Discesa",
+                  "desc": "La cascata vista dai belvedere lungo la discesa",
+                  "photos": [
+                    "Marmore/Discesa/photo_2025-10-26_16-39-53.jpg",
+                    "Marmore/Discesa/photo_2025-10-26_16-39-54.jpg",
+                    "Marmore/Discesa/photo_2025-10-26_16-40-04.jpg",
+                    "Marmore/Discesa/photo_2025-10-26_16-40-14.jpg",
+                    "Marmore/Discesa/photo_2025-10-26_16-40-15.jpg",
+                    "Marmore/Discesa/photo_2025-10-26_16-40-17.jpg",
+                    "Marmore/Discesa/photo_2025-10-26_16-40-19.jpg",
+                    "Marmore/Discesa/photo_2025-10-26_16-40-20.jpg"
+                  ]
+                },
+                {
+                  "name": "Fine",
+                  "desc": "Piazzale Byron e il belvedere inferiore",
+                  "photos": [
+                    "Marmore/Fine/photo_2025-10-26_16-40-02.jpg",
+                    "Marmore/Fine/photo_2025-10-26_16-40-03.jpg",
+                    "Marmore/Fine/photo_2025-10-26_16-40-21.jpg",
+                    "Marmore/Fine/photo_2025-10-26_16-40-22.jpg",
+                    "Marmore/Fine/photo_2025-10-26_16-40-25.jpg"
+                  ]
+                }
+              ]
             },
             {
               "name": "Pranzo",
@@ -180,14 +252,27 @@
                 "lat": 42.5564,
                 "lng": 12.713
               },
-              "prezzo": 10,
-              "photos": []
+              "photos": [],
+              "price": 10,
+              "moments": [
+                {
+                  "name": "Negozio di souvenir",
+                  "photos": [
+                    "Marmore/pranzo/photo_2025-10-26_16-39-47%20(2).jpg",
+                    "Marmore/pranzo/photo_2025-10-26_16-39-50.jpg",
+                    "Marmore/pranzo/photo_2025-10-26_16-39-52%20(2).jpg",
+                    "Marmore/pranzo/photo_2025-10-26_16-39-52.jpg"
+                  ]
+                }
+              ]
             }
           ]
         },
         {
           "name": "Bassano in Teverina",
-          "photos": ["https://picsum.photos/id/108/400/400"],
+          "photos": [
+            "Bassano/photo_2025-10-26_16-40-05%20(2).jpg"
+          ],
           "coordinates": {
             "lat": 42.4172,
             "lng": 12.2706
@@ -205,8 +290,10 @@
                 "lat": 42.4173,
                 "lng": 12.2707
               },
-              "prezzo": 86.4,
-              "photos": ["https://picsum.photos/id/109/400/400"]
+              "photos": [
+                "Bassano/photo_2025-10-26_16-40-05%20(2).jpg"
+              ],
+              "price": 86.4
             },
             {
               "name": "Ristorante Borgo Antico",
@@ -220,8 +307,154 @@
                 "lat": 42.4174,
                 "lng": 12.2708
               },
-              "prezzo": 50,
-              "photos": ["https://picsum.photos/id/110/400/400"]
+              "photos": [
+                "Bassano/photo_2025-10-26_16-40-06.jpg"
+              ],
+              "price": 50,
+              "moments": [
+                {
+                  "name": "Tagliolini",
+                  "photos": [
+                    "Bassano/photo_2025-10-26_16-40-06.jpg"
+                  ]
+                },
+                {
+                  "name": "Pappardelle",
+                  "photos": [
+                    "Bassano/photo_2025-10-26_16-40-07.jpg"
+                  ]
+                },
+                {
+                  "name": "Secondo di carne",
+                  "photos": [
+                    "Bassano/photo_2025-10-26_16-40-08.jpg"
+                  ]
+                },
+                {
+                  "name": "Tagliata con verdure",
+                  "photos": [
+                    "Bassano/photo_2025-10-26_16-40-09.jpg"
+                  ]
+                },
+                {
+                  "name": "Cheesecake",
+                  "photos": [
+                    "Bassano/photo_2025-10-26_16-40-10.jpg"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "subtitle": "Lago di Bolsena e Orvieto",
+      "places": [
+        {
+          "name": "Lago di Bolsena",
+          "photos": [
+            "photo_2025-10-26_16-40-05.jpg"
+          ],
+          "coordinates": {
+            "lat": 42.6447,
+            "lng": 11.9862
+          },
+          "events": [
+            {
+              "name": "Passeggiata sul lungolago",
+              "desc": "Giro a piedi sul lungolago di Bolsena, con sosta sulla spiaggia.",
+              "category": "any",
+              "coordinates": {
+                "lat": 42.6431,
+                "lng": 11.9839
+              },
+              "price": 0,
+              "photos": [
+                "photo_2025-10-26_16-40-05.jpg"
+              ],
+              "moments": [
+                {
+                  "name": "L'acqua più limpida",
+                  "photos": [
+                    "photo_2025-10-26_16-40-05.jpg"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Orvieto",
+          "coordinates": {
+            "lat": 42.7185,
+            "lng": 12.1107
+          },
+          "events": [
+            {
+              "name": "Museo dell'Opera del Duomo",
+              "desc": "Visita al museo e alla Cappella di San Brizio con gli affreschi di Signorelli.",
+              "category": "museum",
+              "link": {
+                "label": "Sito",
+                "url": "https://www.museomodo.it/"
+              },
+              "coordinates": {
+                "lat": 42.717,
+                "lng": 12.1133
+              },
+              "price": 5,
+              "moments": [
+                {
+                  "name": "Cappella di San Brizio",
+                  "desc": "Gli affreschi del Giudizio Universale."
+                },
+                {
+                  "name": "Pozzo di San Patrizio",
+                  "desc": "Discesa lungo la scala a doppia elica.",
+                  "price": 5
+                }
+              ]
+            },
+            {
+              "name": "Trattoria in centro",
+              "desc": "Pranzo con piatti umbri.",
+              "category": "food",
+              "coordinates": {
+                "lat": 42.7189,
+                "lng": 12.1098
+              },
+              "price": 35,
+              "moments": [
+                {
+                  "name": "Umbrichelli al tartufo",
+                  "price": 14
+                },
+                {
+                  "name": "Cinghiale in umido",
+                  "price": 16
+                }
+              ]
+            },
+            {
+              "name": "Concerto in piazza del Duomo",
+              "desc": "Concerto serale di musica jazz davanti al Duomo.",
+              "category": "concert",
+              "coordinates": {
+                "lat": 42.7174,
+                "lng": 12.113
+              },
+              "price": 20,
+              "moments": [
+                {
+                  "name": "Primo set",
+                  "desc": "Standard jazz in quartetto."
+                },
+                {
+                  "name": "Bis",
+                  "desc": "Chiusura con tutto il pubblico in piedi."
+                }
+              ]
             }
           ]
         }
