@@ -9,7 +9,8 @@ export const SHORT_DESC_MAX = 50;
 // Messages are functions, so they follow the current locale.
 export const buildItinerarySchema = (t: Translate) => {
   const required = () => t('form.errors.required');
-  const text = () => z.string().trim().min(1, {error: required});
+  // a required text, with a message that says what is missing (form.errors.<key>)
+  const text = (key?: string) => z.string().trim().min(1, {error: key ? () => t(`form.errors.${key}`) : required});
   const optionalText = () =>
     z
       .string()
@@ -31,28 +32,28 @@ export const buildItinerarySchema = (t: Translate) => {
     .transform((link) => (link.url ? {label: link.label || link.url, url: link.url} : undefined));
 
   const activity = z.looseObject({
-    name: text(),
-    category: text(),
+    name: text('activity_name'),
+    category: text('category'),
     desc: optionalText(),
     link: link.optional(),
     coordinates: coordinates().optional(),
   });
 
   const place = z.looseObject({
-    name: text(),
+    name: text('place_name'),
     coordinates: coordinates(() => t('form.errors.position_required')),
     events: z.array(activity),
   });
 
   const day = z.looseObject({
-    subtitle: text(),
+    subtitle: text('subtitle'),
     places: z.array(place),
   });
 
   return z.looseObject({
-    name: text(),
-    short_desc: text().max(SHORT_DESC_MAX, {error: () => t('form.errors.max_length', {max: SHORT_DESC_MAX})}),
-    desc: text(),
+    name: text('name'),
+    short_desc: text('short_desc').max(SHORT_DESC_MAX, {error: () => t('form.errors.max_length', {max: SHORT_DESC_MAX})}),
+    desc: text('desc'),
     status: text(),
     days: z.array(day).min(1, {error: () => t('form.errors.at_least_one_day')}),
   });

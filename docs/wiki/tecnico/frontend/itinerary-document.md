@@ -39,7 +39,7 @@ DBItinerary            row of table itineraries
 
 ## Mock data
 
-`public/` holds mock itineraries (`umbria.json`, `itinerari.json`, `itinerario1-3.json`) and categories (`categorie.json`). The dashboard has a commented-out button that saves `umbria.json` to the database.
+`public/` holds mock itineraries (`umbria.json`, `itinerari.json`, `itinerario1-3.json`) and categories (`categorie.json`).
 
 `umbria.json` (Umbria Trip) is the complete example: three days with photos of the local copy of the bucket at every level, prices (`price`), moments and every category. Days 1 and 2 come from a real trip; day 3 (Lake Bolsena and Orvieto) and the hotel in Pescasseroli are made up, to cover the `museum`, `concert` and `accommodation` activities.
 

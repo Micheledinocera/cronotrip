@@ -9,6 +9,8 @@ fonti:
   - raw/compiled/study-design-system/2026-10-29-obiettivo.md
   - raw/compiled/study-design-system/2026-10-29-proposta-design-system.md
   - raw/compiled/study-design-system/2026-10-29-scelte-e-mappe.md
+  - raw/compiled/ui/2026-10-29-token.md
+  - raw/compiled/ui/2026-10-29-componenti.md
 ---
 
 # Identità visiva
@@ -17,7 +19,7 @@ Come appare Cronotrip: sensazione, colori, font, logo, tono, icone, foto. Il rif
 
 ## Com'è oggi
 
-Nessuna identità nel codice: componenti Nuxt UI quasi di default, primario blu nel chiaro e verde nello scuro, niente logo né font. Il design system qui sotto è deciso ma non ancora implementato. Gli screenshot dell'app prima del redesign sono in `docs/raw/compiled/study-design-brief/screenshots/`.
+Il design system qui sotto è implementato: token (palette, variabili `--ui-*` per chiaro e scuro, font, stili di testo, ombre) e componenti condivisi (logo, badge dello stato, icone delle categorie, card, foto, modali, barra e menu utente). Come sono fatti nel codice: [Design system](../tecnico/frontend/design-system.md). Gli screenshot dell'app prima del redesign sono in `docs/raw/compiled/study-design-brief/screenshots/`.
 
 ## Cosa è deciso
 
@@ -79,4 +81,5 @@ Il design system è espresso nei termini di **Nuxt UI 4 e Tailwind 4**: i token 
 
 ## Domande aperte
 
+- I messaggi d'errore sotto i campi del form sono solo testo: il design system li vuole con un'icona, che il `UFormField` di Nuxt UI non mette.
 - Le icone PNG della PWA (192, 512, *maskable*) vanno esportate dagli SVG del design system quando si fa la [PWA](../architettura/pwa.md).

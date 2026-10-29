@@ -1,3 +1,5 @@
+import type { InjectionKey } from 'vue';
+
 // Empty items for the itinerary form. Links are always there as an object, so that the form
 // can bind to them; the schema drops the empty ones on save.
 export const emptyActivity = (): Activity => ({
@@ -23,3 +25,7 @@ export const toFormState = (itinerary: Itinerary): Itinerary => {
     }
   return state;
 };
+
+// Provided by the itinerary form: whether a field under a path (e.g. "days.1.places.0") has an
+// error, so that closed panels and the day list can show it
+export const FORM_ERRORS: InjectionKey<(path: string) => boolean> = Symbol('formErrors');

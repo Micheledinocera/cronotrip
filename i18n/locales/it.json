@@ -3,7 +3,7 @@
   "welcome": "Benvenuto su ",
   "login": "Accedi",
   "moments": {
-    "any": "Moments",
+    "any": "Momenti",
     "trekking": "Tappe",
     "food": "Menu",
     "museum": "Opere",
@@ -13,7 +13,8 @@
   },
   "common": {
     "cancel": "Annulla",
-    "loading": "Caricamento..."
+    "loading": "Caricamento...",
+    "days": "{n} giorno | {n} giorni"
   },
   "statuses": {
     "planning": "In programmazione",
@@ -25,20 +26,22 @@
     "food": "Cibo",
     "museum": "Museo",
     "concert": "Concerto",
-    "any": "Altro"
+    "any": "Altro",
+    "sightseeing": "Visita",
+    "accommodation": "Alloggio"
   },
   "itinerary": {
     "new_title": "Nuovo itinerario",
     "edit_title": "Modifica itinerario",
     "create": "Crea itinerario",
-    "save": "Salva",
+    "save": "Salva modifiche",
     "edit": "Modifica",
     "copy": "Copia",
     "copied": "Copia creata",
     "copy_failed": "Non è stato possibile copiare l'itinerario",
     "delete": "Elimina",
     "delete_title": "Eliminare l'itinerario?",
-    "delete_description": "\"{name}\" verrà eliminato definitivamente. Le sue copie restano.",
+    "delete_description": "«{name}» verrà eliminato definitivamente. Le sue copie restano.",
     "delete_failed": "Non è stato possibile eliminare l'itinerario",
     "fields": {
       "name": "Nome",
@@ -51,7 +54,7 @@
       "activity_name": "Nome dell'attività",
       "category": "Categoria",
       "link_label": "Testo del link",
-      "link_url": "Link",
+      "link_url": "Indirizzo del link",
       "header_photo": "Foto di intestazione"
     },
     "form": {
@@ -59,14 +62,36 @@
       "day_n": "Giorno {n}",
       "add_day": "Aggiungi un giorno",
       "place_n": "Luogo {n}",
-      "add_place": "Aggiungi luogo",
+      "add_place": "Aggiungi un luogo",
       "activities": "Attività",
       "activity_n": "Attività {n}",
-      "add_activity": "Aggiungi attività",
-      "add_position": "Aggiungi posizione",
-      "remove_position": "Togli posizione"
+      "add_activity": "Aggiungi un'attività",
+      "add_position": "Aggiungi una posizione (facoltativa)",
+      "remove_position": "Togli posizione",
+      "general": "Dati generali",
+      "reorder_hint": "Trascina per riordinare",
+      "no_subtitle": "Senza sottotitolo",
+      "remove_day": "Rimuovi il giorno",
+      "places": "Luoghi",
+      "new_place": "Nuovo luogo",
+      "new_activity": "Nuova attività",
+      "short_desc_help": "Si vede sotto il nome, nelle card.",
+      "no_places": "Ancora nessun luogo in questo giorno.",
+      "placeholders": {
+        "name": "Es. Umbria Trip",
+        "short_desc": "Dove, in poche parole",
+        "desc": "Il racconto del viaggio",
+        "subtitle": "Es. Carpinone, Castel San Vincenzo e Pescasseroli",
+        "place_name": "Es. Carpinone",
+        "activity_name": "Es. Cascata dello Schioppo",
+        "category": "Scegli una categoria",
+        "link_label": "Es. TripAdvisor",
+        "link_url": "https://…"
+      }
     },
-    "copy_suffix": "(copia)"
+    "copy_suffix": "(copia)",
+    "more_actions": "Altre azioni",
+    "copy_description": "«{name}» è tra i tuoi itinerari."
   },
   "form": {
     "move_before": "Sposta prima",
@@ -75,10 +100,11 @@
     "unsaved_changes": "Ci sono modifiche non salvate: se esci potresti perdere i dati. Vuoi uscire?",
     "location": {
       "search": "Cerca",
-      "search_placeholder": "Cerca un luogo per nome",
+      "search_placeholder": "Cerca un posto per nome",
       "hint": "Clicca sulla mappa per scegliere o spostare il punto.",
       "no_results": "Nessun luogo trovato",
-      "search_error": "Ricerca non riuscita, riprova tra poco"
+      "search_error": "Ricerca non riuscita, riprova tra poco",
+      "empty": "Cerca un posto o clicca sulla mappa"
     },
     "errors": {
       "required": "Campo obbligatorio",
@@ -86,15 +112,106 @@
       "invalid_url": "Link non valido (deve iniziare con http:// o https://)",
       "position_required": "Scegli la posizione sulla mappa",
       "at_least_one_day": "Serve almeno un giorno",
-      "check_fields": "Controlla i campi evidenziati",
-      "save_failed": "Salvataggio non riuscito"
+      "check_fields": "C'è qualcosa da sistemare",
+      "save_failed": "Salvataggio non riuscito",
+      "check_day": "Controlla il Giorno {n}.",
+      "check_general": "Controlla i dati generali.",
+      "name": "Serve un nome per l'itinerario",
+      "short_desc": "Serve una descrizione breve",
+      "desc": "Serve una descrizione",
+      "subtitle": "Serve un sottotitolo per il giorno",
+      "place_name": "Serve un nome per il luogo",
+      "activity_name": "Serve un nome per l'attività",
+      "category": "Scegli una categoria"
     },
     "photo": {
       "add": "Carica foto",
-      "change": "Cambia foto",
-      "remove": "Togli foto",
+      "change": "Cambia",
+      "remove": "Togli",
       "not_an_image": "Il file scelto non è un'immagine",
       "too_large": "La foto supera i {max} MB"
-    }
+    },
+    "drag": "Trascina, o usa le frecce su e giù, per spostare",
+    "expand": "Apri {name}",
+    "collapse": "Chiudi {name}",
+    "remove_named": "Rimuovi {name}"
+  },
+  "nav": {
+    "new_itinerary": "Nuovo itinerario",
+    "user_menu": "Menu utente"
+  },
+  "menu": {
+    "language": "Lingua",
+    "theme": "Tema",
+    "theme_light": "Chiaro",
+    "theme_dark": "Scuro",
+    "theme_system": "Sistema",
+    "version": "Versione {v}",
+    "logout": "Esci"
+  },
+  "photo": {
+    "more": "Altre {n} foto",
+    "open": "Apri la foto"
+  },
+  "map": {
+    "enlarge": "Ingrandisci"
+  },
+  "confirm": {
+    "unsaved_title": "Uscire senza salvare?",
+    "unsaved_description": "Se esci perdi le modifiche.",
+    "stay": "Resta",
+    "leave": "Esci"
+  },
+  "auth": {
+    "tagline": "Il diario e il programma dei viaggi, in un posto solo.",
+    "photo_caption": "Lago di Castel San Vincenzo · Umbria Trip, Giorno 1",
+    "photo_alt": "Il lago di Castel San Vincenzo, con la rocca sullo sfondo",
+    "title": "Dove si va?",
+    "subtitle": "Entra per vedere i tuoi viaggi e quelli degli amici.",
+    "email": "Email",
+    "password": "Password",
+    "show_password": "Mostra la password",
+    "hide_password": "Nascondi la password",
+    "submit": "Entra",
+    "submitting": "Entro…",
+    "error_title": "Email o password non tornano.",
+    "error_description": "Riprova, occhio alle maiuscole.",
+    "no_account": "Non hai un account? Chiedilo a chi gestisce Cronotrip."
+  },
+  "dashboard": {
+    "title": "I tuoi viaggi",
+    "owner_filter": "Di chi",
+    "mine": "I miei",
+    "others": "Degli altri",
+    "search": "Cerca per nome o descrizione",
+    "empty_title": "Nessun viaggio, per ora",
+    "empty_description": "Il primo itinerario parte da qui: giorni, luoghi e cose da fare.",
+    "empty_action": "Dove si va?",
+    "others_empty": "Nessun itinerario degli altri, per ora.",
+    "no_results_title": "Niente con «{q}»",
+    "no_results_description": "Prova un'altra parola, o guarda tra gli itinerari degli altri.",
+    "clear_search": "Cancella la ricerca",
+    "load_failed": "Non è stato possibile caricare i viaggi"
+  },
+  "view": {
+    "days": "Giorni",
+    "next_day": "Giorno {n}: {subtitle}",
+    "enlarge_map": "Ingrandisci la mappa di {name}",
+    "trip_button": "Il viaggio · Giorno {n}",
+    "trip_title": "Il viaggio",
+    "places": "{n} luogo | {n} luoghi",
+    "activities": "{n} attività | {n} attività",
+    "whole_trip": "Tutto il viaggio",
+    "whole_trip_hint": "Tutto il viaggio · tocca un giorno per evidenziarlo",
+    "close": "Chiudi",
+    "not_found": "Itinerario non trovato"
+  },
+  "gallery": {
+    "title": "Galleria del viaggio",
+    "counter": "{i} di {n}",
+    "previous": "Foto precedente",
+    "next": "Foto successiva",
+    "close": "Chiudi la galleria",
+    "photo_of": "Foto di {name}"
   }
 }

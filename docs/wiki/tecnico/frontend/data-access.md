@@ -6,6 +6,7 @@ fonti:
   - raw/compiled/starting-point/2026-10-27-chiavi-e-foto.md
   - raw/compiled/itinerary-flow/2026-10-29-implementazione.md
   - raw/compiled/itinerary-flow/2026-10-29-task1.md
+  - raw/compiled/ui/2026-10-29-schermate.md
 ---
 
 # Data access
@@ -22,7 +23,8 @@ The app reads and writes Supabase directly from the browser with `useSupabaseCli
 | | `copyItinerary(itinerary, name)` | inserts a skeleton copy |
 | | `deleteItinerary(id)` | deletes the photos folder, then the row |
 
-- Rows are turned into `Itinerary` objects by `toItinerary()`: `id`, `name`, `status`, `owner_id` and `copied_from` come from the columns, the rest from `document`. On save `toRow()` takes them out of the document (`owner_id` is never written: it defaults to the signed-in user).
+- Every query on `itineraries` selects `*, owner:profiles(display_name)` (`ITINERARY_SELECT`): the owner's name comes with the row.
+- Rows are turned into `Itinerary` objects by `toItinerary()`: `id`, `name`, `status`, `owner_id` and `copied_from` come from the columns, `owner_name` from the profile, the rest from `document`. On save `toRow()` takes them out of the document (`owner_id` is never written: it defaults to the signed-in user).
 - **Skeleton copy**: `toSkeleton()` keeps a whitelist of fields (descriptions, day subtitles, places with name and coordinates, activities with name, category, description, link, coordinates), so photos, prices, moments, day dates and unknown fields are left out. The copy gets `status` `planning` (`DEFAULT_STATUS`) and `copied_from` = the original.
 - **Photos** uploaded from the app go to the bucket `Photos` at `<owner_id>/<itinerary_id>/<uuid>.<ext>` ([Foto](../../viaggi/foto.md)). `saveItinerary()`:
   1. keeps only the parked photos still referenced by the document (`parked:<uuid>`, see [Itinerary form](./itinerary-form.md));
