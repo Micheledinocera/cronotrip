@@ -19,8 +19,6 @@ Le decisioni ancora `aperta` o `in analisi`. Quelle prese sono negli indici dell
 |---|---|---|
 | [Condivisione](./viaggi/condivisione.md) | Viaggi | in analisi |
 | [Foto](./viaggi/foto.md) | Viaggi | in analisi |
-| [Identità visiva](./design/identita-visiva.md) | Design | in analisi |
-| [Schermate](./design/schermate.md) | Design | in analisi |
 | [Modello dati](./architettura/modello-dati.md) | Architettura | in analisi |
 | [PWA](./architettura/pwa.md) | Architettura | aperta |
 | [Skill per il rilascio](./progetto/skill-rilascio.md) | Progetto | in analisi |
