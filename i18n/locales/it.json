@@ -125,5 +125,36 @@
     "unsaved_description": "Se esci perdi le modifiche.",
     "stay": "Resta",
     "leave": "Esci"
+  },
+  "auth": {
+    "tagline": "Il diario e il programma dei viaggi, in un posto solo.",
+    "photo_caption": "Lago di Castel San Vincenzo · Umbria Trip, Giorno 1",
+    "photo_alt": "Il lago di Castel San Vincenzo, con la rocca sullo sfondo",
+    "title": "Dove si va?",
+    "subtitle": "Entra per vedere i tuoi viaggi e quelli degli amici.",
+    "email": "Email",
+    "password": "Password",
+    "show_password": "Mostra la password",
+    "hide_password": "Nascondi la password",
+    "submit": "Entra",
+    "submitting": "Entro…",
+    "error_title": "Email o password non tornano.",
+    "error_description": "Riprova, occhio alle maiuscole.",
+    "no_account": "Non hai un account? Chiedilo a chi gestisce Cronotrip."
+  },
+  "dashboard": {
+    "title": "I tuoi viaggi",
+    "owner_filter": "Di chi",
+    "mine": "I miei",
+    "others": "Degli altri",
+    "search": "Cerca per nome o descrizione",
+    "empty_title": "Nessun viaggio, per ora",
+    "empty_description": "Il primo itinerario parte da qui: giorni, luoghi e cose da fare.",
+    "empty_action": "Dove si va?",
+    "others_empty": "Nessun itinerario degli altri, per ora.",
+    "no_results_title": "Niente con «{q}»",
+    "no_results_description": "Prova un'altra parola, o guarda tra gli itinerari degli altri.",
+    "clear_search": "Cancella la ricerca",
+    "load_failed": "Non è stato possibile caricare i viaggi"
   }
 }

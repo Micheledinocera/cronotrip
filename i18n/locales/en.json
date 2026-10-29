@@ -125,5 +125,36 @@
     "unsaved_description": "If you leave, your changes are lost.",
     "stay": "Stay",
     "leave": "Leave"
+  },
+  "auth": {
+    "tagline": "The diary and the plan of your trips, in one place.",
+    "photo_caption": "Lake of Castel San Vincenzo · Umbria Trip, Day 1",
+    "photo_alt": "The lake of Castel San Vincenzo, with the fortress in the background",
+    "title": "Where to?",
+    "subtitle": "Log in to see your trips and your friends’ ones.",
+    "email": "Email",
+    "password": "Password",
+    "show_password": "Show the password",
+    "hide_password": "Hide the password",
+    "submit": "Log in",
+    "submitting": "Logging in…",
+    "error_title": "Email or password don’t match.",
+    "error_description": "Try again, mind the capital letters.",
+    "no_account": "No account? Ask whoever runs Cronotrip."
+  },
+  "dashboard": {
+    "title": "Your trips",
+    "owner_filter": "Whose",
+    "mine": "Mine",
+    "others": "Others’",
+    "search": "Search by name or description",
+    "empty_title": "No trips, for now",
+    "empty_description": "Your first itinerary starts here: days, places and things to do.",
+    "empty_action": "Where to?",
+    "others_empty": "No itineraries from others, for now.",
+    "no_results_title": "Nothing for «{q}»",
+    "no_results_description": "Try another word, or look among the others’ itineraries.",
+    "clear_search": "Clear the search",
+    "load_failed": "Could not load the trips"
   }
 }
