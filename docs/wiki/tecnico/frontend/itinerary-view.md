@@ -27,3 +27,4 @@ The read-only page of an itinerary: `app/pages/itinerario/[id].vue`, for signed-
 ## Open questions
 
 - `Day.vue` maps every category to `Events/AnyMoments.vue`: the per-category components (`FoodMoments`, `TrekkingMoments`, `MuseumMoments`, `ConcertMoments`) exist but are not used.
+- `i18n/locales/it.json` has `moments.any` = "Moments", in English.
