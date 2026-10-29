@@ -10,7 +10,39 @@
           :src="getImageUrl(itinerary.photos[0])"
           :alt="itinerary.name"
         />
-        <h1 class="text-2xl mb-4">{{ itinerary.name }}</h1>
+        <h1 class="text-2xl mb-2">{{ itinerary.name }}</h1>
+        <div class="flex flex-wrap items-center gap-2 mb-4">
+          <UBadge :label="t(`statuses.${itinerary.status}`)" variant="subtle" />
+          <div class="flex-1" />
+          <UButton
+            v-if="isOwner"
+            :to="'/itinerario/modifica/' + itinerary.id"
+            :label="t('itinerary.edit')"
+            icon="i-lucide-pencil"
+            variant="outline"
+          />
+          <UButton
+            :label="t('itinerary.copy')"
+            icon="i-lucide-copy"
+            variant="outline"
+            :loading="copying"
+            @click="copy"
+          />
+          <UModal
+            v-if="isOwner"
+            v-model:open="deleteOpen"
+            :title="t('itinerary.delete_title')"
+            :description="t('itinerary.delete_description', { name: itinerary.name })"
+          >
+            <UButton :label="t('itinerary.delete')" icon="i-lucide-trash-2" color="error" variant="outline" />
+            <template #footer>
+              <div class="flex justify-end gap-2 w-full">
+                <UButton :label="t('common.cancel')" color="neutral" variant="ghost" @click="deleteOpen = false" />
+                <UButton :label="t('itinerary.delete')" color="error" :loading="deleting" @click="remove" />
+              </div>
+            </template>
+          </UModal>
+        </div>
         <div class="prose max-w-none">
           {{ itinerary.desc }}
         </div>
@@ -63,7 +95,7 @@
           </accordion>
         </div>
       </div>
-      <div v-else>Caricamento...</div>
+      <div v-else>{{ t('common.loading') }}</div>
     </div>
   </div>
 </template>
@@ -72,10 +104,49 @@
 let selectedDayIndex = ref<number>(0);
 let itinerary = ref<Itinerary | undefined>(undefined);
 let route=useRoute();
-const {getItineraryById}=await useItinerary();
+const {getItineraryById, copyItinerary, deleteItinerary}=await useItinerary();
 const {getImageUrl}=useSupabaseImages();
+const { t } = useI18n();
+const toast = useToast();
+const user = useSupabaseUser();
 
 itinerary.value = await getItineraryById(parseInt(route.params.id as string));
+
+// Edit and delete only for the owner, copy for every signed-in user (docs/wiki/viaggi/flussi.md)
+const isOwner = computed(() => !!user.value && itinerary.value?.owner_id === user.value.id);
+
+const copying = ref(false);
+const copy = async () => {
+  if (!itinerary.value) return;
+  copying.value = true;
+  try {
+    const copied = await copyItinerary(itinerary.value, `${itinerary.value.name} ${t('itinerary.copy_suffix')}`);
+    toast.add({ title: t('itinerary.copied'), color: 'success' });
+    await navigateTo('/itinerario/' + copied.id);
+  } catch (error) {
+    console.error(error);
+    toast.add({ title: t('itinerary.copy_failed'), color: 'error' });
+  } finally {
+    copying.value = false;
+  }
+};
+
+const deleteOpen = ref(false);
+const deleting = ref(false);
+const remove = async () => {
+  if (!itinerary.value?.id) return;
+  deleting.value = true;
+  try {
+    await deleteItinerary(itinerary.value.id);
+    deleteOpen.value = false;
+    await navigateTo('/dashboard', { replace: true });
+  } catch (error) {
+    console.error(error);
+    toast.add({ title: t('itinerary.delete_failed'), color: 'error' });
+  } finally {
+    deleting.value = false;
+  }
+};
 
 const { containerRef, registerDayElementRef, activeRef, placeRefs } = useDayScroll();
 

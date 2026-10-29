@@ -1,10 +1,100 @@
 {
   "app_name": "Chrono Tripper",
   "welcome": "Benvenuto su ",
-  "login":"Accedi",
-  "moments":{
-    "any":"Moments",
-    "trekking":"Tappe",
-    "food":"Menu"
+  "login": "Accedi",
+  "moments": {
+    "any": "Moments",
+    "trekking": "Tappe",
+    "food": "Menu",
+    "museum": "Opere",
+    "concert": "Scaletta",
+    "accommodation": "Momenti",
+    "sightseeing": "Momenti"
+  },
+  "common": {
+    "cancel": "Annulla",
+    "loading": "Caricamento..."
+  },
+  "statuses": {
+    "planning": "In programmazione",
+    "in_progress": "In corso",
+    "done": "Fatto"
+  },
+  "categories": {
+    "trekking": "Trekking",
+    "food": "Cibo",
+    "museum": "Museo",
+    "concert": "Concerto",
+    "any": "Altro"
+  },
+  "itinerary": {
+    "new_title": "Nuovo itinerario",
+    "edit_title": "Modifica itinerario",
+    "create": "Crea itinerario",
+    "save": "Salva",
+    "edit": "Modifica",
+    "copy": "Copia",
+    "copied": "Copia creata",
+    "copy_failed": "Non è stato possibile copiare l'itinerario",
+    "delete": "Elimina",
+    "delete_title": "Eliminare l'itinerario?",
+    "delete_description": "\"{name}\" verrà eliminato definitivamente. Le sue copie restano.",
+    "delete_failed": "Non è stato possibile eliminare l'itinerario",
+    "fields": {
+      "name": "Nome",
+      "status": "Stato",
+      "short_desc": "Descrizione breve",
+      "desc": "Descrizione",
+      "subtitle": "Sottotitolo",
+      "place_name": "Nome del luogo",
+      "position": "Posizione",
+      "activity_name": "Nome dell'attività",
+      "category": "Categoria",
+      "link_label": "Testo del link",
+      "link_url": "Link",
+      "header_photo": "Foto di intestazione"
+    },
+    "form": {
+      "days": "Giorni",
+      "day_n": "Giorno {n}",
+      "add_day": "Aggiungi un giorno",
+      "place_n": "Luogo {n}",
+      "add_place": "Aggiungi luogo",
+      "activities": "Attività",
+      "activity_n": "Attività {n}",
+      "add_activity": "Aggiungi attività",
+      "add_position": "Aggiungi posizione",
+      "remove_position": "Togli posizione"
+    },
+    "copy_suffix": "(copia)"
+  },
+  "form": {
+    "move_before": "Sposta prima",
+    "move_after": "Sposta dopo",
+    "remove": "Rimuovi",
+    "unsaved_changes": "Ci sono modifiche non salvate: se esci potresti perdere i dati. Vuoi uscire?",
+    "location": {
+      "search": "Cerca",
+      "search_placeholder": "Cerca un luogo per nome",
+      "hint": "Clicca sulla mappa per scegliere o spostare il punto.",
+      "no_results": "Nessun luogo trovato",
+      "search_error": "Ricerca non riuscita, riprova tra poco"
+    },
+    "errors": {
+      "required": "Campo obbligatorio",
+      "max_length": "Al massimo {max} caratteri",
+      "invalid_url": "Link non valido (deve iniziare con http:// o https://)",
+      "position_required": "Scegli la posizione sulla mappa",
+      "at_least_one_day": "Serve almeno un giorno",
+      "check_fields": "Controlla i campi evidenziati",
+      "save_failed": "Salvataggio non riuscito"
+    },
+    "photo": {
+      "add": "Carica foto",
+      "change": "Cambia foto",
+      "remove": "Togli foto",
+      "not_an_image": "Il file scelto non è un'immagine",
+      "too_large": "La foto supera i {max} MB"
+    }
   }
 }

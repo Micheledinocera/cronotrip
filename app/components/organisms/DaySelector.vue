@@ -16,9 +16,9 @@
           @click="selectedIndex = index"
           :variant="index === selectedIndex ? 'solid' : 'subtle'"
           :color="index === selectedIndex ? 'primary' : 'neutral'"
-          :title="'Giorno ' + (index + 1)"
+          :title="t('itinerary.form.day_n', { n: index + 1 })"
           :description="item.subtitle"
-          :close="index>0"
+          :close="withControls && index > 0"
           @update:open="removeDay(index)"
           class="h-full"
         />
@@ -27,7 +27,7 @@
           @click="addDay"
           variant="soft"
           color="neutral"
-          :title="'Giorno ' + (index + 1)"
+          :title="t('itinerary.form.day_n', { n: index + 1 })"
           :description="item.subtitle"
           class="border-2 border-primary border-dashed h-full"
           close
@@ -57,9 +57,9 @@
           @click="selectedIndex = index"
           :variant="index === selectedIndex ? 'solid' : 'subtle'"
           :color="index === selectedIndex ? 'primary' : 'neutral'"
-          :title="'Giorno ' + (index + 1)"
+          :title="t('itinerary.form.day_n', { n: index + 1 })"
           :description="item.subtitle"
-          :close="index>0"
+          :close="withControls && index > 0"
           @update:open="removeDay(index)"
           class="h-full"
         />
@@ -68,7 +68,7 @@
           @click="addDay"
           variant="soft"
           color="neutral"
-          :title="'Giorno ' + (index + 1)"
+          :title="t('itinerary.form.day_n', { n: index + 1 })"
           :description="item.subtitle"
           class="border-2 border-primary border-dashed h-full"
           close
@@ -89,6 +89,7 @@ const props = withDefaults(
   { withControls: false }
 );
 
+const { t } = useI18n();
 const carousel = useTemplateRef("carousel");
 const activeIndex = ref(0);
 const emit = defineEmits(["update:modelValue", "update-days"]);
@@ -104,7 +105,7 @@ const selectedIndex = computed({
 
 const dayToUse = computed(() => {
   if (!props.withControls) return props.days;
-  return [...props.days, { subtitle: "Add a Day", toAdd: true }];
+  return [...props.days, { subtitle: t("itinerary.form.add_day"), toAdd: true }];
 });
 
 const removeDay=(index:number)=>{
@@ -114,7 +115,7 @@ const removeDay=(index:number)=>{
   selectedIndex.value = 0
 }
 const addDay = () => {
-  emit("update-days", [...props.days, { subtitle: `Day ${props.days.length + 1}` }]);
+  emit("update-days", [...props.days, { subtitle: t("itinerary.form.day_n", { n: props.days.length + 1 }), places: [] }]);
   selectedIndex.value = props.days.length;
 };
 
