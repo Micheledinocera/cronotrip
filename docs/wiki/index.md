@@ -7,6 +7,7 @@ Punto di partenza del wiki: le aree, ciascuna con il suo indice, e il radar dell
 - [Business](./business/index.md): cos'è Cronotrip, i bisogni, i concorrenti, come si organizza un viaggio oggi
 - [Viaggi](./viaggi/index.md): itinerari e viaggi, come si legano, condivisione e copia
 - [Architettura](./architettura/index.md): hosting, backend, ambienti, modello dati
+- [Design](./design/index.md): identità visiva, design system, schermate
 - [Progetto](./progetto/index.md): come si costruisce e si porta avanti il progetto: repo, versioni, git-flow, wiki, studi
 - [Tecnico](./tecnico/index.md): codice custom (in inglese), per app
 
@@ -18,5 +19,8 @@ Le decisioni ancora `aperta` o `in analisi`. Quelle prese sono negli indici dell
 |---|---|---|
 | [Condivisione](./viaggi/condivisione.md) | Viaggi | in analisi |
 | [Foto](./viaggi/foto.md) | Viaggi | in analisi |
+| [Identità visiva](./design/identita-visiva.md) | Design | in analisi |
+| [Schermate](./design/schermate.md) | Design | in analisi |
 | [Modello dati](./architettura/modello-dati.md) | Architettura | in analisi |
+| [PWA](./architettura/pwa.md) | Architettura | aperta |
 | [Skill per il rilascio](./progetto/skill-rilascio.md) | Progetto | in analisi |

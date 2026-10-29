@@ -9,6 +9,7 @@ fonti:
   - raw/compiled/itinerary-flow/2026-10-29-obiettivo.md
   - raw/compiled/itinerary-flow/2026-10-29-implementazione.md
   - raw/compiled/itinerary-flow/2026-10-29-task1.md
+  - raw/compiled/study-design-brief/2026-10-29-domande-design.md
 ---
 
 # Flussi dell'itinerario
@@ -23,7 +24,7 @@ Come si crea, modifica, copia e cancella un itinerario. Cosa è un itinerario e 
 - **Campi obbligatori**: nome, descrizione breve (al massimo 50 caratteri), descrizione, stato, almeno un giorno; per ogni giorno il sottotitolo; per ogni luogo nome e posizione; per ogni attività nome e categoria. La descrizione **non ha un limite** di lunghezza: nel database non c'è un vincolo da rispettare.
 - **Link** di un'attività: facoltativo; un link senza testo mostra l'indirizzo, che deve iniziare con `http://` o `https://`.
 - **Posizione dei luoghi**: ricerca per nome su Nominatim di OpenStreetMap (gratuito e senza chiave; si cerca con il pulsante, non mentre si scrive, come chiedono le sue regole d'uso) più una mappa dove cliccare per mettere o spostare il punto. La posizione di un'attività è facoltativa.
-- **Riordino** di giorni, luoghi e attività, già in creazione, con i pulsanti "sposta prima" e "sposta dopo". Il trascinamento si valuta quando si sistema la grafica.
+- **Riordino** di giorni, luoghi e attività, già in creazione, con i pulsanti "sposta prima" e "sposta dopo". Il trascinamento si adotta se il redesign lo trova più usabile ([Schermate](../design/schermate.md)).
 - **Errori**: il form porta al primo giorno con errori e al primo campo da correggere.
 - **Testi tradotti** (italiano e inglese) per etichette e messaggi.
 - La data dei giorni resta fuori dal form: lo stato è manuale e le date non servono per ora.
@@ -42,7 +43,7 @@ Come si crea, modifica, copia e cancella un itinerario. Cosa è un itinerario e 
 - **Form a passi** (c'è già uno `StepperWidget`): rimandato, per ora pagina unica.
 - **Cestino** con recupero: scartato per la prima versione, più semplice la cancellazione definitiva.
 - **Riordino solo in modifica**: scartato; il form è lo stesso, quindi il riordino c'è anche in creazione.
-- **Riordino trascinando**: rimandato, per ora pulsanti.
+- **Riordino trascinando**: rimandato al redesign, per ora pulsanti.
 - **Copia con lo stesso nome**: scartata; il suffisso "(copia)" è una scelta momentanea.
 
 ## Domande aperte
