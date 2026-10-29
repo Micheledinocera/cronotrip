@@ -21,11 +21,17 @@ export default defineNuxtConfig({
     Models: fileURLToPath(new URL('./models', import.meta.url)),
   },
   css: [
-    '~/assets/css/import.css',
+    '~/assets/css/main.css',
     '~/assets/scss/variables.scss',
-    '~/assets/scss/themes.scss',
     '~/assets/scss/main.scss',
   ],
+  // Loaded by @nuxt/fonts (included in Nuxt UI) from Google Fonts.
+  fonts: {
+    families: [
+      {name: 'Figtree', provider: 'google', weights: [400, 500, 600]},
+      {name: 'Fraunces', provider: 'google', weights: [400, 600], styles: ['normal', 'italic']},
+    ],
+  },
   components: {
     path: '~/components/',
     pathPrefix: false,
