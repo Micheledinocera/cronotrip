@@ -1,7 +1,7 @@
 ---
 tipo: decisione
 stato: in analisi
-aggiornato: 2026-10-27
+aggiornato: 2026-10-29
 fonti:
   - raw/compiled/study-current-state/2026-10-27-analisi-codice.md
   - raw/compiled/study-current-state/2026-10-27-risposte.md
@@ -10,6 +10,7 @@ fonti:
   - raw/compiled/starting-point/2026-10-27-decisioni-db.md
   - raw/compiled/study-flows/2026-10-27-oggetto-unico.md
   - raw/compiled/study-flows/2026-10-27-form-creazione.md
+  - raw/compiled/itinerary-flow/2026-10-29-implementazione.md
 ---
 
 # Modello dati
@@ -18,17 +19,17 @@ fonti:
 
 Deciso per la prima versione dell'app:
 
-- tabella **`itineraries`** relazionale per quello che serve a permessi e liste: id, **proprietario**, nome, date di creazione e di modifica;
+- tabella **`itineraries`** relazionale per quello che serve a permessi e liste: id, **proprietario**, nome, **stato**, **`copied_from`**, date di creazione e di modifica;
 - il **contenuto** (descrizioni, foto, giorni → luoghi → attività → momenti) resta in un **documento JSON** nella stessa riga (colonna `document`). Così si riusano il documento, la vista e il form che c'erano già.
-- C'è anche la tabella `categories`.
+- Ci sono anche le tabelle `categories` e `itinerary_statuses`.
 
 Tabelle e policy: [Database](../tecnico/supabase/database.md). Struttura del documento: [Itinerary document](../tecnico/frontend/itinerary-document.md).
 
-## Prossimo passo: un oggetto solo
+## Un oggetto solo
 
-Itinerari e viaggi sono [un oggetto solo](../viaggi/itinerario-e-viaggio.md): **non serve una tabella `trips`**, resta `itineraries`. Da aggiungere con una migrazione, nella feature che implementa i [flussi](../viaggi/flussi.md):
+Itinerari e viaggi sono [un oggetto solo](../viaggi/itinerario-e-viaggio.md): **non serve una tabella `trips`**, resta `itineraries`, con:
 
-- lo **stato** dell'itinerario (in programmazione, in corso, fatto), con gli stati in una **tabella a parte** come le categorie: così se ne aggiungono altri inserendo una riga, senza toccare lo schema;
+- lo **stato** dell'itinerario (in programmazione, in corso, fatto), con gli stati in una **tabella a parte** (`itinerary_statuses`) come le categorie: così se ne aggiungono altri inserendo una riga, senza toccare lo schema. Gli itinerari nati prima dello stato partono da "in programmazione";
 - **`copied_from`**: riferimento all'itinerario da cui nasce la copia, vuoto se l'originale viene cancellato.
 
 ## Opzioni valutate
