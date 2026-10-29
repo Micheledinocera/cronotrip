@@ -1,7 +1,7 @@
 ---
 tipo: decisione
 stato: presa
-aggiornato: 2026-10-27
+aggiornato: 2026-10-29
 fonti:
   - raw/compiled/study-current-state/2026-10-27-base.md
   - raw/compiled/study-current-state/2026-10-27-risposte.md
@@ -9,6 +9,7 @@ fonti:
   - raw/compiled/study-flows/2026-10-27-oggetto-unico.md
   - raw/compiled/study-flows/2026-10-27-risposte-copia-stato.md
   - raw/compiled/study-flows/2026-10-27-stato-manuale.md
+  - raw/compiled/itinerary-flow/2026-10-29-task1.md
 ---
 
 # Itinerario e viaggio
@@ -25,7 +26,7 @@ Come si legano un itinerario e un viaggio.
 
 - È l'**unica copia** che esiste: non c'è una copia completa.
 - Vale sempre, sia copiando un itinerario proprio sia quello di un altro utente.
-- **Si copia**: nome, descrizioni, giorni, luoghi, attività con categoria, descrizione, link e posizione.
+- **Si copia**: nome, descrizioni, giorni, luoghi, attività con categoria, descrizione, link e posizione. Il nome della copia ha in fondo "(copia)", per ora.
 - **Non si copia** quello che è successo o è legato al viaggio del singolo utente: foto (a ogni livello), prezzi, momenti, date dei giorni. I momenti sono "cosa è successo", quindi restano fuori.
 - La copia **ricorda l'originale** (`copied_from`): permette più avanti di ritrovare la distinzione itinerario/viaggio ("questo nasce da quello") senza migrare i dati. Se l'originale viene cancellato, la copia resta e perde solo il riferimento.
 - Una copia appena fatta parte dallo stato **in programmazione**.

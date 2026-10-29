@@ -1,6 +1,6 @@
 ---
 tipo: info
-aggiornato: 2026-10-27
+aggiornato: 2026-10-29
 fonti:
   - raw/compiled/study-current-state/2026-10-27-state.md
   - raw/compiled/study-current-state/2026-10-27-analisi-codice.md
@@ -13,6 +13,7 @@ fonti:
   - raw/compiled/study-flows/2026-10-27-obiettivo.md
   - raw/compiled/study-flows/2026-10-27-skill-rilascio.md
   - raw/compiled/study-flows/2026-10-27-risposte-copia-stato.md
+  - raw/compiled/itinerary-flow/2026-10-29-chiavi-legacy.md
 ---
 
 # Rilascio e versioni
@@ -29,7 +30,7 @@ L'architettura del rilascio, e perché resta su GitHub Pages: [Sito statico + Su
 
 Il primo rilascio con deploy da `master` e migrazioni in CI è la release 0.2.0, andata a buon fine. La versione in `package.json` non è stata aggiornata e il tag è finito su `master`: si lascia così e si rilascia bene da qui in poi, con una [skill per il rilascio](./skill-rilascio.md).
 
-Resta da fare, nella dashboard di Supabase: **"Disable legacy API keys"**. Spegne la `anon` (usata dal sito precedente, per questo andava fatto dopo il rilascio) e la `service_role`, finita per sbaglio nel log di una sessione di lavoro. Rigenerare il JWT secret per ruotare la sola `service_role` invaliderebbe anche la `anon` e disconnetterebbe tutti: non si fa.
+Dopo il rilascio le **chiavi API legacy** di Supabase sono state disattivate dalla dashboard ("Disable legacy API keys"): la `anon`, usata dal sito precedente, e la `service_role`, finita per sbaglio nel log di una sessione di lavoro. L'app e la CI usano solo la *publishable key*.
 
 ## Domande aperte
 

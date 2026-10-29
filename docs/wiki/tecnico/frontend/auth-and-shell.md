@@ -1,10 +1,11 @@
 ---
 tipo: info
-aggiornato: 2026-10-27
+aggiornato: 2026-10-29
 fonti:
   - raw/compiled/study-current-state/2026-10-27-analisi-codice.md
   - raw/compiled/starting-point/2026-10-27-decisioni-db.md
   - raw/compiled/starting-point/2026-10-27-note-db.md
+  - raw/compiled/itinerary-flow/2026-10-29-implementazione.md
 ---
 
 # Auth and app shell
@@ -24,12 +25,13 @@ fonti:
 | `/dashboard` | `dashboard.vue`: list of itineraries, button to save the `umbria.json` mock | logged in |
 | `/itinerario/new` | [itinerary form](./itinerary-form.md) | logged in |
 | `/itinerario/:id` | [itinerary view](./itinerary-view.md) | logged in |
+| `/itinerario/modifica/:id` | [itinerary form](./itinerary-form.md), edit | logged in, owner (others are sent to the view) |
 
 ## Shell
 
 - `app/layouts/default.vue`: header plus a scrollable content area below it.
 - `app/components/Header.vue`: language selector (it, en; `i18n/locales/`), color mode toggle (dark by default), logout, and the version read from `/version.json`.
-- **Store** (`stores/global.ts`, Pinia): the categories (loaded only with a signed-in user, see [Data access](./data-access.md)) and the selected itinerary.
+- **Store** (`stores/global.ts`, Pinia): the categories and the itinerary statuses (loaded only with a signed-in user, see [Data access](./data-access.md)) and the selected itinerary.
 
 ## Open questions
 
