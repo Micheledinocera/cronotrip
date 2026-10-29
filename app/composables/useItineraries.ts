@@ -5,17 +5,19 @@ export interface DBItinerary {
   status: string;
   copied_from: number | null;
   document: ItineraryDocument;
+  owner?: {display_name: string} | null;
   created_at: string;
   updated_at: string;
 }
 
 // Fields that live in their own columns; everything else goes in document
-type ItineraryColumns = 'id' | 'name' | 'status' | 'owner_id' | 'copied_from';
+type ItineraryColumns = 'id' | 'name' | 'status' | 'owner_id' | 'owner_name' | 'copied_from';
 export type ItineraryDocument = Omit<Itinerary, ItineraryColumns>;
 
 export interface Itinerary {
   id?: number;
   owner_id?: string;
+  owner_name?: string;
   copied_from?: number | null;
   status: string;
   photos?: string[];
@@ -63,6 +65,9 @@ export interface Coordinates {
   lng: number;
 }
 
+// Columns read with every itinerary: the row and the owner's name from profiles
+const ITINERARY_SELECT = '*, owner:profiles(display_name)';
+
 // Status of a new itinerary and of a fresh copy
 export const DEFAULT_STATUS = 'planning';
 
@@ -72,11 +77,12 @@ const toItinerary = (row: DBItinerary): Itinerary => ({
   name: row.name,
   status: row.status,
   owner_id: row.owner_id,
+  owner_name: row.owner?.display_name,
   copied_from: row.copied_from,
 });
 
 const toRow = (itinerary: Itinerary) => {
-  const {id, name, status, owner_id, copied_from, ...document} = itinerary;
+  const {id, name, status, owner_id, owner_name, copied_from, ...document} = itinerary;
   return {name, status, document};
 };
 
@@ -119,7 +125,7 @@ export const useItinerary = async () => {
   const user = useSupabaseUser();
 
   const getItineraries = async () => {
-    const {data, error} = await supabase.from('itineraries').select('*').order('created_at', {ascending: false});
+    const {data, error} = await supabase.from('itineraries').select(ITINERARY_SELECT).order('created_at', {ascending: false});
     if (error) throw error;
     return (data as DBItinerary[]).map(toItinerary);
   };
@@ -127,7 +133,7 @@ export const useItinerary = async () => {
   const getItineraryById = async (itinerary_id: number) => {
     const {data, error} = await supabase
       .from('itineraries')
-      .select('*')
+      .select(ITINERARY_SELECT)
       .eq('id', itinerary_id)
       .single();
     if (error) throw error;
@@ -135,13 +141,13 @@ export const useItinerary = async () => {
   };
 
   const insertRow = async (itinerary: Itinerary) => {
-    const {data, error} = await supabase.from('itineraries').insert([toRow(itinerary)]).select().single();
+    const {data, error} = await supabase.from('itineraries').insert([toRow(itinerary)]).select(ITINERARY_SELECT).single();
     if (error) throw error;
     return toItinerary(data as DBItinerary);
   };
 
   const updateRow = async (itinerary: Itinerary) => {
-    const {data, error} = await supabase.from('itineraries').update(toRow(itinerary)).eq('id', itinerary.id!).select().single();
+    const {data, error} = await supabase.from('itineraries').update(toRow(itinerary)).eq('id', itinerary.id!).select(ITINERARY_SELECT).single();
     if (error) throw error;
     return toItinerary(data as DBItinerary);
   };
@@ -197,7 +203,7 @@ export const useItinerary = async () => {
     const {data, error} = await supabase
       .from('itineraries')
       .insert([{name, status: DEFAULT_STATUS, copied_from: itinerary.id, document: toSkeleton(itinerary)}])
-      .select()
+      .select(ITINERARY_SELECT)
       .single();
     if (error) throw error;
     return toItinerary(data as DBItinerary);

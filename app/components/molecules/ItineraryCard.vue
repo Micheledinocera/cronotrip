@@ -26,9 +26,9 @@
         {{ itinerary.short_desc }}
       </p>
       <p class="typo-caption text-muted flex items-center gap-2 mt-1">
-        <template v-if="ownerName">
-          <UAvatar :alt="ownerName" size="3xs" />
-          {{ ownerName }}
+        <template v-if="itinerary.owner_name">
+          <UAvatar :alt="itinerary.owner_name" size="3xs" />
+          {{ itinerary.owner_name }}
           <span aria-hidden="true">·</span>
         </template>
         {{ t('common.days', itinerary.days?.length ?? 0) }}
@@ -39,7 +39,7 @@
 
 <script setup lang="ts">
 // Dashboard card: the whole card links to the itinerary, no buttons inside.
-const props = defineProps<{itinerary: Itinerary; ownerName?: string}>();
+const props = defineProps<{itinerary: Itinerary}>();
 const {t} = useI18n();
 const {getImageUrl} = useSupabaseImages();
 
