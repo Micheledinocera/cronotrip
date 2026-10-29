@@ -34,7 +34,7 @@
     "new_title": "Nuovo itinerario",
     "edit_title": "Modifica itinerario",
     "create": "Crea itinerario",
-    "save": "Salva",
+    "save": "Salva modifiche",
     "edit": "Modifica",
     "copy": "Copia",
     "copied": "Copia creata",
@@ -54,7 +54,7 @@
       "activity_name": "Nome dell'attività",
       "category": "Categoria",
       "link_label": "Testo del link",
-      "link_url": "Link",
+      "link_url": "Indirizzo del link",
       "header_photo": "Foto di intestazione"
     },
     "form": {
@@ -62,12 +62,32 @@
       "day_n": "Giorno {n}",
       "add_day": "Aggiungi un giorno",
       "place_n": "Luogo {n}",
-      "add_place": "Aggiungi luogo",
+      "add_place": "Aggiungi un luogo",
       "activities": "Attività",
       "activity_n": "Attività {n}",
-      "add_activity": "Aggiungi attività",
-      "add_position": "Aggiungi posizione",
-      "remove_position": "Togli posizione"
+      "add_activity": "Aggiungi un'attività",
+      "add_position": "Aggiungi una posizione (facoltativa)",
+      "remove_position": "Togli posizione",
+      "general": "Dati generali",
+      "reorder_hint": "Trascina per riordinare",
+      "no_subtitle": "Senza sottotitolo",
+      "remove_day": "Rimuovi il giorno",
+      "places": "Luoghi",
+      "new_place": "Nuovo luogo",
+      "new_activity": "Nuova attività",
+      "short_desc_help": "Si vede sotto il nome, nelle card.",
+      "no_places": "Ancora nessun luogo in questo giorno.",
+      "placeholders": {
+        "name": "Es. Umbria Trip",
+        "short_desc": "Dove, in poche parole",
+        "desc": "Il racconto del viaggio",
+        "subtitle": "Es. Carpinone, Castel San Vincenzo e Pescasseroli",
+        "place_name": "Es. Carpinone",
+        "activity_name": "Es. Cascata dello Schioppo",
+        "category": "Scegli una categoria",
+        "link_label": "Es. TripAdvisor",
+        "link_url": "https://…"
+      }
     },
     "copy_suffix": "(copia)",
     "more_actions": "Altre azioni",
@@ -80,10 +100,11 @@
     "unsaved_changes": "Ci sono modifiche non salvate: se esci potresti perdere i dati. Vuoi uscire?",
     "location": {
       "search": "Cerca",
-      "search_placeholder": "Cerca un luogo per nome",
+      "search_placeholder": "Cerca un posto per nome",
       "hint": "Clicca sulla mappa per scegliere o spostare il punto.",
       "no_results": "Nessun luogo trovato",
-      "search_error": "Ricerca non riuscita, riprova tra poco"
+      "search_error": "Ricerca non riuscita, riprova tra poco",
+      "empty": "Cerca un posto o clicca sulla mappa"
     },
     "errors": {
       "required": "Campo obbligatorio",
@@ -91,16 +112,29 @@
       "invalid_url": "Link non valido (deve iniziare con http:// o https://)",
       "position_required": "Scegli la posizione sulla mappa",
       "at_least_one_day": "Serve almeno un giorno",
-      "check_fields": "Controlla i campi evidenziati",
-      "save_failed": "Salvataggio non riuscito"
+      "check_fields": "C'è qualcosa da sistemare",
+      "save_failed": "Salvataggio non riuscito",
+      "check_day": "Controlla il Giorno {n}.",
+      "check_general": "Controlla i dati generali.",
+      "name": "Serve un nome per l'itinerario",
+      "short_desc": "Serve una descrizione breve",
+      "desc": "Serve una descrizione",
+      "subtitle": "Serve un sottotitolo per il giorno",
+      "place_name": "Serve un nome per il luogo",
+      "activity_name": "Serve un nome per l'attività",
+      "category": "Scegli una categoria"
     },
     "photo": {
       "add": "Carica foto",
-      "change": "Cambia foto",
-      "remove": "Togli foto",
+      "change": "Cambia",
+      "remove": "Togli",
       "not_an_image": "Il file scelto non è un'immagine",
       "too_large": "La foto supera i {max} MB"
-    }
+    },
+    "drag": "Trascina, o usa le frecce su e giù, per spostare",
+    "expand": "Apri {name}",
+    "collapse": "Chiudi {name}",
+    "remove_named": "Rimuovi {name}"
   },
   "nav": {
     "new_itinerary": "Nuovo itinerario",

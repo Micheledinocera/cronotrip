@@ -25,7 +25,7 @@
     "new_title": "New itinerary",
     "edit_title": "Edit itinerary",
     "create": "Create itinerary",
-    "save": "Save",
+    "save": "Save changes",
     "edit": "Edit",
     "copy": "Copy",
     "copied": "Copy created",
@@ -45,7 +45,7 @@
       "activity_name": "Activity name",
       "category": "Category",
       "link_label": "Link text",
-      "link_url": "Link",
+      "link_url": "Link address",
       "header_photo": "Header photo"
     },
     "form": {
@@ -53,12 +53,32 @@
       "day_n": "Day {n}",
       "add_day": "Add a day",
       "place_n": "Place {n}",
-      "add_place": "Add place",
+      "add_place": "Add a place",
       "activities": "Activities",
       "activity_n": "Activity {n}",
-      "add_activity": "Add activity",
-      "add_position": "Add position",
-      "remove_position": "Remove position"
+      "add_activity": "Add an activity",
+      "add_position": "Add a position (optional)",
+      "remove_position": "Remove position",
+      "general": "General",
+      "reorder_hint": "Drag to reorder",
+      "no_subtitle": "No subtitle",
+      "remove_day": "Remove the day",
+      "places": "Places",
+      "new_place": "New place",
+      "new_activity": "New activity",
+      "short_desc_help": "Shown under the name, on the cards.",
+      "no_places": "No places in this day yet.",
+      "placeholders": {
+        "name": "E.g. Umbria Trip",
+        "short_desc": "Where, in a few words",
+        "desc": "The story of the trip",
+        "subtitle": "E.g. Carpinone, Castel San Vincenzo and Pescasseroli",
+        "place_name": "E.g. Carpinone",
+        "activity_name": "E.g. Schioppo waterfall",
+        "category": "Choose a category",
+        "link_label": "E.g. TripAdvisor",
+        "link_url": "https://…"
+      }
     },
     "copy_suffix": "(copy)",
     "more_actions": "More actions",
@@ -74,7 +94,8 @@
       "search_placeholder": "Search a place by name",
       "hint": "Click on the map to choose or move the point.",
       "no_results": "No place found",
-      "search_error": "Search failed, try again shortly"
+      "search_error": "Search failed, try again shortly",
+      "empty": "Search a place or click on the map"
     },
     "errors": {
       "required": "Required",
@@ -82,16 +103,29 @@
       "invalid_url": "Invalid link (it must start with http:// or https://)",
       "position_required": "Choose the position on the map",
       "at_least_one_day": "At least one day is needed",
-      "check_fields": "Check the highlighted fields",
-      "save_failed": "Save failed"
+      "check_fields": "Something needs fixing",
+      "save_failed": "Save failed",
+      "check_day": "Check Day {n}.",
+      "check_general": "Check the general data.",
+      "name": "The itinerary needs a name",
+      "short_desc": "A short description is needed",
+      "desc": "A description is needed",
+      "subtitle": "The day needs a subtitle",
+      "place_name": "The place needs a name",
+      "activity_name": "The activity needs a name",
+      "category": "Choose a category"
     },
     "photo": {
       "add": "Upload photo",
-      "change": "Change photo",
-      "remove": "Remove photo",
+      "change": "Change",
+      "remove": "Remove",
       "not_an_image": "The chosen file is not an image",
       "too_large": "The photo is larger than {max} MB"
-    }
+    },
+    "drag": "Drag, or use the up and down arrows, to move",
+    "expand": "Open {name}",
+    "collapse": "Close {name}",
+    "remove_named": "Remove {name}"
   },
   "moments": {
     "any": "Moments",

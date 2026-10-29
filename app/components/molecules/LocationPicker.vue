@@ -1,11 +1,10 @@
 <template>
-  <div class="space-y-2">
+  <div class="grid grid-cols-[minmax(0,1fr)] gap-2">
     <div class="flex gap-2">
       <UInput
         v-model="query"
         :placeholder="t('form.location.search_placeholder')"
         icon="i-lucide-search"
-        variant="subtle"
         class="flex-1"
         @keydown.enter.prevent="search"
       />
@@ -17,19 +16,19 @@
         @click="search"
       />
     </div>
-    <p v-if="searchMessage" class="text-sm text-muted">{{ searchMessage }}</p>
-    <ul v-if="results.length" class="border border-default rounded-md divide-y divide-default">
+    <p v-if="searchMessage" class="typo-small text-muted">{{ searchMessage }}</p>
+    <ul v-if="results.length" class="divide-y divide-default rounded-md ring-1 ring-default">
       <li v-for="result in results" :key="result.place_id">
         <button
           type="button"
-          class="w-full text-left px-3 py-2 text-sm hover:bg-elevated cursor-pointer"
+          class="typo-small w-full cursor-pointer px-3 py-2 text-left hover:bg-elevated"
           @click="choose(result)"
         >
           {{ result.display_name }}
         </button>
       </li>
     </ul>
-    <div class="h-64 rounded-md overflow-hidden">
+    <div class="relative h-[220px] overflow-hidden rounded-md bg-map-land ring-1 ring-default">
       <ClientOnly>
         <LMap
           :zoom="initialZoom"
@@ -44,11 +43,21 @@
             layer-type="base"
             name="OpenStreetMap"
           />
-          <LCircleMarker v-if="model" :lat-lng="[model.lat, model.lng]" :radius="8" color="red" />
+          <LMarker v-if="model" :lat-lng="[model.lat, model.lng]">
+            <LIcon :icon-size="[22, 22]" class-name="">
+              <span class="map-pin size-[22px]!"><UIcon name="i-lucide-map-pin" class="size-3" /></span>
+            </LIcon>
+          </LMarker>
         </LMap>
       </ClientOnly>
+      <div
+        v-if="!model"
+        class="typo-small pointer-events-none absolute inset-x-0 bottom-3 z-[500] mx-auto w-fit rounded-full bg-default/90 px-3 py-1 text-muted shadow-sm"
+      >
+        {{ t('form.location.empty') }}
+      </div>
     </div>
-    <p class="text-xs text-muted">
+    <p class="typo-small text-muted">
       {{ model ? `${model.lat}, ${model.lng} · ` : '' }}{{ t('form.location.hint') }}
     </p>
   </div>
