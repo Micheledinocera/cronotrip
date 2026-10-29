@@ -13,7 +13,8 @@
   },
   "common": {
     "cancel": "Annulla",
-    "loading": "Caricamento..."
+    "loading": "Caricamento...",
+    "days": "{n} giorno | {n} giorni"
   },
   "statuses": {
     "planning": "In programmazione",
@@ -25,7 +26,9 @@
     "food": "Cibo",
     "museum": "Museo",
     "concert": "Concerto",
-    "any": "Altro"
+    "any": "Altro",
+    "sightseeing": "Visita",
+    "accommodation": "Alloggio"
   },
   "itinerary": {
     "new_title": "Nuovo itinerario",
@@ -96,5 +99,31 @@
       "not_an_image": "Il file scelto non è un'immagine",
       "too_large": "La foto supera i {max} MB"
     }
+  },
+  "nav": {
+    "new_itinerary": "Nuovo itinerario",
+    "user_menu": "Menu utente"
+  },
+  "menu": {
+    "language": "Lingua",
+    "theme": "Tema",
+    "theme_light": "Chiaro",
+    "theme_dark": "Scuro",
+    "theme_system": "Sistema",
+    "version": "Versione {v}",
+    "logout": "Esci"
+  },
+  "photo": {
+    "more": "Altre {n} foto",
+    "open": "Apri la foto"
+  },
+  "map": {
+    "enlarge": "Ingrandisci"
+  },
+  "confirm": {
+    "unsaved_title": "Uscire senza salvare?",
+    "unsaved_description": "Se esci perdi le modifiche.",
+    "stay": "Resta",
+    "leave": "Esci"
   }
 }

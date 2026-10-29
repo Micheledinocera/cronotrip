@@ -7,7 +7,8 @@
       :use-global-leaflet="false"
     >
       <LTileLayer
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        :url="OSM_TILE_URL"
+        :attribution="OSM_ATTRIBUTION"
         layer-type="base"
         name="OpenStreetMap"
       />
@@ -25,7 +26,8 @@
           :use-global-leaflet="false"
         >
           <LTileLayer
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            :url="OSM_TILE_URL"
+            :attribution="OSM_ATTRIBUTION"
             layer-type="base"
             name="OpenStreetMap"
           />
@@ -57,7 +59,6 @@ defineProps({
 
 const NO_CONTROL_MAP_OPTIONS={
     "zoomControl": false,
-    "attributionControl": false,
     "dragging": false,
     "doubleClickZoom": false,
     "scrollWheelZoom": false,

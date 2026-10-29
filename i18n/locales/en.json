@@ -4,7 +4,8 @@
   "login": "Login",
   "common": {
     "cancel": "Cancel",
-    "loading": "Loading..."
+    "loading": "Loading...",
+    "days": "{n} day | {n} days"
   },
   "statuses": {
     "planning": "Planning",
@@ -16,7 +17,9 @@
     "food": "Food",
     "museum": "Museum",
     "concert": "Concert",
-    "any": "Other"
+    "any": "Other",
+    "sightseeing": "Sightseeing",
+    "accommodation": "Accommodation"
   },
   "itinerary": {
     "new_title": "New itinerary",
@@ -96,5 +99,31 @@
     "concert": "Setlist",
     "accommodation": "Moments",
     "sightseeing": "Moments"
+  },
+  "nav": {
+    "new_itinerary": "New itinerary",
+    "user_menu": "User menu"
+  },
+  "menu": {
+    "language": "Language",
+    "theme": "Theme",
+    "theme_light": "Light",
+    "theme_dark": "Dark",
+    "theme_system": "System",
+    "version": "Version {v}",
+    "logout": "Log out"
+  },
+  "photo": {
+    "more": "{n} more photos",
+    "open": "Open the photo"
+  },
+  "map": {
+    "enlarge": "Enlarge"
+  },
+  "confirm": {
+    "unsaved_title": "Leave without saving?",
+    "unsaved_description": "If you leave, your changes are lost.",
+    "stay": "Stay",
+    "leave": "Leave"
   }
 }

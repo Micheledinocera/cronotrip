@@ -18,7 +18,7 @@ export interface Itinerary {
   owner_id?: string;
   copied_from?: number | null;
   status: string;
-  photos?: string;
+  photos?: string[];
   name: string;
   short_desc: string;
   desc: string;

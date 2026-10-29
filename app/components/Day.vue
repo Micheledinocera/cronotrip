@@ -2,7 +2,7 @@
   <UCard variant="subtle" class="m-4">
     <div class="flex justify-between py-4">
       <div class="font-bold text-lg">{{ event.name }}</div>
-      <div><TypeIcon :event-type="event.category" classes="size-8" /></div>
+      <div><CategoryIcon :category="event.category" chip /></div>
     </div>
     <div>
       <PhotosCarousel :photos="event.photos || []" :image-classes="'h-24 md:h-40'" v-if="event.photos && event.photos.length>0"/>

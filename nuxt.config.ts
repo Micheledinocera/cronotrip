@@ -22,7 +22,6 @@ export default defineNuxtConfig({
   },
   css: [
     '~/assets/css/main.css',
-    '~/assets/scss/variables.scss',
     '~/assets/scss/main.scss',
   ],
   // Loaded by @nuxt/fonts (included in Nuxt UI) from Google Fonts.

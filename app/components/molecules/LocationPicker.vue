@@ -39,8 +39,8 @@
           @click="onMapClick"
         >
           <LTileLayer
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            attribution="&copy; OpenStreetMap"
+            :url="OSM_TILE_URL"
+            :attribution="OSM_ATTRIBUTION"
             layer-type="base"
             name="OpenStreetMap"
           />

@@ -133,6 +133,52 @@
   --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.6);
 }
 
+/* Maps (docs/wiki/design/mappe.md): the filter only on the tiles, never on markers and routes. */
+.leaflet-container {
+  background: var(--map-land);
+  font-family: var(--font-sans);
+}
+
+.leaflet-tile-pane {
+  filter: saturate(0.45) brightness(1.02);
+}
+
+.dark .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.35) sepia(0.25) brightness(0.85) contrast(0.9);
+}
+
+.leaflet-container .leaflet-control-attribution {
+  background: color-mix(in oklab, var(--ui-bg) 85%, transparent);
+  color: var(--ui-text-muted);
+  font-size: 10px;
+}
+
+.leaflet-container .leaflet-control-attribution a {
+  color: var(--ui-primary);
+}
+
+.map-pin {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 9999px;
+  background: var(--ui-primary);
+  color: var(--ui-on-primary);
+  border: 2.5px solid var(--ui-bg);
+  font: 600 12px/1 var(--font-sans);
+  box-shadow: var(--shadow-sm);
+}
+
+.map-pin--active {
+  width: 36px;
+  height: 36px;
+  background: var(--ui-secondary);
+  color: var(--ui-on-secondary);
+  border-width: 3px;
+  font-size: 14px;
+}
+
 /*
  * Type styles. `typo-*` instead of `text-*`, so that tailwind-merge in
  * Nuxt UI does not take them for text colors and drop one of the two.
