@@ -7,6 +7,7 @@ fonti:
   - raw/compiled/study-design-brief/2026-10-29-domande-design.md
   - raw/compiled/study-design-system/2026-10-29-mockup.md
   - raw/compiled/study-design-system/2026-10-29-mockup-revisione-drawer.md
+  - raw/compiled/ui/2026-10-29-schermate.md
 ---
 
 # Schermate
@@ -17,7 +18,7 @@ I **mockup** di tutte le schermate, desktop (1440 px) e mobile (390 px), chiaro 
 
 ## Com'è oggi
 
-Le schermate sono quelle prima del redesign (screenshot in `docs/raw/compiled/study-design-brief/screenshots/`): tutto aperto e allo stesso livello, la "valanga di informazioni". Il redesign qui sotto è deciso ma non ancora implementato.
+Il redesign qui sotto è implementato in tutte le schermate: login, dashboard, vista con drawer e galleria, form. Come sono fatte nel codice: [Auth and app shell](../tecnico/frontend/auth-and-shell.md), [Itinerary view](../tecnico/frontend/itinerary-view.md), [Itinerary form](../tecnico/frontend/itinerary-form.md). Le schermate prima del redesign: screenshot in `docs/raw/compiled/study-design-brief/screenshots/`.
 
 ## Cosa è deciso
 
@@ -28,7 +29,7 @@ Le schermate sono quelle prima del redesign (screenshot in `docs/raw/compiled/st
 
 ### Login come ingresso
 
-- La home pubblica **sparisce**: si entra dal **login**, l'unica schermata "di benvenuto" (una foto, il logo, "Dove si va?"). Email e password, nessuna registrazione.
+- La home pubblica **sparisce**: la route `/` porta alla dashboard, e chi non è entrato finisce sul **login**, l'unica schermata "di benvenuto" (una foto, il logo, "Dove si va?"). Email e password, nessuna registrazione.
 - Stati: errore ("Email o password non tornano.") e invio in corso.
 
 ### Dashboard
@@ -74,4 +75,4 @@ Le schermate sono quelle prima del redesign (screenshot in `docs/raw/compiled/st
 
 ## Domande aperte
 
-- Cosa diventa la route `/` senza la home pubblica (redirect al login o alla dashboard): da decidere con l'implementazione.
+- Il nome del proprietario (card, copertina) viene dal profilo dell'utente ([Modello dati](../architettura/modello-dati.md)), ma non c'è ancora una schermata per cambiarlo.

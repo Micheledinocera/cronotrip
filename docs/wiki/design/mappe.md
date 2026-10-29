@@ -5,6 +5,8 @@ aggiornato: 2026-10-29
 fonti:
   - raw/compiled/study-design-system/2026-10-29-scelte-e-mappe.md
   - raw/compiled/study-design-system/2026-10-29-mockup-revisione-drawer.md
+  - raw/compiled/ui/2026-10-29-componenti.md
+  - raw/compiled/ui/2026-10-29-schermate.md
 ---
 
 # Mappe
@@ -13,7 +15,7 @@ Quali tile usano le mappe, come si accordano al design e che regole d'uso vanno 
 
 ## Com'è oggi
 
-Leaflet (`@nuxtjs/leaflet`) con le tile standard di OpenStreetMap, all'indirizzo `https://{s}.tile.openstreetmap.org/...`, senza personalizzazione; alcune mappe (`NoControlMap`, `NoControlMapDay`, `NoControlMapTrip`) nascondono l'attribuzione.
+Leaflet (`@nuxtjs/leaflet`) con le tile standard di OpenStreetMap all'indirizzo esatto, il filtro per tema, l'attribuzione su tutte le mappe e i marker del sistema, come deciso qui sotto. Le mappe sono tre: quella piccola del luogo nella vista (ingrandibile), quella di tutto il viaggio nel drawer e quella per scegliere la posizione nel form. Nel codice: [Design system](../tecnico/frontend/design-system.md).
 
 ## Cosa è deciso
 

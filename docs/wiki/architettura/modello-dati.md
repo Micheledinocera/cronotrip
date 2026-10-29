@@ -11,6 +11,7 @@ fonti:
   - raw/compiled/study-flows/2026-10-27-oggetto-unico.md
   - raw/compiled/study-flows/2026-10-27-form-creazione.md
   - raw/compiled/itinerary-flow/2026-10-29-implementazione.md
+  - raw/compiled/ui/2026-10-29-schermate.md
 ---
 
 # Modello dati
@@ -22,6 +23,7 @@ Deciso per la prima versione dell'app:
 - tabella **`itineraries`** relazionale per quello che serve a permessi e liste: id, **proprietario**, nome, **stato**, **`copied_from`**, date di creazione e di modifica;
 - il **contenuto** (descrizioni, foto, giorni → luoghi → attività → momenti) resta in un **documento JSON** nella stessa riga (colonna `document`). Così si riusano il documento, la vista e il form che c'erano già.
 - Ci sono anche le tabelle `categories` e `itinerary_statuses`.
+- Tabella **`profiles`**, una riga per utente, con il **nome mostrato agli altri** (il proprietario sulle card e sulla copertina). Nasce con l'utente; il nome viene dai metadati dell'utente o, se mancano, dall'email prima della @.
 
 Tabelle e policy: [Database](../tecnico/supabase/database.md). Struttura del documento: [Itinerary document](../tecnico/frontend/itinerary-document.md).
 
